@@ -1,0 +1,15 @@
+.vscode/
+.idea
+.settings/
+libraries/
+target/
+.classpath
+.libraries.json
+.project
+*.iml
+*.ipr
+*.iws
+*.beam
+*.pyc
+*.sum
+test*.sh

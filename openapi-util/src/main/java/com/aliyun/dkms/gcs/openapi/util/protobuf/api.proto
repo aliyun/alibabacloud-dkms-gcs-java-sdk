@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+option java_package = "com.aliyun.dkms.gcs.openapi.util.protobuf";
+option java_outer_classname = "ApiModels";
+
+message KmsEncryptRequest {
+     string KeyId = 1;
+     bytes Plaintext = 2;
+     bytes Aad = 3;
+}
+
+message KmsEncryptResponse {
+     string KeyId = 1;
+     bytes CiphertextBlob = 2;
+     string RequestId = 3;
+}
+
+message EncryptRequest {
+     string KeyId = 1;
+     bytes Plaintext = 2;
+     string Algorithm = 3;
+     bytes Aad = 4;
+     bytes Iv = 5;
+}
+
+message EncryptResponse {
+     string KeyId = 1;
+     bytes CiphertextBlob = 2;
+     bytes Iv = 3;
+     string RequestId = 4;
+}
+
+message KmsDecryptRequest {
+     bytes CiphertextBlob = 1;
+     bytes Aad = 2;
+}
+
+message KmsDecryptResponse {
+     string KeyId = 1;
+     bytes Plaintext = 2;
+     string RequestId = 3;
+}
+
+message DecryptRequest {
+     bytes CiphertextBlob = 1;
+     string KeyId = 2;
+     string Algorithm = 3;
+     bytes Aad = 4;
+     bytes Iv = 5;
+}
+
+message DecryptResponse {
+     string KeyId = 1;
+     bytes Plaintext = 2;
+     string RequestId = 3;
+}
+
+message SignRequest {
+     string KeyId = 1;
+     bytes Digest = 2;
+     string Algorithm = 3;
+}
+
+message SignResponse {
+     string KeyId = 1;
+     bytes Signature = 2;
+     string RequestId = 3;
+}
+
+message VerifyRequest {
+     string KeyId = 1;
+     bytes Digest = 2;
+     bytes Signature = 3;
+     string Algorithm = 4;
+}
+
+message VerifyResponse {
+     string KeyId = 1;
+     bool Value = 2;
+     string RequestId = 3;
+}
+
+message HmacRequest {
+     string KeyId = 1;
+     bytes Message = 2;
+}
+
+message HmacResponse {
+     string KeyId = 1;
+     bytes Signature = 2;
+     string RequestId = 3;
+}
+
+message GenerateRandomRequest {
+     int32 Length = 1;
+}
+
+message GenerateRandomResponse {
+     bytes Random = 1;
+     string RequestId = 2;
+}
+
+message HashRequest {
+      bytes Message = 1;
+   string Algorithm = 2;
+}
+
+message HashResponse {
+     bytes  Digest = 1;
+     string RequestId = 3;
+}
+
+
+message Error {
+     int32 StatusCode = 1;
+     string ErrorCode = 2;
+     string ErrorMessage = 3;
+     string RequestId = 4;
+}
