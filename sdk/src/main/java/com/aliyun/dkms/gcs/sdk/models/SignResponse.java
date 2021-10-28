@@ -10,6 +10,12 @@ public class SignResponse extends TeaModel {
     @NameInMap("Signature")
     public byte[] signature;
 
+    @NameInMap("Algorithm")
+    public String algorithm;
+
+    @NameInMap("MessageType")
+    public String messageType;
+
     @NameInMap("RequestId")
     public String requestId;
 
@@ -32,6 +38,22 @@ public class SignResponse extends TeaModel {
     }
     public byte[] getSignature() {
         return this.signature;
+    }
+
+    public SignResponse setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+        return this;
+    }
+    public String getAlgorithm() {
+        return this.algorithm;
+    }
+
+    public SignResponse setMessageType(String messageType) {
+        this.messageType = messageType;
+        return this;
+    }
+    public String getMessageType() {
+        return this.messageType;
     }
 
     public SignResponse setRequestId(String requestId) {

@@ -5,15 +5,12 @@ import com.aliyun.tea.*;
 
 public class DecryptRequest extends TeaModel {
     @NameInMap("CiphertextBlob")
-    @Validation(required = true)
     public byte[] ciphertextBlob;
 
     @NameInMap("KeyId")
-    @Validation(required = true)
     public String keyId;
 
     @NameInMap("Algorithm")
-    @Validation(required = true)
     public String algorithm;
 
     @NameInMap("Aad")
@@ -21,6 +18,9 @@ public class DecryptRequest extends TeaModel {
 
     @NameInMap("Iv")
     public byte[] iv;
+
+    @NameInMap("PaddingMode")
+    public String paddingMode;
 
     public static DecryptRequest build(java.util.Map<String, ?> map) throws Exception {
         DecryptRequest self = new DecryptRequest();
@@ -65,6 +65,14 @@ public class DecryptRequest extends TeaModel {
     }
     public byte[] getIv() {
         return this.iv;
+    }
+
+    public DecryptRequest setPaddingMode(String paddingMode) {
+        this.paddingMode = paddingMode;
+        return this;
+    }
+    public String getPaddingMode() {
+        return this.paddingMode;
     }
 
 }

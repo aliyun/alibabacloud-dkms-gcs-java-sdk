@@ -20,6 +20,10 @@
         </dependency>
         <dependency>
             <groupId>com.aliyun</groupId>
+            <artifactId>tea</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
             <artifactId>alibabacloud-dkms-gcs-openapi-util</artifactId>
         </dependency>
         <dependency>

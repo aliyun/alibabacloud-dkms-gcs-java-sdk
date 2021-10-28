@@ -48,10 +48,14 @@ class DkmsClientTest {
     private static void decrypt() {
         String encryptionKeyId = "CmkId";
         byte[] ciphertextBlob = Hex.decode("ciphertextBlob hex data");
+        String algorithm = "encrypt algorithm";
+        byte[] iv = Hex.decode("encrypt response iv");
 
         DecryptRequest decryptRequest = new DecryptRequest();
         decryptRequest.setKeyId(encryptionKeyId);
         decryptRequest.setCiphertextBlob(ciphertextBlob);
+        decryptRequest.setAlgorithm(algorithm);
+        decryptRequest.setIv(iv);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
         try {

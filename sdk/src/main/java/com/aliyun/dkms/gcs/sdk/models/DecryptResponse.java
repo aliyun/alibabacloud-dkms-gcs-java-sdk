@@ -10,6 +10,12 @@ public class DecryptResponse extends TeaModel {
     @NameInMap("Plaintext")
     public byte[] plaintext;
 
+    @NameInMap("Algorithm")
+    public String algorithm;
+
+    @NameInMap("PaddingMode")
+    public String paddingMode;
+
     @NameInMap("RequestId")
     public String requestId;
 
@@ -32,6 +38,22 @@ public class DecryptResponse extends TeaModel {
     }
     public byte[] getPlaintext() {
         return this.plaintext;
+    }
+
+    public DecryptResponse setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+        return this;
+    }
+    public String getAlgorithm() {
+        return this.algorithm;
+    }
+
+    public DecryptResponse setPaddingMode(String paddingMode) {
+        this.paddingMode = paddingMode;
+        return this;
+    }
+    public String getPaddingMode() {
+        return this.paddingMode;
     }
 
     public DecryptResponse setRequestId(String requestId) {

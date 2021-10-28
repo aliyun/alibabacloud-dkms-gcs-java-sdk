@@ -26,7 +26,9 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
             new TeaPair("RequestId", respMap.get("RequestId")),
             new TeaPair("KeyId", respMap.get("KeyId")),
             new TeaPair("CiphertextBlob", respMap.get("CiphertextBlob")),
-            new TeaPair("Iv", respMap.get("Iv"))
+            new TeaPair("Iv", respMap.get("Iv")),
+            new TeaPair("Algorithm", respMap.get("Algorithm")),
+            new TeaPair("PaddingMode", respMap.get("PaddingMode"))
         ), new EncryptResponse());
     }
 
@@ -44,7 +46,9 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         return TeaModel.toModel(TeaConverter.buildMap(
             new TeaPair("RequestId", respMap.get("RequestId")),
             new TeaPair("KeyId", respMap.get("KeyId")),
-            new TeaPair("Plaintext", respMap.get("Plaintext"))
+            new TeaPair("Plaintext", respMap.get("Plaintext")),
+            new TeaPair("Algorithm", respMap.get("Algorithm")),
+            new TeaPair("PaddingMode", respMap.get("PaddingMode"))
         ), new DecryptResponse());
     }
 
@@ -80,7 +84,9 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         return TeaModel.toModel(TeaConverter.buildMap(
             new TeaPair("RequestId", respMap.get("RequestId")),
             new TeaPair("KeyId", respMap.get("KeyId")),
-            new TeaPair("Signature", respMap.get("Signature"))
+            new TeaPair("Signature", respMap.get("Signature")),
+            new TeaPair("Algorithm", respMap.get("Algorithm")),
+            new TeaPair("MessageType", respMap.get("MessageType"))
         ), new SignResponse());
     }
 
@@ -98,7 +104,9 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         return TeaModel.toModel(TeaConverter.buildMap(
             new TeaPair("RequestId", respMap.get("RequestId")),
             new TeaPair("KeyId", respMap.get("KeyId")),
-            new TeaPair("Value", respMap.get("Value"))
+            new TeaPair("Value", respMap.get("Value")),
+            new TeaPair("Algorithm", respMap.get("Algorithm")),
+            new TeaPair("MessageType", respMap.get("MessageType"))
         ), new VerifyResponse());
     }
 
@@ -122,5 +130,26 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
     public GenerateRandomResponse generateRandom(GenerateRandomRequest request) throws Exception {
         RuntimeOptions runtime = new RuntimeOptions();
         return this.generateRandomWithOptions(request, runtime);
+    }
+
+    public GenerateDataKeyResponse generateDataKeyWithOptions(GenerateDataKeyRequest request, RuntimeOptions runtime) throws Exception {
+        com.aliyun.teautil.Common.validateModel(request);
+        java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
+        byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedGenerateDataKeyRequest(reqBody);
+        byte[] respBytes = this.doRequest("GenerateDataKey", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime);
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGenerateDataKeyResponse(respBytes);
+        return TeaModel.toModel(TeaConverter.buildMap(
+            new TeaPair("RequestId", respMap.get("RequestId")),
+            new TeaPair("KeyId", respMap.get("KeyId")),
+            new TeaPair("Iv", respMap.get("Iv")),
+            new TeaPair("Plaintext", respMap.get("Plaintext")),
+            new TeaPair("CiphertextBlob", respMap.get("CiphertextBlob")),
+            new TeaPair("Algorithm", respMap.get("Algorithm"))
+        ), new GenerateDataKeyResponse());
+    }
+
+    public GenerateDataKeyResponse generateDataKey(GenerateDataKeyRequest request) throws Exception {
+        RuntimeOptions runtime = new RuntimeOptions();
+        return this.generateDataKeyWithOptions(request, runtime);
     }
 }

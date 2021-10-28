@@ -10,6 +10,12 @@ public class VerifyResponse extends TeaModel {
     @NameInMap("Value")
     public Boolean value;
 
+    @NameInMap("Algorithm")
+    public String algorithm;
+
+    @NameInMap("MessageType")
+    public String messageType;
+
     @NameInMap("RequestId")
     public String requestId;
 
@@ -32,6 +38,22 @@ public class VerifyResponse extends TeaModel {
     }
     public Boolean getValue() {
         return this.value;
+    }
+
+    public VerifyResponse setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+        return this;
+    }
+    public String getAlgorithm() {
+        return this.algorithm;
+    }
+
+    public VerifyResponse setMessageType(String messageType) {
+        this.messageType = messageType;
+        return this;
+    }
+    public String getMessageType() {
+        return this.messageType;
     }
 
     public VerifyResponse setRequestId(String requestId) {

@@ -1485,6 +1485,16 @@ public final class ApiModels {
      * <code>bytes Iv = 5;</code>
      */
     com.google.protobuf.ByteString getIv();
+
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    java.lang.String getPaddingMode();
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getPaddingModeBytes();
   }
   /**
    * Protobuf type {@code EncryptRequest}
@@ -1504,6 +1514,7 @@ public final class ApiModels {
       algorithm_ = "";
       aad_ = com.google.protobuf.ByteString.EMPTY;
       iv_ = com.google.protobuf.ByteString.EMPTY;
+      paddingMode_ = "";
     }
 
     @java.lang.Override
@@ -1555,6 +1566,12 @@ public final class ApiModels {
             case 42: {
 
               iv_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              paddingMode_ = s;
               break;
             }
             default: {
@@ -1684,6 +1701,40 @@ public final class ApiModels {
       return iv_;
     }
 
+    public static final int PADDINGMODE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object paddingMode_;
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    public java.lang.String getPaddingMode() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        paddingMode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPaddingModeBytes() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        paddingMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1713,6 +1764,9 @@ public final class ApiModels {
       if (!iv_.isEmpty()) {
         output.writeBytes(5, iv_);
       }
+      if (!getPaddingModeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, paddingMode_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1740,6 +1794,9 @@ public final class ApiModels {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, iv_);
       }
+      if (!getPaddingModeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, paddingMode_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1765,6 +1822,8 @@ public final class ApiModels {
           .equals(other.getAad())) return false;
       if (!getIv()
           .equals(other.getIv())) return false;
+      if (!getPaddingMode()
+          .equals(other.getPaddingMode())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1786,6 +1845,8 @@ public final class ApiModels {
       hash = (53 * hash) + getAad().hashCode();
       hash = (37 * hash) + IV_FIELD_NUMBER;
       hash = (53 * hash) + getIv().hashCode();
+      hash = (37 * hash) + PADDINGMODE_FIELD_NUMBER;
+      hash = (53 * hash) + getPaddingMode().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1929,6 +1990,8 @@ public final class ApiModels {
 
         iv_ = com.google.protobuf.ByteString.EMPTY;
 
+        paddingMode_ = "";
+
         return this;
       }
 
@@ -1960,6 +2023,7 @@ public final class ApiModels {
         result.algorithm_ = algorithm_;
         result.aad_ = aad_;
         result.iv_ = iv_;
+        result.paddingMode_ = paddingMode_;
         onBuilt();
         return result;
       }
@@ -2024,6 +2088,10 @@ public final class ApiModels {
         }
         if (other.getIv() != com.google.protobuf.ByteString.EMPTY) {
           setIv(other.getIv());
+        }
+        if (!other.getPaddingMode().isEmpty()) {
+          paddingMode_ = other.paddingMode_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2278,6 +2346,75 @@ public final class ApiModels {
         onChanged();
         return this;
       }
+
+      private java.lang.Object paddingMode_ = "";
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public java.lang.String getPaddingMode() {
+        java.lang.Object ref = paddingMode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          paddingMode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPaddingModeBytes() {
+        java.lang.Object ref = paddingMode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          paddingMode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder setPaddingMode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        paddingMode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder clearPaddingMode() {
+        
+        paddingMode_ = getDefaultInstance().getPaddingMode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder setPaddingModeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        paddingMode_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2364,6 +2501,26 @@ public final class ApiModels {
      */
     com.google.protobuf.ByteString
         getRequestIdBytes();
+
+    /**
+     * <code>string Algorithm = 5;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>string Algorithm = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    java.lang.String getPaddingMode();
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getPaddingModeBytes();
   }
   /**
    * Protobuf type {@code EncryptResponse}
@@ -2382,6 +2539,8 @@ public final class ApiModels {
       ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
       iv_ = com.google.protobuf.ByteString.EMPTY;
       requestId_ = "";
+      algorithm_ = "";
+      paddingMode_ = "";
     }
 
     @java.lang.Override
@@ -2428,6 +2587,18 @@ public final class ApiModels {
               java.lang.String s = input.readStringRequireUtf8();
 
               requestId_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              algorithm_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              paddingMode_ = s;
               break;
             }
             default: {
@@ -2548,6 +2719,74 @@ public final class ApiModels {
       }
     }
 
+    public static final int ALGORITHM_FIELD_NUMBER = 5;
+    private volatile java.lang.Object algorithm_;
+    /**
+     * <code>string Algorithm = 5;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        algorithm_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Algorithm = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PADDINGMODE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object paddingMode_;
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    public java.lang.String getPaddingMode() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        paddingMode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPaddingModeBytes() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        paddingMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2574,6 +2813,12 @@ public final class ApiModels {
       if (!getRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, requestId_);
       }
+      if (!getAlgorithmBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, algorithm_);
+      }
+      if (!getPaddingModeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, paddingMode_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2596,6 +2841,12 @@ public final class ApiModels {
       }
       if (!getRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, requestId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, algorithm_);
+      }
+      if (!getPaddingModeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, paddingMode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2620,6 +2871,10 @@ public final class ApiModels {
           .equals(other.getIv())) return false;
       if (!getRequestId()
           .equals(other.getRequestId())) return false;
+      if (!getAlgorithm()
+          .equals(other.getAlgorithm())) return false;
+      if (!getPaddingMode()
+          .equals(other.getPaddingMode())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2639,6 +2894,10 @@ public final class ApiModels {
       hash = (53 * hash) + getIv().hashCode();
       hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
+      hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (37 * hash) + PADDINGMODE_FIELD_NUMBER;
+      hash = (53 * hash) + getPaddingMode().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2780,6 +3039,10 @@ public final class ApiModels {
 
         requestId_ = "";
 
+        algorithm_ = "";
+
+        paddingMode_ = "";
+
         return this;
       }
 
@@ -2810,6 +3073,8 @@ public final class ApiModels {
         result.ciphertextBlob_ = ciphertextBlob_;
         result.iv_ = iv_;
         result.requestId_ = requestId_;
+        result.algorithm_ = algorithm_;
+        result.paddingMode_ = paddingMode_;
         onBuilt();
         return result;
       }
@@ -2870,6 +3135,14 @@ public final class ApiModels {
         }
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          onChanged();
+        }
+        if (!other.getAlgorithm().isEmpty()) {
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        if (!other.getPaddingMode().isEmpty()) {
+          paddingMode_ = other.paddingMode_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -3093,6 +3366,144 @@ public final class ApiModels {
   checkByteStringIsUtf8(value);
         
         requestId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>string Algorithm = 5;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 5;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 5;</code>
+       */
+      public Builder clearAlgorithm() {
+        
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 5;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object paddingMode_ = "";
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public java.lang.String getPaddingMode() {
+        java.lang.Object ref = paddingMode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          paddingMode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPaddingModeBytes() {
+        java.lang.Object ref = paddingMode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          paddingMode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder setPaddingMode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        paddingMode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder clearPaddingMode() {
+        
+        paddingMode_ = getDefaultInstance().getPaddingMode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder setPaddingModeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        paddingMode_ = value;
         onChanged();
         return this;
       }
@@ -4483,6 +4894,16 @@ public final class ApiModels {
      * <code>bytes Iv = 5;</code>
      */
     com.google.protobuf.ByteString getIv();
+
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    java.lang.String getPaddingMode();
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getPaddingModeBytes();
   }
   /**
    * Protobuf type {@code DecryptRequest}
@@ -4502,6 +4923,7 @@ public final class ApiModels {
       algorithm_ = "";
       aad_ = com.google.protobuf.ByteString.EMPTY;
       iv_ = com.google.protobuf.ByteString.EMPTY;
+      paddingMode_ = "";
     }
 
     @java.lang.Override
@@ -4553,6 +4975,12 @@ public final class ApiModels {
             case 42: {
 
               iv_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              paddingMode_ = s;
               break;
             }
             default: {
@@ -4682,6 +5110,40 @@ public final class ApiModels {
       return iv_;
     }
 
+    public static final int PADDINGMODE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object paddingMode_;
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    public java.lang.String getPaddingMode() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        paddingMode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string PaddingMode = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPaddingModeBytes() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        paddingMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4711,6 +5173,9 @@ public final class ApiModels {
       if (!iv_.isEmpty()) {
         output.writeBytes(5, iv_);
       }
+      if (!getPaddingModeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, paddingMode_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4738,6 +5203,9 @@ public final class ApiModels {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, iv_);
       }
+      if (!getPaddingModeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, paddingMode_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4763,6 +5231,8 @@ public final class ApiModels {
           .equals(other.getAad())) return false;
       if (!getIv()
           .equals(other.getIv())) return false;
+      if (!getPaddingMode()
+          .equals(other.getPaddingMode())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4784,6 +5254,8 @@ public final class ApiModels {
       hash = (53 * hash) + getAad().hashCode();
       hash = (37 * hash) + IV_FIELD_NUMBER;
       hash = (53 * hash) + getIv().hashCode();
+      hash = (37 * hash) + PADDINGMODE_FIELD_NUMBER;
+      hash = (53 * hash) + getPaddingMode().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4927,6 +5399,8 @@ public final class ApiModels {
 
         iv_ = com.google.protobuf.ByteString.EMPTY;
 
+        paddingMode_ = "";
+
         return this;
       }
 
@@ -4958,6 +5432,7 @@ public final class ApiModels {
         result.algorithm_ = algorithm_;
         result.aad_ = aad_;
         result.iv_ = iv_;
+        result.paddingMode_ = paddingMode_;
         onBuilt();
         return result;
       }
@@ -5022,6 +5497,10 @@ public final class ApiModels {
         }
         if (other.getIv() != com.google.protobuf.ByteString.EMPTY) {
           setIv(other.getIv());
+        }
+        if (!other.getPaddingMode().isEmpty()) {
+          paddingMode_ = other.paddingMode_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5276,6 +5755,75 @@ public final class ApiModels {
         onChanged();
         return this;
       }
+
+      private java.lang.Object paddingMode_ = "";
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public java.lang.String getPaddingMode() {
+        java.lang.Object ref = paddingMode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          paddingMode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPaddingModeBytes() {
+        java.lang.Object ref = paddingMode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          paddingMode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder setPaddingMode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        paddingMode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder clearPaddingMode() {
+        
+        paddingMode_ = getDefaultInstance().getPaddingMode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 6;</code>
+       */
+      public Builder setPaddingModeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        paddingMode_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5357,6 +5905,26 @@ public final class ApiModels {
      */
     com.google.protobuf.ByteString
         getRequestIdBytes();
+
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+
+    /**
+     * <code>string PaddingMode = 5;</code>
+     */
+    java.lang.String getPaddingMode();
+    /**
+     * <code>string PaddingMode = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getPaddingModeBytes();
   }
   /**
    * Protobuf type {@code DecryptResponse}
@@ -5374,6 +5942,8 @@ public final class ApiModels {
       keyId_ = "";
       plaintext_ = com.google.protobuf.ByteString.EMPTY;
       requestId_ = "";
+      algorithm_ = "";
+      paddingMode_ = "";
     }
 
     @java.lang.Override
@@ -5415,6 +5985,18 @@ public final class ApiModels {
               java.lang.String s = input.readStringRequireUtf8();
 
               requestId_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              algorithm_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              paddingMode_ = s;
               break;
             }
             default: {
@@ -5526,6 +6108,74 @@ public final class ApiModels {
       }
     }
 
+    public static final int ALGORITHM_FIELD_NUMBER = 4;
+    private volatile java.lang.Object algorithm_;
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        algorithm_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PADDINGMODE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object paddingMode_;
+    /**
+     * <code>string PaddingMode = 5;</code>
+     */
+    public java.lang.String getPaddingMode() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        paddingMode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string PaddingMode = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPaddingModeBytes() {
+      java.lang.Object ref = paddingMode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        paddingMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5549,6 +6199,12 @@ public final class ApiModels {
       if (!getRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requestId_);
       }
+      if (!getAlgorithmBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, algorithm_);
+      }
+      if (!getPaddingModeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, paddingMode_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5567,6 +6223,12 @@ public final class ApiModels {
       }
       if (!getRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, requestId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, algorithm_);
+      }
+      if (!getPaddingModeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, paddingMode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5589,6 +6251,10 @@ public final class ApiModels {
           .equals(other.getPlaintext())) return false;
       if (!getRequestId()
           .equals(other.getRequestId())) return false;
+      if (!getAlgorithm()
+          .equals(other.getAlgorithm())) return false;
+      if (!getPaddingMode()
+          .equals(other.getPaddingMode())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5606,6 +6272,10 @@ public final class ApiModels {
       hash = (53 * hash) + getPlaintext().hashCode();
       hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
+      hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (37 * hash) + PADDINGMODE_FIELD_NUMBER;
+      hash = (53 * hash) + getPaddingMode().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5745,6 +6415,10 @@ public final class ApiModels {
 
         requestId_ = "";
 
+        algorithm_ = "";
+
+        paddingMode_ = "";
+
         return this;
       }
 
@@ -5774,6 +6448,8 @@ public final class ApiModels {
         result.keyId_ = keyId_;
         result.plaintext_ = plaintext_;
         result.requestId_ = requestId_;
+        result.algorithm_ = algorithm_;
+        result.paddingMode_ = paddingMode_;
         onBuilt();
         return result;
       }
@@ -5831,6 +6507,14 @@ public final class ApiModels {
         }
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          onChanged();
+        }
+        if (!other.getAlgorithm().isEmpty()) {
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        if (!other.getPaddingMode().isEmpty()) {
+          paddingMode_ = other.paddingMode_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -6028,6 +6712,144 @@ public final class ApiModels {
         onChanged();
         return this;
       }
+
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder clearAlgorithm() {
+        
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object paddingMode_ = "";
+      /**
+       * <code>string PaddingMode = 5;</code>
+       */
+      public java.lang.String getPaddingMode() {
+        java.lang.Object ref = paddingMode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          paddingMode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPaddingModeBytes() {
+        java.lang.Object ref = paddingMode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          paddingMode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string PaddingMode = 5;</code>
+       */
+      public Builder setPaddingMode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        paddingMode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 5;</code>
+       */
+      public Builder clearPaddingMode() {
+        
+        paddingMode_ = getDefaultInstance().getPaddingMode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PaddingMode = 5;</code>
+       */
+      public Builder setPaddingModeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        paddingMode_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6109,6 +6931,21 @@ public final class ApiModels {
      */
     com.google.protobuf.ByteString
         getAlgorithmBytes();
+
+    /**
+     * <code>bytes Message = 4;</code>
+     */
+    com.google.protobuf.ByteString getMessage();
+
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    java.lang.String getMessageType();
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageTypeBytes();
   }
   /**
    * Protobuf type {@code SignRequest}
@@ -6126,6 +6963,8 @@ public final class ApiModels {
       keyId_ = "";
       digest_ = com.google.protobuf.ByteString.EMPTY;
       algorithm_ = "";
+      message_ = com.google.protobuf.ByteString.EMPTY;
+      messageType_ = "";
     }
 
     @java.lang.Override
@@ -6167,6 +7006,17 @@ public final class ApiModels {
               java.lang.String s = input.readStringRequireUtf8();
 
               algorithm_ = s;
+              break;
+            }
+            case 34: {
+
+              message_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              messageType_ = s;
               break;
             }
             default: {
@@ -6278,6 +7128,49 @@ public final class ApiModels {
       }
     }
 
+    public static final int MESSAGE_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString message_;
+    /**
+     * <code>bytes Message = 4;</code>
+     */
+    public com.google.protobuf.ByteString getMessage() {
+      return message_;
+    }
+
+    public static final int MESSAGETYPE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object messageType_;
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    public java.lang.String getMessageType() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageTypeBytes() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6301,6 +7194,12 @@ public final class ApiModels {
       if (!getAlgorithmBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, algorithm_);
       }
+      if (!message_.isEmpty()) {
+        output.writeBytes(4, message_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, messageType_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6319,6 +7218,13 @@ public final class ApiModels {
       }
       if (!getAlgorithmBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, algorithm_);
+      }
+      if (!message_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, message_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, messageType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6341,6 +7247,10 @@ public final class ApiModels {
           .equals(other.getDigest())) return false;
       if (!getAlgorithm()
           .equals(other.getAlgorithm())) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!getMessageType()
+          .equals(other.getMessageType())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6358,6 +7268,10 @@ public final class ApiModels {
       hash = (53 * hash) + getDigest().hashCode();
       hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
       hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessageType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6497,6 +7411,10 @@ public final class ApiModels {
 
         algorithm_ = "";
 
+        message_ = com.google.protobuf.ByteString.EMPTY;
+
+        messageType_ = "";
+
         return this;
       }
 
@@ -6526,6 +7444,8 @@ public final class ApiModels {
         result.keyId_ = keyId_;
         result.digest_ = digest_;
         result.algorithm_ = algorithm_;
+        result.message_ = message_;
+        result.messageType_ = messageType_;
         onBuilt();
         return result;
       }
@@ -6583,6 +7503,13 @@ public final class ApiModels {
         }
         if (!other.getAlgorithm().isEmpty()) {
           algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        if (other.getMessage() != com.google.protobuf.ByteString.EMPTY) {
+          setMessage(other.getMessage());
+        }
+        if (!other.getMessageType().isEmpty()) {
+          messageType_ = other.messageType_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -6780,6 +7707,104 @@ public final class ApiModels {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.ByteString message_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes Message = 4;</code>
+       */
+      public com.google.protobuf.ByteString getMessage() {
+        return message_;
+      }
+      /**
+       * <code>bytes Message = 4;</code>
+       */
+      public Builder setMessage(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes Message = 4;</code>
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object messageType_ = "";
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public java.lang.String getMessageType() {
+        java.lang.Object ref = messageType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          messageType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageTypeBytes() {
+        java.lang.Object ref = messageType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          messageType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder setMessageType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        messageType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder clearMessageType() {
+        
+        messageType_ = getDefaultInstance().getMessageType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder setMessageTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        messageType_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6861,6 +7886,26 @@ public final class ApiModels {
      */
     com.google.protobuf.ByteString
         getRequestIdBytes();
+
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    java.lang.String getMessageType();
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageTypeBytes();
   }
   /**
    * Protobuf type {@code SignResponse}
@@ -6878,6 +7923,8 @@ public final class ApiModels {
       keyId_ = "";
       signature_ = com.google.protobuf.ByteString.EMPTY;
       requestId_ = "";
+      algorithm_ = "";
+      messageType_ = "";
     }
 
     @java.lang.Override
@@ -6919,6 +7966,18 @@ public final class ApiModels {
               java.lang.String s = input.readStringRequireUtf8();
 
               requestId_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              algorithm_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              messageType_ = s;
               break;
             }
             default: {
@@ -7030,6 +8089,74 @@ public final class ApiModels {
       }
     }
 
+    public static final int ALGORITHM_FIELD_NUMBER = 4;
+    private volatile java.lang.Object algorithm_;
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        algorithm_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MESSAGETYPE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object messageType_;
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    public java.lang.String getMessageType() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageTypeBytes() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7053,6 +8180,12 @@ public final class ApiModels {
       if (!getRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requestId_);
       }
+      if (!getAlgorithmBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, algorithm_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, messageType_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7071,6 +8204,12 @@ public final class ApiModels {
       }
       if (!getRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, requestId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, algorithm_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, messageType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7093,6 +8232,10 @@ public final class ApiModels {
           .equals(other.getSignature())) return false;
       if (!getRequestId()
           .equals(other.getRequestId())) return false;
+      if (!getAlgorithm()
+          .equals(other.getAlgorithm())) return false;
+      if (!getMessageType()
+          .equals(other.getMessageType())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7110,6 +8253,10 @@ public final class ApiModels {
       hash = (53 * hash) + getSignature().hashCode();
       hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
+      hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessageType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7249,6 +8396,10 @@ public final class ApiModels {
 
         requestId_ = "";
 
+        algorithm_ = "";
+
+        messageType_ = "";
+
         return this;
       }
 
@@ -7278,6 +8429,8 @@ public final class ApiModels {
         result.keyId_ = keyId_;
         result.signature_ = signature_;
         result.requestId_ = requestId_;
+        result.algorithm_ = algorithm_;
+        result.messageType_ = messageType_;
         onBuilt();
         return result;
       }
@@ -7335,6 +8488,14 @@ public final class ApiModels {
         }
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          onChanged();
+        }
+        if (!other.getAlgorithm().isEmpty()) {
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        if (!other.getMessageType().isEmpty()) {
+          messageType_ = other.messageType_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -7532,6 +8693,144 @@ public final class ApiModels {
         onChanged();
         return this;
       }
+
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder clearAlgorithm() {
+        
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object messageType_ = "";
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public java.lang.String getMessageType() {
+        java.lang.Object ref = messageType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          messageType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageTypeBytes() {
+        java.lang.Object ref = messageType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          messageType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder setMessageType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        messageType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder clearMessageType() {
+        
+        messageType_ = getDefaultInstance().getMessageType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder setMessageTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        messageType_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7618,6 +8917,21 @@ public final class ApiModels {
      */
     com.google.protobuf.ByteString
         getAlgorithmBytes();
+
+    /**
+     * <code>bytes Message = 5;</code>
+     */
+    com.google.protobuf.ByteString getMessage();
+
+    /**
+     * <code>string MessageType = 6;</code>
+     */
+    java.lang.String getMessageType();
+    /**
+     * <code>string MessageType = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageTypeBytes();
   }
   /**
    * Protobuf type {@code VerifyRequest}
@@ -7636,6 +8950,8 @@ public final class ApiModels {
       digest_ = com.google.protobuf.ByteString.EMPTY;
       signature_ = com.google.protobuf.ByteString.EMPTY;
       algorithm_ = "";
+      message_ = com.google.protobuf.ByteString.EMPTY;
+      messageType_ = "";
     }
 
     @java.lang.Override
@@ -7682,6 +8998,17 @@ public final class ApiModels {
               java.lang.String s = input.readStringRequireUtf8();
 
               algorithm_ = s;
+              break;
+            }
+            case 42: {
+
+              message_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              messageType_ = s;
               break;
             }
             default: {
@@ -7802,6 +9129,49 @@ public final class ApiModels {
       }
     }
 
+    public static final int MESSAGE_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString message_;
+    /**
+     * <code>bytes Message = 5;</code>
+     */
+    public com.google.protobuf.ByteString getMessage() {
+      return message_;
+    }
+
+    public static final int MESSAGETYPE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object messageType_;
+    /**
+     * <code>string MessageType = 6;</code>
+     */
+    public java.lang.String getMessageType() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string MessageType = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageTypeBytes() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7828,6 +9198,12 @@ public final class ApiModels {
       if (!getAlgorithmBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, algorithm_);
       }
+      if (!message_.isEmpty()) {
+        output.writeBytes(5, message_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, messageType_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7850,6 +9226,13 @@ public final class ApiModels {
       }
       if (!getAlgorithmBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, algorithm_);
+      }
+      if (!message_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, message_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, messageType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7874,6 +9257,10 @@ public final class ApiModels {
           .equals(other.getSignature())) return false;
       if (!getAlgorithm()
           .equals(other.getAlgorithm())) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!getMessageType()
+          .equals(other.getMessageType())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7893,6 +9280,10 @@ public final class ApiModels {
       hash = (53 * hash) + getSignature().hashCode();
       hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
       hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessageType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8034,6 +9425,10 @@ public final class ApiModels {
 
         algorithm_ = "";
 
+        message_ = com.google.protobuf.ByteString.EMPTY;
+
+        messageType_ = "";
+
         return this;
       }
 
@@ -8064,6 +9459,8 @@ public final class ApiModels {
         result.digest_ = digest_;
         result.signature_ = signature_;
         result.algorithm_ = algorithm_;
+        result.message_ = message_;
+        result.messageType_ = messageType_;
         onBuilt();
         return result;
       }
@@ -8124,6 +9521,13 @@ public final class ApiModels {
         }
         if (!other.getAlgorithm().isEmpty()) {
           algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        if (other.getMessage() != com.google.protobuf.ByteString.EMPTY) {
+          setMessage(other.getMessage());
+        }
+        if (!other.getMessageType().isEmpty()) {
+          messageType_ = other.messageType_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -8350,6 +9754,104 @@ public final class ApiModels {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.ByteString message_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes Message = 5;</code>
+       */
+      public com.google.protobuf.ByteString getMessage() {
+        return message_;
+      }
+      /**
+       * <code>bytes Message = 5;</code>
+       */
+      public Builder setMessage(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes Message = 5;</code>
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object messageType_ = "";
+      /**
+       * <code>string MessageType = 6;</code>
+       */
+      public java.lang.String getMessageType() {
+        java.lang.Object ref = messageType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          messageType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageTypeBytes() {
+        java.lang.Object ref = messageType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          messageType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 6;</code>
+       */
+      public Builder setMessageType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        messageType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 6;</code>
+       */
+      public Builder clearMessageType() {
+        
+        messageType_ = getDefaultInstance().getMessageType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 6;</code>
+       */
+      public Builder setMessageTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        messageType_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8431,6 +9933,26 @@ public final class ApiModels {
      */
     com.google.protobuf.ByteString
         getRequestIdBytes();
+
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    java.lang.String getMessageType();
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageTypeBytes();
   }
   /**
    * Protobuf type {@code VerifyResponse}
@@ -8447,6 +9969,8 @@ public final class ApiModels {
     private VerifyResponse() {
       keyId_ = "";
       requestId_ = "";
+      algorithm_ = "";
+      messageType_ = "";
     }
 
     @java.lang.Override
@@ -8488,6 +10012,18 @@ public final class ApiModels {
               java.lang.String s = input.readStringRequireUtf8();
 
               requestId_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              algorithm_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              messageType_ = s;
               break;
             }
             default: {
@@ -8599,6 +10135,74 @@ public final class ApiModels {
       }
     }
 
+    public static final int ALGORITHM_FIELD_NUMBER = 4;
+    private volatile java.lang.Object algorithm_;
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        algorithm_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Algorithm = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MESSAGETYPE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object messageType_;
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    public java.lang.String getMessageType() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        messageType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string MessageType = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageTypeBytes() {
+      java.lang.Object ref = messageType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        messageType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8622,6 +10226,12 @@ public final class ApiModels {
       if (!getRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requestId_);
       }
+      if (!getAlgorithmBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, algorithm_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, messageType_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8640,6 +10250,12 @@ public final class ApiModels {
       }
       if (!getRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, requestId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, algorithm_);
+      }
+      if (!getMessageTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, messageType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8662,6 +10278,10 @@ public final class ApiModels {
           != other.getValue()) return false;
       if (!getRequestId()
           .equals(other.getRequestId())) return false;
+      if (!getAlgorithm()
+          .equals(other.getAlgorithm())) return false;
+      if (!getMessageType()
+          .equals(other.getMessageType())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8680,6 +10300,10 @@ public final class ApiModels {
           getValue());
       hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
+      hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessageType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8819,6 +10443,10 @@ public final class ApiModels {
 
         requestId_ = "";
 
+        algorithm_ = "";
+
+        messageType_ = "";
+
         return this;
       }
 
@@ -8848,6 +10476,8 @@ public final class ApiModels {
         result.keyId_ = keyId_;
         result.value_ = value_;
         result.requestId_ = requestId_;
+        result.algorithm_ = algorithm_;
+        result.messageType_ = messageType_;
         onBuilt();
         return result;
       }
@@ -8905,6 +10535,14 @@ public final class ApiModels {
         }
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          onChanged();
+        }
+        if (!other.getAlgorithm().isEmpty()) {
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        if (!other.getMessageType().isEmpty()) {
+          messageType_ = other.messageType_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -9096,6 +10734,144 @@ public final class ApiModels {
   checkByteStringIsUtf8(value);
         
         requestId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder clearAlgorithm() {
+        
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 4;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object messageType_ = "";
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public java.lang.String getMessageType() {
+        java.lang.Object ref = messageType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          messageType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageTypeBytes() {
+        java.lang.Object ref = messageType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          messageType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder setMessageType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        messageType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder clearMessageType() {
+        
+        messageType_ = getDefaultInstance().getMessageType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string MessageType = 5;</code>
+       */
+      public Builder setMessageTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        messageType_ = value;
         onChanged();
         return this;
       }
@@ -12838,6 +14614,1841 @@ public final class ApiModels {
 
   }
 
+  public interface GenerateDataKeyRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GenerateDataKeyRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    java.lang.String getKeyId();
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyIdBytes();
+
+    /**
+     * <code>string Algorithm = 2;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>string Algorithm = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+
+    /**
+     * <code>int32 NumberOfBytes = 3;</code>
+     */
+    int getNumberOfBytes();
+
+    /**
+     * <code>bytes Aad = 4;</code>
+     */
+    com.google.protobuf.ByteString getAad();
+  }
+  /**
+   * Protobuf type {@code GenerateDataKeyRequest}
+   */
+  public  static final class GenerateDataKeyRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GenerateDataKeyRequest)
+      GenerateDataKeyRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GenerateDataKeyRequest.newBuilder() to construct.
+    private GenerateDataKeyRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GenerateDataKeyRequest() {
+      keyId_ = "";
+      algorithm_ = "";
+      aad_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GenerateDataKeyRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keyId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              algorithm_ = s;
+              break;
+            }
+            case 24: {
+
+              numberOfBytes_ = input.readInt32();
+              break;
+            }
+            case 34: {
+
+              aad_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.Builder.class);
+    }
+
+    public static final int KEYID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object keyId_;
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public java.lang.String getKeyId() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyIdBytes() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ALGORITHM_FIELD_NUMBER = 2;
+    private volatile java.lang.Object algorithm_;
+    /**
+     * <code>string Algorithm = 2;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        algorithm_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Algorithm = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NUMBEROFBYTES_FIELD_NUMBER = 3;
+    private int numberOfBytes_;
+    /**
+     * <code>int32 NumberOfBytes = 3;</code>
+     */
+    public int getNumberOfBytes() {
+      return numberOfBytes_;
+    }
+
+    public static final int AAD_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString aad_;
+    /**
+     * <code>bytes Aad = 4;</code>
+     */
+    public com.google.protobuf.ByteString getAad() {
+      return aad_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getKeyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, algorithm_);
+      }
+      if (numberOfBytes_ != 0) {
+        output.writeInt32(3, numberOfBytes_);
+      }
+      if (!aad_.isEmpty()) {
+        output.writeBytes(4, aad_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getKeyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, algorithm_);
+      }
+      if (numberOfBytes_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, numberOfBytes_);
+      }
+      if (!aad_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, aad_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest)) {
+        return super.equals(obj);
+      }
+      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest) obj;
+
+      if (!getKeyId()
+          .equals(other.getKeyId())) return false;
+      if (!getAlgorithm()
+          .equals(other.getAlgorithm())) return false;
+      if (getNumberOfBytes()
+          != other.getNumberOfBytes()) return false;
+      if (!getAad()
+          .equals(other.getAad())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEYID_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyId().hashCode();
+      hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
+      hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (37 * hash) + NUMBEROFBYTES_FIELD_NUMBER;
+      hash = (53 * hash) + getNumberOfBytes();
+      hash = (37 * hash) + AAD_FIELD_NUMBER;
+      hash = (53 * hash) + getAad().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GenerateDataKeyRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GenerateDataKeyRequest)
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.Builder.class);
+      }
+
+      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        keyId_ = "";
+
+        algorithm_ = "";
+
+        numberOfBytes_ = 0;
+
+        aad_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest getDefaultInstanceForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest build() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest buildPartial() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest(this);
+        result.keyId_ = keyId_;
+        result.algorithm_ = algorithm_;
+        result.numberOfBytes_ = numberOfBytes_;
+        result.aad_ = aad_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest) {
+          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest other) {
+        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.getDefaultInstance()) return this;
+        if (!other.getKeyId().isEmpty()) {
+          keyId_ = other.keyId_;
+          onChanged();
+        }
+        if (!other.getAlgorithm().isEmpty()) {
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        if (other.getNumberOfBytes() != 0) {
+          setNumberOfBytes(other.getNumberOfBytes());
+        }
+        if (other.getAad() != com.google.protobuf.ByteString.EMPTY) {
+          setAad(other.getAad());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object keyId_ = "";
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public java.lang.String getKeyId() {
+        java.lang.Object ref = keyId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyIdBytes() {
+        java.lang.Object ref = keyId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder clearKeyId() {
+        
+        keyId_ = getDefaultInstance().getKeyId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>string Algorithm = 2;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 2;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 2;</code>
+       */
+      public Builder clearAlgorithm() {
+        
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 2;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int numberOfBytes_ ;
+      /**
+       * <code>int32 NumberOfBytes = 3;</code>
+       */
+      public int getNumberOfBytes() {
+        return numberOfBytes_;
+      }
+      /**
+       * <code>int32 NumberOfBytes = 3;</code>
+       */
+      public Builder setNumberOfBytes(int value) {
+        
+        numberOfBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 NumberOfBytes = 3;</code>
+       */
+      public Builder clearNumberOfBytes() {
+        
+        numberOfBytes_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString aad_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes Aad = 4;</code>
+       */
+      public com.google.protobuf.ByteString getAad() {
+        return aad_;
+      }
+      /**
+       * <code>bytes Aad = 4;</code>
+       */
+      public Builder setAad(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        aad_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes Aad = 4;</code>
+       */
+      public Builder clearAad() {
+        
+        aad_ = getDefaultInstance().getAad();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GenerateDataKeyRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:GenerateDataKeyRequest)
+    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest();
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GenerateDataKeyRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GenerateDataKeyRequest>() {
+      @java.lang.Override
+      public GenerateDataKeyRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GenerateDataKeyRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GenerateDataKeyRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GenerateDataKeyRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GenerateDataKeyResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GenerateDataKeyResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    java.lang.String getKeyId();
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyIdBytes();
+
+    /**
+     * <code>bytes Iv = 2;</code>
+     */
+    com.google.protobuf.ByteString getIv();
+
+    /**
+     * <code>bytes Plaintext = 3;</code>
+     */
+    com.google.protobuf.ByteString getPlaintext();
+
+    /**
+     * <code>bytes CiphertextBlob = 4;</code>
+     */
+    com.google.protobuf.ByteString getCiphertextBlob();
+
+    /**
+     * <code>string RequestId = 5;</code>
+     */
+    java.lang.String getRequestId();
+    /**
+     * <code>string RequestId = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getRequestIdBytes();
+
+    /**
+     * <code>string Algorithm = 6;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>string Algorithm = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+  }
+  /**
+   * Protobuf type {@code GenerateDataKeyResponse}
+   */
+  public  static final class GenerateDataKeyResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GenerateDataKeyResponse)
+      GenerateDataKeyResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GenerateDataKeyResponse.newBuilder() to construct.
+    private GenerateDataKeyResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GenerateDataKeyResponse() {
+      keyId_ = "";
+      iv_ = com.google.protobuf.ByteString.EMPTY;
+      plaintext_ = com.google.protobuf.ByteString.EMPTY;
+      ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
+      requestId_ = "";
+      algorithm_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GenerateDataKeyResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keyId_ = s;
+              break;
+            }
+            case 18: {
+
+              iv_ = input.readBytes();
+              break;
+            }
+            case 26: {
+
+              plaintext_ = input.readBytes();
+              break;
+            }
+            case 34: {
+
+              ciphertextBlob_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              requestId_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              algorithm_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.Builder.class);
+    }
+
+    public static final int KEYID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object keyId_;
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public java.lang.String getKeyId() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyIdBytes() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IV_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString iv_;
+    /**
+     * <code>bytes Iv = 2;</code>
+     */
+    public com.google.protobuf.ByteString getIv() {
+      return iv_;
+    }
+
+    public static final int PLAINTEXT_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString plaintext_;
+    /**
+     * <code>bytes Plaintext = 3;</code>
+     */
+    public com.google.protobuf.ByteString getPlaintext() {
+      return plaintext_;
+    }
+
+    public static final int CIPHERTEXTBLOB_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString ciphertextBlob_;
+    /**
+     * <code>bytes CiphertextBlob = 4;</code>
+     */
+    public com.google.protobuf.ByteString getCiphertextBlob() {
+      return ciphertextBlob_;
+    }
+
+    public static final int REQUESTID_FIELD_NUMBER = 5;
+    private volatile java.lang.Object requestId_;
+    /**
+     * <code>string RequestId = 5;</code>
+     */
+    public java.lang.String getRequestId() {
+      java.lang.Object ref = requestId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        requestId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string RequestId = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRequestIdBytes() {
+      java.lang.Object ref = requestId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        requestId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ALGORITHM_FIELD_NUMBER = 6;
+    private volatile java.lang.Object algorithm_;
+    /**
+     * <code>string Algorithm = 6;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        algorithm_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Algorithm = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getKeyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
+      }
+      if (!iv_.isEmpty()) {
+        output.writeBytes(2, iv_);
+      }
+      if (!plaintext_.isEmpty()) {
+        output.writeBytes(3, plaintext_);
+      }
+      if (!ciphertextBlob_.isEmpty()) {
+        output.writeBytes(4, ciphertextBlob_);
+      }
+      if (!getRequestIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, requestId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, algorithm_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getKeyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
+      }
+      if (!iv_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, iv_);
+      }
+      if (!plaintext_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, plaintext_);
+      }
+      if (!ciphertextBlob_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, ciphertextBlob_);
+      }
+      if (!getRequestIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, requestId_);
+      }
+      if (!getAlgorithmBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, algorithm_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse)) {
+        return super.equals(obj);
+      }
+      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse) obj;
+
+      if (!getKeyId()
+          .equals(other.getKeyId())) return false;
+      if (!getIv()
+          .equals(other.getIv())) return false;
+      if (!getPlaintext()
+          .equals(other.getPlaintext())) return false;
+      if (!getCiphertextBlob()
+          .equals(other.getCiphertextBlob())) return false;
+      if (!getRequestId()
+          .equals(other.getRequestId())) return false;
+      if (!getAlgorithm()
+          .equals(other.getAlgorithm())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEYID_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyId().hashCode();
+      hash = (37 * hash) + IV_FIELD_NUMBER;
+      hash = (53 * hash) + getIv().hashCode();
+      hash = (37 * hash) + PLAINTEXT_FIELD_NUMBER;
+      hash = (53 * hash) + getPlaintext().hashCode();
+      hash = (37 * hash) + CIPHERTEXTBLOB_FIELD_NUMBER;
+      hash = (53 * hash) + getCiphertextBlob().hashCode();
+      hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
+      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
+      hash = (53 * hash) + getAlgorithm().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GenerateDataKeyResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GenerateDataKeyResponse)
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.Builder.class);
+      }
+
+      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        keyId_ = "";
+
+        iv_ = com.google.protobuf.ByteString.EMPTY;
+
+        plaintext_ = com.google.protobuf.ByteString.EMPTY;
+
+        ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
+
+        requestId_ = "";
+
+        algorithm_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse getDefaultInstanceForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse build() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse buildPartial() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse(this);
+        result.keyId_ = keyId_;
+        result.iv_ = iv_;
+        result.plaintext_ = plaintext_;
+        result.ciphertextBlob_ = ciphertextBlob_;
+        result.requestId_ = requestId_;
+        result.algorithm_ = algorithm_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse) {
+          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse other) {
+        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.getDefaultInstance()) return this;
+        if (!other.getKeyId().isEmpty()) {
+          keyId_ = other.keyId_;
+          onChanged();
+        }
+        if (other.getIv() != com.google.protobuf.ByteString.EMPTY) {
+          setIv(other.getIv());
+        }
+        if (other.getPlaintext() != com.google.protobuf.ByteString.EMPTY) {
+          setPlaintext(other.getPlaintext());
+        }
+        if (other.getCiphertextBlob() != com.google.protobuf.ByteString.EMPTY) {
+          setCiphertextBlob(other.getCiphertextBlob());
+        }
+        if (!other.getRequestId().isEmpty()) {
+          requestId_ = other.requestId_;
+          onChanged();
+        }
+        if (!other.getAlgorithm().isEmpty()) {
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object keyId_ = "";
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public java.lang.String getKeyId() {
+        java.lang.Object ref = keyId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyIdBytes() {
+        java.lang.Object ref = keyId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder clearKeyId() {
+        
+        keyId_ = getDefaultInstance().getKeyId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString iv_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes Iv = 2;</code>
+       */
+      public com.google.protobuf.ByteString getIv() {
+        return iv_;
+      }
+      /**
+       * <code>bytes Iv = 2;</code>
+       */
+      public Builder setIv(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        iv_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes Iv = 2;</code>
+       */
+      public Builder clearIv() {
+        
+        iv_ = getDefaultInstance().getIv();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString plaintext_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes Plaintext = 3;</code>
+       */
+      public com.google.protobuf.ByteString getPlaintext() {
+        return plaintext_;
+      }
+      /**
+       * <code>bytes Plaintext = 3;</code>
+       */
+      public Builder setPlaintext(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        plaintext_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes Plaintext = 3;</code>
+       */
+      public Builder clearPlaintext() {
+        
+        plaintext_ = getDefaultInstance().getPlaintext();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes CiphertextBlob = 4;</code>
+       */
+      public com.google.protobuf.ByteString getCiphertextBlob() {
+        return ciphertextBlob_;
+      }
+      /**
+       * <code>bytes CiphertextBlob = 4;</code>
+       */
+      public Builder setCiphertextBlob(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        ciphertextBlob_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes CiphertextBlob = 4;</code>
+       */
+      public Builder clearCiphertextBlob() {
+        
+        ciphertextBlob_ = getDefaultInstance().getCiphertextBlob();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object requestId_ = "";
+      /**
+       * <code>string RequestId = 5;</code>
+       */
+      public java.lang.String getRequestId() {
+        java.lang.Object ref = requestId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          requestId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string RequestId = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRequestIdBytes() {
+        java.lang.Object ref = requestId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          requestId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string RequestId = 5;</code>
+       */
+      public Builder setRequestId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        requestId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RequestId = 5;</code>
+       */
+      public Builder clearRequestId() {
+        
+        requestId_ = getDefaultInstance().getRequestId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RequestId = 5;</code>
+       */
+      public Builder setRequestIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        requestId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>string Algorithm = 6;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Algorithm = 6;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 6;</code>
+       */
+      public Builder clearAlgorithm() {
+        
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Algorithm = 6;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GenerateDataKeyResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:GenerateDataKeyResponse)
+    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse();
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GenerateDataKeyResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GenerateDataKeyResponse>() {
+      @java.lang.Override
+      public GenerateDataKeyResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GenerateDataKeyResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GenerateDataKeyResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GenerateDataKeyResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ErrorOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Error)
       com.google.protobuf.MessageOrBuilder {
@@ -13814,6 +17425,16 @@ public final class ApiModels {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_HashResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GenerateDataKeyRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GenerateDataKeyRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GenerateDataKeyResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GenerateDataKeyResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Error_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -13831,38 +17452,50 @@ public final class ApiModels {
       "d\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\013\n\003Aad\030\003 \001(\014\"" +
       "N\n\022KmsEncryptResponse\022\r\n\005KeyId\030\001 \001(\t\022\026\n\016" +
       "CiphertextBlob\030\002 \001(\014\022\021\n\tRequestId\030\003 \001(\t\"" +
-      "^\n\016EncryptRequest\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlai" +
+      "s\n\016EncryptRequest\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlai" +
       "ntext\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\t\022\013\n\003Aad\030\004 " +
-      "\001(\014\022\n\n\002Iv\030\005 \001(\014\"W\n\017EncryptResponse\022\r\n\005Ke" +
-      "yId\030\001 \001(\t\022\026\n\016CiphertextBlob\030\002 \001(\014\022\n\n\002Iv\030" +
-      "\003 \001(\014\022\021\n\tRequestId\030\004 \001(\t\"8\n\021KmsDecryptRe" +
-      "quest\022\026\n\016CiphertextBlob\030\001 \001(\014\022\013\n\003Aad\030\002 \001" +
-      "(\014\"I\n\022KmsDecryptResponse\022\r\n\005KeyId\030\001 \001(\t\022" +
-      "\021\n\tPlaintext\030\002 \001(\014\022\021\n\tRequestId\030\003 \001(\t\"c\n" +
-      "\016DecryptRequest\022\026\n\016CiphertextBlob\030\001 \001(\014\022" +
-      "\r\n\005KeyId\030\002 \001(\t\022\021\n\tAlgorithm\030\003 \001(\t\022\013\n\003Aad" +
-      "\030\004 \001(\014\022\n\n\002Iv\030\005 \001(\014\"F\n\017DecryptResponse\022\r\n" +
-      "\005KeyId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\021\n\tReque" +
-      "stId\030\003 \001(\t\"?\n\013SignRequest\022\r\n\005KeyId\030\001 \001(\t" +
-      "\022\016\n\006Digest\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\t\"C\n\014S" +
+      "\001(\014\022\n\n\002Iv\030\005 \001(\014\022\023\n\013PaddingMode\030\006 \001(\t\"\177\n\017" +
+      "EncryptResponse\022\r\n\005KeyId\030\001 \001(\t\022\026\n\016Cipher" +
+      "textBlob\030\002 \001(\014\022\n\n\002Iv\030\003 \001(\014\022\021\n\tRequestId\030" +
+      "\004 \001(\t\022\021\n\tAlgorithm\030\005 \001(\t\022\023\n\013PaddingMode\030" +
+      "\006 \001(\t\"8\n\021KmsDecryptRequest\022\026\n\016Ciphertext" +
+      "Blob\030\001 \001(\014\022\013\n\003Aad\030\002 \001(\014\"I\n\022KmsDecryptRes" +
+      "ponse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022" +
+      "\021\n\tRequestId\030\003 \001(\t\"x\n\016DecryptRequest\022\026\n\016" +
+      "CiphertextBlob\030\001 \001(\014\022\r\n\005KeyId\030\002 \001(\t\022\021\n\tA" +
+      "lgorithm\030\003 \001(\t\022\013\n\003Aad\030\004 \001(\014\022\n\n\002Iv\030\005 \001(\014\022" +
+      "\023\n\013PaddingMode\030\006 \001(\t\"n\n\017DecryptResponse\022" +
+      "\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\021\n\tReq" +
+      "uestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 \001(\t\022\023\n\013Paddi" +
+      "ngMode\030\005 \001(\t\"e\n\013SignRequest\022\r\n\005KeyId\030\001 \001" +
+      "(\t\022\016\n\006Digest\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\t\022\017\n" +
+      "\007Message\030\004 \001(\014\022\023\n\013MessageType\030\005 \001(\t\"k\n\014S" +
       "ignResponse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tSignature\030" +
-      "\002 \001(\014\022\021\n\tRequestId\030\003 \001(\t\"T\n\rVerifyReques" +
+      "\002 \001(\014\022\021\n\tRequestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 " +
+      "\001(\t\022\023\n\013MessageType\030\005 \001(\t\"z\n\rVerifyReques" +
       "t\022\r\n\005KeyId\030\001 \001(\t\022\016\n\006Digest\030\002 \001(\014\022\021\n\tSign" +
-      "ature\030\003 \001(\014\022\021\n\tAlgorithm\030\004 \001(\t\"A\n\016Verify" +
-      "Response\022\r\n\005KeyId\030\001 \001(\t\022\r\n\005Value\030\002 \001(\010\022\021" +
-      "\n\tRequestId\030\003 \001(\t\"-\n\013HmacRequest\022\r\n\005KeyI" +
-      "d\030\001 \001(\t\022\017\n\007Message\030\002 \001(\014\"C\n\014HmacResponse" +
-      "\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tSignature\030\002 \001(\014\022\021\n\tRe" +
-      "questId\030\003 \001(\t\"\'\n\025GenerateRandomRequest\022\016" +
-      "\n\006Length\030\001 \001(\005\";\n\026GenerateRandomResponse" +
-      "\022\016\n\006Random\030\001 \001(\014\022\021\n\tRequestId\030\002 \001(\t\"1\n\013H" +
-      "ashRequest\022\017\n\007Message\030\001 \001(\014\022\021\n\tAlgorithm" +
-      "\030\002 \001(\t\"1\n\014HashResponse\022\016\n\006Digest\030\001 \001(\014\022\021" +
-      "\n\tRequestId\030\003 \001(\t\"W\n\005Error\022\022\n\nStatusCode" +
-      "\030\001 \001(\005\022\021\n\tErrorCode\030\002 \001(\t\022\024\n\014ErrorMessag" +
-      "e\030\003 \001(\t\022\021\n\tRequestId\030\004 \001(\tB6\n)com.aliyun" +
-      ".dkms.gcs.openapi.util.protobufB\tApiMode" +
-      "lsb\006proto3"
+      "ature\030\003 \001(\014\022\021\n\tAlgorithm\030\004 \001(\t\022\017\n\007Messag" +
+      "e\030\005 \001(\014\022\023\n\013MessageType\030\006 \001(\t\"i\n\016VerifyRe" +
+      "sponse\022\r\n\005KeyId\030\001 \001(\t\022\r\n\005Value\030\002 \001(\010\022\021\n\t" +
+      "RequestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 \001(\t\022\023\n\013Me" +
+      "ssageType\030\005 \001(\t\"-\n\013HmacRequest\022\r\n\005KeyId\030" +
+      "\001 \001(\t\022\017\n\007Message\030\002 \001(\014\"C\n\014HmacResponse\022\r" +
+      "\n\005KeyId\030\001 \001(\t\022\021\n\tSignature\030\002 \001(\014\022\021\n\tRequ" +
+      "estId\030\003 \001(\t\"\'\n\025GenerateRandomRequest\022\016\n\006" +
+      "Length\030\001 \001(\005\";\n\026GenerateRandomResponse\022\016" +
+      "\n\006Random\030\001 \001(\014\022\021\n\tRequestId\030\002 \001(\t\"1\n\013Has" +
+      "hRequest\022\017\n\007Message\030\001 \001(\014\022\021\n\tAlgorithm\030\002" +
+      " \001(\t\"1\n\014HashResponse\022\016\n\006Digest\030\001 \001(\014\022\021\n\t" +
+      "RequestId\030\003 \001(\t\"^\n\026GenerateDataKeyReques" +
+      "t\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tAlgorithm\030\002 \001(\t\022\025\n\rN" +
+      "umberOfBytes\030\003 \001(\005\022\013\n\003Aad\030\004 \001(\014\"\205\001\n\027Gene" +
+      "rateDataKeyResponse\022\r\n\005KeyId\030\001 \001(\t\022\n\n\002Iv" +
+      "\030\002 \001(\014\022\021\n\tPlaintext\030\003 \001(\014\022\026\n\016CiphertextB" +
+      "lob\030\004 \001(\014\022\021\n\tRequestId\030\005 \001(\t\022\021\n\tAlgorith" +
+      "m\030\006 \001(\t\"W\n\005Error\022\022\n\nStatusCode\030\001 \001(\005\022\021\n\t" +
+      "ErrorCode\030\002 \001(\t\022\024\n\014ErrorMessage\030\003 \001(\t\022\021\n" +
+      "\tRequestId\030\004 \001(\tB6\n)com.aliyun.dkms.gcs." +
+      "openapi.util.protobufB\tApiModelsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -13893,13 +17526,13 @@ public final class ApiModels {
     internal_static_EncryptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EncryptRequest_descriptor,
-        new java.lang.String[] { "KeyId", "Plaintext", "Algorithm", "Aad", "Iv", });
+        new java.lang.String[] { "KeyId", "Plaintext", "Algorithm", "Aad", "Iv", "PaddingMode", });
     internal_static_EncryptResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_EncryptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EncryptResponse_descriptor,
-        new java.lang.String[] { "KeyId", "CiphertextBlob", "Iv", "RequestId", });
+        new java.lang.String[] { "KeyId", "CiphertextBlob", "Iv", "RequestId", "Algorithm", "PaddingMode", });
     internal_static_KmsDecryptRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_KmsDecryptRequest_fieldAccessorTable = new
@@ -13917,37 +17550,37 @@ public final class ApiModels {
     internal_static_DecryptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DecryptRequest_descriptor,
-        new java.lang.String[] { "CiphertextBlob", "KeyId", "Algorithm", "Aad", "Iv", });
+        new java.lang.String[] { "CiphertextBlob", "KeyId", "Algorithm", "Aad", "Iv", "PaddingMode", });
     internal_static_DecryptResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_DecryptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DecryptResponse_descriptor,
-        new java.lang.String[] { "KeyId", "Plaintext", "RequestId", });
+        new java.lang.String[] { "KeyId", "Plaintext", "RequestId", "Algorithm", "PaddingMode", });
     internal_static_SignRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_SignRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SignRequest_descriptor,
-        new java.lang.String[] { "KeyId", "Digest", "Algorithm", });
+        new java.lang.String[] { "KeyId", "Digest", "Algorithm", "Message", "MessageType", });
     internal_static_SignResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_SignResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SignResponse_descriptor,
-        new java.lang.String[] { "KeyId", "Signature", "RequestId", });
+        new java.lang.String[] { "KeyId", "Signature", "RequestId", "Algorithm", "MessageType", });
     internal_static_VerifyRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_VerifyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_VerifyRequest_descriptor,
-        new java.lang.String[] { "KeyId", "Digest", "Signature", "Algorithm", });
+        new java.lang.String[] { "KeyId", "Digest", "Signature", "Algorithm", "Message", "MessageType", });
     internal_static_VerifyResponse_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_VerifyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_VerifyResponse_descriptor,
-        new java.lang.String[] { "KeyId", "Value", "RequestId", });
+        new java.lang.String[] { "KeyId", "Value", "RequestId", "Algorithm", "MessageType", });
     internal_static_HmacRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_HmacRequest_fieldAccessorTable = new
@@ -13984,8 +17617,20 @@ public final class ApiModels {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HashResponse_descriptor,
         new java.lang.String[] { "Digest", "RequestId", });
-    internal_static_Error_descriptor =
+    internal_static_GenerateDataKeyRequest_descriptor =
       getDescriptor().getMessageTypes().get(18);
+    internal_static_GenerateDataKeyRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GenerateDataKeyRequest_descriptor,
+        new java.lang.String[] { "KeyId", "Algorithm", "NumberOfBytes", "Aad", });
+    internal_static_GenerateDataKeyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_GenerateDataKeyResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GenerateDataKeyResponse_descriptor,
+        new java.lang.String[] { "KeyId", "Iv", "Plaintext", "CiphertextBlob", "RequestId", "Algorithm", });
+    internal_static_Error_descriptor =
+      getDescriptor().getMessageTypes().get(20);
     internal_static_Error_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Error_descriptor,

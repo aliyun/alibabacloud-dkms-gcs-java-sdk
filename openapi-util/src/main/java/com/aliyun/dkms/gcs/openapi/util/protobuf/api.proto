@@ -21,6 +21,7 @@ message EncryptRequest {
      string Algorithm = 3;
      bytes Aad = 4;
      bytes Iv = 5;
+     string PaddingMode = 6;
 }
 
 message EncryptResponse {
@@ -28,6 +29,8 @@ message EncryptResponse {
      bytes CiphertextBlob = 2;
      bytes Iv = 3;
      string RequestId = 4;
+     string Algorithm = 5;
+     string PaddingMode = 6;
 }
 
 message KmsDecryptRequest {
@@ -47,24 +50,31 @@ message DecryptRequest {
      string Algorithm = 3;
      bytes Aad = 4;
      bytes Iv = 5;
+     string PaddingMode = 6;
 }
 
 message DecryptResponse {
      string KeyId = 1;
      bytes Plaintext = 2;
      string RequestId = 3;
+     string Algorithm = 4;
+     string PaddingMode = 5;
 }
 
 message SignRequest {
      string KeyId = 1;
      bytes Digest = 2;
      string Algorithm = 3;
+     bytes Message = 4;
+     string MessageType = 5;
 }
 
 message SignResponse {
      string KeyId = 1;
      bytes Signature = 2;
      string RequestId = 3;
+     string Algorithm = 4;
+     string MessageType = 5;
 }
 
 message VerifyRequest {
@@ -72,12 +82,16 @@ message VerifyRequest {
      bytes Digest = 2;
      bytes Signature = 3;
      string Algorithm = 4;
+     bytes Message = 5;
+     string MessageType = 6;
 }
 
 message VerifyResponse {
      string KeyId = 1;
      bool Value = 2;
      string RequestId = 3;
+     string Algorithm = 4;
+     string MessageType = 5;
 }
 
 message HmacRequest {
@@ -108,6 +122,22 @@ message HashRequest {
 message HashResponse {
      bytes  Digest = 1;
      string RequestId = 3;
+}
+
+message GenerateDataKeyRequest {
+     string KeyId = 1;
+     string Algorithm = 2;
+     int32 NumberOfBytes = 3;
+     bytes Aad = 4;
+}
+
+message GenerateDataKeyResponse {
+     string KeyId = 1;
+     bytes  Iv = 2;
+     bytes  Plaintext = 3;
+     bytes  CiphertextBlob = 4;
+     string RequestId = 5;
+     string Algorithm = 6;
 }
 
 

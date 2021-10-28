@@ -154,6 +154,10 @@ public class Utils {
         if (aad != null) {
             builder.setAad(ByteString.copyFrom((byte[]) aad));
         }
+        Object paddingMode = reqBody.get("PaddingMode");
+        if (paddingMode != null) {
+            builder.setPaddingMode((String) paddingMode);
+        }
         return builder.build().toByteArray();
     }
 
@@ -163,6 +167,8 @@ public class Utils {
         result.put("KeyId", response.getKeyId());
         result.put("CiphertextBlob", response.getCiphertextBlob().toByteArray());
         result.put("Iv", response.getIv().toByteArray());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("PaddingMode", response.getPaddingMode());
         result.put("RequestId", response.getRequestId());
         return result;
     }
@@ -189,6 +195,10 @@ public class Utils {
         if (iv != null) {
             builder.setIv(ByteString.copyFrom((byte[]) iv));
         }
+        Object paddingMode = reqBody.get("PaddingMode");
+        if (paddingMode != null) {
+            builder.setPaddingMode((String) paddingMode);
+        }
         return builder.build().toByteArray();
     }
 
@@ -197,6 +207,8 @@ public class Utils {
         ApiModels.DecryptResponse response = ApiModels.DecryptResponse.parseFrom(resBody);
         result.put("KeyId", response.getKeyId());
         result.put("Plaintext", response.getPlaintext().toByteArray());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("PaddingMode", response.getPaddingMode());
         result.put("RequestId", response.getRequestId());
         return result;
     }
@@ -229,13 +241,17 @@ public class Utils {
         if (keyId != null) {
             builder.setKeyId((String) keyId);
         }
-        Object digest = reqBody.get("Digest");
-        if (digest != null) {
-            builder.setDigest(ByteString.copyFrom((byte[]) digest));
-        }
         Object algorithm = reqBody.get("Algorithm");
         if (algorithm != null) {
             builder.setAlgorithm((String) algorithm);
+        }
+        Object message = reqBody.get("Message");
+        if (message != null) {
+            builder.setMessage(ByteString.copyFrom((byte[]) message));
+        }
+        Object messageType = reqBody.get("MessageType");
+        if (messageType != null) {
+            builder.setMessageType((String) messageType);
         }
         return builder.build().toByteArray();
     }
@@ -245,6 +261,8 @@ public class Utils {
         ApiModels.SignResponse response = ApiModels.SignResponse.parseFrom(resBody);
         result.put("KeyId", response.getKeyId());
         result.put("Signature", response.getSignature().toByteArray());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("MessageType", response.getMessageType());
         result.put("RequestId", response.getRequestId());
         return result;
     }
@@ -259,13 +277,17 @@ public class Utils {
         if (algorithm != null) {
             builder.setAlgorithm((String) algorithm);
         }
-        Object digest = reqBody.get("Digest");
-        if (digest != null) {
-            builder.setDigest(ByteString.copyFrom((byte[]) digest));
-        }
         Object signature = reqBody.get("Signature");
         if (signature != null) {
             builder.setSignature(ByteString.copyFrom((byte[]) signature));
+        }
+        Object message = reqBody.get("Message");
+        if (message != null) {
+            builder.setMessage(ByteString.copyFrom((byte[]) message));
+        }
+        Object messageType = reqBody.get("MessageType");
+        if (messageType != null) {
+            builder.setMessageType((String) messageType);
         }
         return builder.build().toByteArray();
     }
@@ -275,6 +297,8 @@ public class Utils {
         ApiModels.VerifyResponse response = ApiModels.VerifyResponse.parseFrom(resBody);
         result.put("KeyId", response.getKeyId());
         result.put("Value", response.getValue());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("MessageType", response.getMessageType());
         result.put("RequestId", response.getRequestId());
         return result;
     }
@@ -292,6 +316,39 @@ public class Utils {
         Map<String, Object> result = new HashMap<>();
         ApiModels.GenerateRandomResponse response = ApiModels.GenerateRandomResponse.parseFrom(resBody);
         result.put("Random", response.getRandom().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        return result;
+    }
+
+    public static byte[] getSerializedGenerateDataKeyRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.GenerateDataKeyRequest.Builder builder = ApiModels.GenerateDataKeyRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object algorithm = reqBody.get("Algorithm");
+        if (algorithm != null) {
+            builder.setAlgorithm((String) algorithm);
+        }
+        Object numberOfBytes = reqBody.get("NumberOfBytes");
+        if (numberOfBytes != null) {
+            builder.setNumberOfBytes((int) numberOfBytes);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static java.util.Map<String, Object> parseGenerateDataKeyResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.GenerateDataKeyResponse response = ApiModels.GenerateDataKeyResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("Iv", response.getIv().toByteArray());
+        result.put("Plaintext", response.getPlaintext().toByteArray());
+        result.put("CiphertextBlob", response.getCiphertextBlob().toByteArray());
+        result.put("Algorithm", response.getAlgorithm());
         result.put("RequestId", response.getRequestId());
         return result;
     }

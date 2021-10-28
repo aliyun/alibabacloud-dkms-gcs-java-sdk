@@ -53,10 +53,16 @@ public class AesEncryptDecryptSample {
     private static String endpoint = "<your crypto service address>";
 
     // 填写您在KMS创建的主密钥Id
-    private static String encryptionKeyId = "your cmk id";
+    private static String encryptionKeyId = "<your cmk id>";
+
+    // 加解密算法
+    private static String algorithm = "<your encrypt algorithm>";
 
     // 待加密明文
     private static String plaintext = "aes 256 encrypt and decrypt sample";
+
+    // 主密钥是对称密钥时，加密接口返回值中的Iv
+    private static byte[] iv = null;
 
     // 加密服务实例Client对象
     private static Client client = null;
@@ -104,8 +110,11 @@ public class AesEncryptDecryptSample {
         try {
             // 调用加密接口进行加密
             EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            // 主密钥是对称密钥时，decrypt接口需要加密返回的Iv
+            iv = encryptResponse.getIv();
             System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
             System.out.printf("CiphertextBlob: %s%n", new String(Hex.encode(encryptResponse.getCiphertextBlob())));
+            System.out.printf("Iv: %s%n", new String(Hex.encode(encryptResponse.getIv())));
             System.out.printf("RequestId: %s%n", encryptResponse.getRequestId());
             return encryptResponse.getCiphertextBlob();
         } catch (Exception e) {
@@ -127,6 +136,8 @@ public class AesEncryptDecryptSample {
         DecryptRequest decryptRequest = new DecryptRequest();
         decryptRequest.setKeyId(encryptionKeyId);
         decryptRequest.setCiphertextBlob(ciphertextBlob);
+        decryptRequest.setAlgorithm(algorithm);
+        decryptRequest.setIv(iv);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
 

@@ -13,6 +13,12 @@ public class EncryptResponse extends TeaModel {
     @NameInMap("Iv")
     public byte[] iv;
 
+    @NameInMap("Algorithm")
+    public String algorithm;
+
+    @NameInMap("PaddingMode")
+    public String paddingMode;
+
     @NameInMap("RequestId")
     public String requestId;
 
@@ -43,6 +49,22 @@ public class EncryptResponse extends TeaModel {
     }
     public byte[] getIv() {
         return this.iv;
+    }
+
+    public EncryptResponse setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+        return this;
+    }
+    public String getAlgorithm() {
+        return this.algorithm;
+    }
+
+    public EncryptResponse setPaddingMode(String paddingMode) {
+        this.paddingMode = paddingMode;
+        return this;
+    }
+    public String getPaddingMode() {
+        return this.paddingMode;
     }
 
     public EncryptResponse setRequestId(String requestId) {

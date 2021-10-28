@@ -5,11 +5,9 @@ import com.aliyun.tea.*;
 
 public class EncryptRequest extends TeaModel {
     @NameInMap("KeyId")
-    @Validation(required = true)
     public String keyId;
 
     @NameInMap("Plaintext")
-    @Validation(required = true)
     public byte[] plaintext;
 
     @NameInMap("Algorithm")
@@ -20,6 +18,9 @@ public class EncryptRequest extends TeaModel {
 
     @NameInMap("Iv")
     public byte[] iv;
+
+    @NameInMap("PaddingMode")
+    public String paddingMode;
 
     public static EncryptRequest build(java.util.Map<String, ?> map) throws Exception {
         EncryptRequest self = new EncryptRequest();
@@ -64,6 +65,14 @@ public class EncryptRequest extends TeaModel {
     }
     public byte[] getIv() {
         return this.iv;
+    }
+
+    public EncryptRequest setPaddingMode(String paddingMode) {
+        this.paddingMode = paddingMode;
+        return this;
+    }
+    public String getPaddingMode() {
+        return this.paddingMode;
     }
 
 }

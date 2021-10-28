@@ -5,11 +5,9 @@ import com.aliyun.tea.*;
 
 public class HmacRequest extends TeaModel {
     @NameInMap("KeyId")
-    @Validation(required = true)
     public String keyId;
 
     @NameInMap("Message")
-    @Validation(required = true)
     public byte[] message;
 
     public static HmacRequest build(java.util.Map<String, ?> map) throws Exception {

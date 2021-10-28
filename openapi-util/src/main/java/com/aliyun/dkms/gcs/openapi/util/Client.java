@@ -79,6 +79,14 @@ public class Client {
         return Utils.parseGenerateRandomResponse(resBody);
     }
 
+    public static byte[] getSerializedGenerateDataKeyRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        return Utils.getSerializedGenerateDataKeyRequest(reqBody);
+    }
+
+    public static java.util.Map<String, Object> parseGenerateDataKeyResponse(byte[] resBody) throws Exception {
+        return Utils.parseGenerateDataKeyResponse(resBody);
+    }
+
     public static byte[] getSerializedHashRequest(java.util.Map<String, Object> reqBody) throws Exception {
         return Utils.getSerializedHashRequest(reqBody);
     }

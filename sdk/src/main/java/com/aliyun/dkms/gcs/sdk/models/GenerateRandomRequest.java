@@ -5,7 +5,6 @@ import com.aliyun.tea.*;
 
 public class GenerateRandomRequest extends TeaModel {
     @NameInMap("Length")
-    @Validation(required = true)
     public Integer length;
 
     public static GenerateRandomRequest build(java.util.Map<String, ?> map) throws Exception {

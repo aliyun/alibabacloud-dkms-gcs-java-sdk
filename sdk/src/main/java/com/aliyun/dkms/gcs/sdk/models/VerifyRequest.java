@@ -5,19 +5,19 @@ import com.aliyun.tea.*;
 
 public class VerifyRequest extends TeaModel {
     @NameInMap("KeyId")
-    @Validation(required = true)
     public String keyId;
-
-    @NameInMap("Digest")
-    @Validation(required = true)
-    public byte[] digest;
 
     @NameInMap("Signature")
     public byte[] signature;
 
     @NameInMap("Algorithm")
-    @Validation(required = true)
     public String algorithm;
+
+    @NameInMap("Message")
+    public byte[] message;
+
+    @NameInMap("MessageType")
+    public String messageType;
 
     public static VerifyRequest build(java.util.Map<String, ?> map) throws Exception {
         VerifyRequest self = new VerifyRequest();
@@ -30,14 +30,6 @@ public class VerifyRequest extends TeaModel {
     }
     public String getKeyId() {
         return this.keyId;
-    }
-
-    public VerifyRequest setDigest(byte[] digest) {
-        this.digest = digest;
-        return this;
-    }
-    public byte[] getDigest() {
-        return this.digest;
     }
 
     public VerifyRequest setSignature(byte[] signature) {
@@ -54,6 +46,22 @@ public class VerifyRequest extends TeaModel {
     }
     public String getAlgorithm() {
         return this.algorithm;
+    }
+
+    public VerifyRequest setMessage(byte[] message) {
+        this.message = message;
+        return this;
+    }
+    public byte[] getMessage() {
+        return this.message;
+    }
+
+    public VerifyRequest setMessageType(String messageType) {
+        this.messageType = messageType;
+        return this;
+    }
+    public String getMessageType() {
+        return this.messageType;
     }
 
 }
