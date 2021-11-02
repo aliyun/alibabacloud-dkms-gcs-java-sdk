@@ -4,9 +4,9 @@ English | [简体中文](README-CN.md)
 
 ## AlibabaCloud DKMS-GCS SDK for Java
 
-- [Overview](https://www.alibabacloud.com/help/doc-detail/xxxx.htm)
-- [Quick Start](https://www.alibabacloud.com/help/doc-detail/xxxx.html)
-- [Sample Code](/example/README.md)
+- [Overview](https://www.alibabacloud.com/help/doc-detail/311016.htm)
+- [Quick Start](https://www.alibabacloud.com/help/doc-detail/311368.htm)
+- [Sample Code](/example)
 
 ## Requirements
 
@@ -21,7 +21,7 @@ The recommended way to use the AlibabaCloud DKMS SDK for Java in your project is
 <dependency>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 

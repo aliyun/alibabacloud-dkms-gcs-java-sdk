@@ -4,9 +4,9 @@
 
 ## AlibabaCloud DKMS-GCS SDK for Python
 
-- [概述](https://help.aliyun.com/document_detail/xxxx.html)
-- [入门指南](https://help.aliyun.com/document_detail/xxxx.html)
-- [代码示例](/example/README-CN.md)
+- [概述](https://help.aliyun.com/document_detail/311016.html)
+- [入门指南](https://help.aliyun.com/document_detail/311368.html)
+- [代码示例](/example)
 
 ## 依赖
 
@@ -19,7 +19,7 @@
 <dependency>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 
