@@ -16449,6 +16449,1378 @@ public final class ApiModels {
 
   }
 
+  public interface GetPublicKeyRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetPublicKeyRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    java.lang.String getKeyId();
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyIdBytes();
+  }
+  /**
+   * Protobuf type {@code GetPublicKeyRequest}
+   */
+  public  static final class GetPublicKeyRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetPublicKeyRequest)
+      GetPublicKeyRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetPublicKeyRequest.newBuilder() to construct.
+    private GetPublicKeyRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetPublicKeyRequest() {
+      keyId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetPublicKeyRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keyId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.Builder.class);
+    }
+
+    public static final int KEYID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object keyId_;
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public java.lang.String getKeyId() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyIdBytes() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getKeyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getKeyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest)) {
+        return super.equals(obj);
+      }
+      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest) obj;
+
+      if (!getKeyId()
+          .equals(other.getKeyId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEYID_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetPublicKeyRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetPublicKeyRequest)
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.Builder.class);
+      }
+
+      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        keyId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest getDefaultInstanceForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest build() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest buildPartial() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest(this);
+        result.keyId_ = keyId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest) {
+          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest other) {
+        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.getDefaultInstance()) return this;
+        if (!other.getKeyId().isEmpty()) {
+          keyId_ = other.keyId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object keyId_ = "";
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public java.lang.String getKeyId() {
+        java.lang.Object ref = keyId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyIdBytes() {
+        java.lang.Object ref = keyId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder clearKeyId() {
+        
+        keyId_ = getDefaultInstance().getKeyId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetPublicKeyRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetPublicKeyRequest)
+    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest();
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetPublicKeyRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetPublicKeyRequest>() {
+      @java.lang.Override
+      public GetPublicKeyRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetPublicKeyRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetPublicKeyRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetPublicKeyRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetPublicKeyResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetPublicKeyResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    java.lang.String getKeyId();
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyIdBytes();
+
+    /**
+     * <code>string PublicKey = 2;</code>
+     */
+    java.lang.String getPublicKey();
+    /**
+     * <code>string PublicKey = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPublicKeyBytes();
+
+    /**
+     * <code>string RequestId = 3;</code>
+     */
+    java.lang.String getRequestId();
+    /**
+     * <code>string RequestId = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getRequestIdBytes();
+  }
+  /**
+   * Protobuf type {@code GetPublicKeyResponse}
+   */
+  public  static final class GetPublicKeyResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetPublicKeyResponse)
+      GetPublicKeyResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetPublicKeyResponse.newBuilder() to construct.
+    private GetPublicKeyResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetPublicKeyResponse() {
+      keyId_ = "";
+      publicKey_ = "";
+      requestId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetPublicKeyResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keyId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              publicKey_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              requestId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.Builder.class);
+    }
+
+    public static final int KEYID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object keyId_;
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public java.lang.String getKeyId() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string KeyId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyIdBytes() {
+      java.lang.Object ref = keyId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PUBLICKEY_FIELD_NUMBER = 2;
+    private volatile java.lang.Object publicKey_;
+    /**
+     * <code>string PublicKey = 2;</code>
+     */
+    public java.lang.String getPublicKey() {
+      java.lang.Object ref = publicKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        publicKey_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string PublicKey = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPublicKeyBytes() {
+      java.lang.Object ref = publicKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        publicKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REQUESTID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object requestId_;
+    /**
+     * <code>string RequestId = 3;</code>
+     */
+    public java.lang.String getRequestId() {
+      java.lang.Object ref = requestId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        requestId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string RequestId = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRequestIdBytes() {
+      java.lang.Object ref = requestId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        requestId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getKeyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
+      }
+      if (!getPublicKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, publicKey_);
+      }
+      if (!getRequestIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requestId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getKeyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
+      }
+      if (!getPublicKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, publicKey_);
+      }
+      if (!getRequestIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, requestId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse)) {
+        return super.equals(obj);
+      }
+      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse) obj;
+
+      if (!getKeyId()
+          .equals(other.getKeyId())) return false;
+      if (!getPublicKey()
+          .equals(other.getPublicKey())) return false;
+      if (!getRequestId()
+          .equals(other.getRequestId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEYID_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyId().hashCode();
+      hash = (37 * hash) + PUBLICKEY_FIELD_NUMBER;
+      hash = (53 * hash) + getPublicKey().hashCode();
+      hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
+      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetPublicKeyResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetPublicKeyResponse)
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.Builder.class);
+      }
+
+      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        keyId_ = "";
+
+        publicKey_ = "";
+
+        requestId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse getDefaultInstanceForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse build() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse buildPartial() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse(this);
+        result.keyId_ = keyId_;
+        result.publicKey_ = publicKey_;
+        result.requestId_ = requestId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse) {
+          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse other) {
+        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.getDefaultInstance()) return this;
+        if (!other.getKeyId().isEmpty()) {
+          keyId_ = other.keyId_;
+          onChanged();
+        }
+        if (!other.getPublicKey().isEmpty()) {
+          publicKey_ = other.publicKey_;
+          onChanged();
+        }
+        if (!other.getRequestId().isEmpty()) {
+          requestId_ = other.requestId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object keyId_ = "";
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public java.lang.String getKeyId() {
+        java.lang.Object ref = keyId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyIdBytes() {
+        java.lang.Object ref = keyId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder clearKeyId() {
+        
+        keyId_ = getDefaultInstance().getKeyId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string KeyId = 1;</code>
+       */
+      public Builder setKeyIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object publicKey_ = "";
+      /**
+       * <code>string PublicKey = 2;</code>
+       */
+      public java.lang.String getPublicKey() {
+        java.lang.Object ref = publicKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          publicKey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string PublicKey = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPublicKeyBytes() {
+        java.lang.Object ref = publicKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          publicKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string PublicKey = 2;</code>
+       */
+      public Builder setPublicKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        publicKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PublicKey = 2;</code>
+       */
+      public Builder clearPublicKey() {
+        
+        publicKey_ = getDefaultInstance().getPublicKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string PublicKey = 2;</code>
+       */
+      public Builder setPublicKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        publicKey_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object requestId_ = "";
+      /**
+       * <code>string RequestId = 3;</code>
+       */
+      public java.lang.String getRequestId() {
+        java.lang.Object ref = requestId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          requestId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string RequestId = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRequestIdBytes() {
+        java.lang.Object ref = requestId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          requestId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string RequestId = 3;</code>
+       */
+      public Builder setRequestId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        requestId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RequestId = 3;</code>
+       */
+      public Builder clearRequestId() {
+        
+        requestId_ = getDefaultInstance().getRequestId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RequestId = 3;</code>
+       */
+      public Builder setRequestIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        requestId_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetPublicKeyResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetPublicKeyResponse)
+    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse();
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetPublicKeyResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetPublicKeyResponse>() {
+      @java.lang.Override
+      public GetPublicKeyResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetPublicKeyResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetPublicKeyResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetPublicKeyResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ErrorOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Error)
       com.google.protobuf.MessageOrBuilder {
@@ -17435,6 +18807,16 @@ public final class ApiModels {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GenerateDataKeyResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetPublicKeyRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetPublicKeyRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetPublicKeyResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetPublicKeyResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Error_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17492,10 +18874,13 @@ public final class ApiModels {
       "rateDataKeyResponse\022\r\n\005KeyId\030\001 \001(\t\022\n\n\002Iv" +
       "\030\002 \001(\014\022\021\n\tPlaintext\030\003 \001(\014\022\026\n\016CiphertextB" +
       "lob\030\004 \001(\014\022\021\n\tRequestId\030\005 \001(\t\022\021\n\tAlgorith" +
-      "m\030\006 \001(\t\"W\n\005Error\022\022\n\nStatusCode\030\001 \001(\005\022\021\n\t" +
-      "ErrorCode\030\002 \001(\t\022\024\n\014ErrorMessage\030\003 \001(\t\022\021\n" +
-      "\tRequestId\030\004 \001(\tB6\n)com.aliyun.dkms.gcs." +
-      "openapi.util.protobufB\tApiModelsb\006proto3"
+      "m\030\006 \001(\t\"$\n\023GetPublicKeyRequest\022\r\n\005KeyId\030" +
+      "\001 \001(\t\"K\n\024GetPublicKeyResponse\022\r\n\005KeyId\030\001" +
+      " \001(\t\022\021\n\tPublicKey\030\002 \001(\t\022\021\n\tRequestId\030\003 \001" +
+      "(\t\"W\n\005Error\022\022\n\nStatusCode\030\001 \001(\005\022\021\n\tError" +
+      "Code\030\002 \001(\t\022\024\n\014ErrorMessage\030\003 \001(\t\022\021\n\tRequ" +
+      "estId\030\004 \001(\tB6\n)com.aliyun.dkms.gcs.opena" +
+      "pi.util.protobufB\tApiModelsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17629,8 +19014,20 @@ public final class ApiModels {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GenerateDataKeyResponse_descriptor,
         new java.lang.String[] { "KeyId", "Iv", "Plaintext", "CiphertextBlob", "RequestId", "Algorithm", });
-    internal_static_Error_descriptor =
+    internal_static_GetPublicKeyRequest_descriptor =
       getDescriptor().getMessageTypes().get(20);
+    internal_static_GetPublicKeyRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetPublicKeyRequest_descriptor,
+        new java.lang.String[] { "KeyId", });
+    internal_static_GetPublicKeyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_GetPublicKeyResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetPublicKeyResponse_descriptor,
+        new java.lang.String[] { "KeyId", "PublicKey", "RequestId", });
+    internal_static_Error_descriptor =
+      getDescriptor().getMessageTypes().get(22);
     internal_static_Error_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Error_descriptor,

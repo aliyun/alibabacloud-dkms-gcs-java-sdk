@@ -109,13 +109,14 @@ class DkmsClientTest {
 
     private static void sign() {
         String signKeyId = "CmkId";
-        byte[] digest = "this is test".getBytes(StandardCharsets.UTF_8);
+        byte[] message = "this is test".getBytes(StandardCharsets.UTF_8);
         String algorithm = "RSA_PKCS1_SHA_256";
 
         SignRequest signRequest = new SignRequest();
         signRequest.setKeyId(signKeyId);
         signRequest.setAlgorithm(algorithm);
-        signRequest.setDigest(digest);
+        signRequest.setMessage(message);
+        signRequest.setMessageType("RAW"); // RAW原始消息，DIGEST摘要
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
         try {
@@ -140,14 +141,15 @@ class DkmsClientTest {
 
     private static void verify() {
         String signKeyId = "CmkId";
-        byte[] digest = "this is test".getBytes(StandardCharsets.UTF_8);
+        byte[] message = "this is test".getBytes(StandardCharsets.UTF_8);
         byte[] signature = "this is test".getBytes(StandardCharsets.UTF_8);
         String algorithm = "RSA_PKCS1_SHA_256";
 
         VerifyRequest verifyRequest = new VerifyRequest();
         verifyRequest.setKeyId(signKeyId);
         verifyRequest.setAlgorithm(algorithm);
-        verifyRequest.setDigest(digest);
+        verifyRequest.setMessage(message);
+        verifyRequest.setMessageType("RAW"); // RAW原始消息，DIGEST摘要
         verifyRequest.setSignature(signature);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
@@ -196,6 +198,66 @@ class DkmsClientTest {
         }
     }
 
+    private static void generateDataKey(){
+        String keyId = "CmkId";
+        Integer numberOfbytes = 32;
+
+        GenerateDataKeyRequest generateDataKeyRequest = new GenerateDataKeyRequest();
+        generateDataKeyRequest.setKeyId(keyId);
+        generateDataKeyRequest.setNumberOfBytes(numberOfbytes);
+
+        RuntimeOptions runtimeOptions = new RuntimeOptions();
+        runtimeOptions.ignoreSSL = true;
+
+        try{
+            //GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKey(generateDataKeyRequest);
+            GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKeyWithOptions(generateDataKeyRequest, runtimeOptions);
+            System.out.printf("generateDataKey response Plaintext: %s\n", new String(Hex.encode(generateDataKeyResponse.getPlaintext())));
+            System.out.printf("generateDataKey response CiphertextBlob: %s\n", new String(generateDataKeyResponse.getCiphertextBlob()));
+            System.out.printf("generateDataKey response RequestId: %s\n", generateDataKeyResponse.getRequestId());
+        } catch (Exception e) {
+            if (e instanceof TeaException) {
+                System.out.printf("generateDataKey error code: %s\n", ((TeaException) e).getCode());
+                System.out.printf("generateDataKey error message: %s\n", ((TeaException) e).getMessage());
+                System.out.printf("generateDataKey error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("generateDataKey error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("generateDataKey error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+            } else {
+                System.out.printf("generateDataKey errMsg: %s\n", e.getMessage());
+            }
+            e.printStackTrace();
+        }
+    }
+
+    private static void getPublicKey(){
+        String keyId = "CmkId";
+
+        GetPublicKeyRequest getPublicKeyRequest = new GetPublicKeyRequest();
+        getPublicKeyRequest.setKeyId(keyId);
+
+        RuntimeOptions runtimeOptions = new RuntimeOptions();
+        runtimeOptions.ignoreSSL = true;
+
+        try{
+            //GetPublicKeyResponse getPublicKeyResponse = client.getPublicKey(getPublicKeyRequest);
+            GetPublicKeyResponse getPublicKeyResponse = client.getPublicKeyWithOptions(getPublicKeyRequest, runtimeOptions);
+            System.out.printf("getPublicKey response KeyId: %s\n", getPublicKeyResponse.getKeyId());
+            System.out.printf("getPublicKey response PublicKey: %s\n", getPublicKeyResponse.getPublicKey());
+            System.out.printf("getPublicKey response RequestId: %s\n", getPublicKeyResponse.getRequestId());
+        } catch (Exception e) {
+            if (e instanceof TeaException) {
+                System.out.printf("getPublicKey error code: %s\n", ((TeaException) e).getCode());
+                System.out.printf("getPublicKey error message: %s\n", ((TeaException) e).getMessage());
+                System.out.printf("getPublicKey error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("getPublicKey error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("getPublicKey error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+            } else {
+                System.out.printf("getPublicKey errMsg: %s\n", e.getMessage());
+            }
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         Config config = new Config();
         config.setProtocol("https");
@@ -214,6 +276,12 @@ class DkmsClientTest {
             sign();
             //验签测试
             verify();
+            //生成随机数测试
+            generateRandom();
+            //生成数据密钥测试
+            generateDataKey();
+            //获取公钥测试
+            getPublicKey();
         } catch (Exception e) {
             e.printStackTrace();
         }
