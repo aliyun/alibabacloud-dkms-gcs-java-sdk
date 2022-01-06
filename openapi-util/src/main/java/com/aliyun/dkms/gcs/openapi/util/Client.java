@@ -110,4 +110,12 @@ public class Client {
     public static java.util.Map<String, Object> parseKmsDecryptResponse(byte[] resBody) throws Exception {
         return Utils.parseKmsDecryptResponse(resBody);
     }
+
+    public static byte[] getSerializedGetPublicKeyRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        return Utils.getSerializedGetPublicKeyRequest(reqBody);
+    }
+
+    public static java.util.Map<String, Object> parseGetPublicKeyResponse(byte[] resBody) throws Exception {
+        return Utils.parseGetPublicKeyResponse(resBody);
+    }
 }

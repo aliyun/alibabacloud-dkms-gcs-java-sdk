@@ -19,7 +19,7 @@
 <dependency>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.3</version>
 </dependency>
 ```
 
