@@ -140,6 +140,16 @@ message GenerateDataKeyResponse {
      string Algorithm = 6;
 }
 
+message GetPublicKeyRequest {
+     string KeyId = 1;
+}
+
+message GetPublicKeyResponse {
+     string KeyId = 1;
+     string PublicKey = 2;
+     string RequestId = 3;
+}
+
 
 message Error {
      int32 StatusCode = 1;

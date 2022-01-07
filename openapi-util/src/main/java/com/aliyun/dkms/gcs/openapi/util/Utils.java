@@ -421,4 +421,22 @@ public class Utils {
         result.put("RequestId", response.getRequestId());
         return result;
     }
+
+    public static byte[] getSerializedGetPublicKeyRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.GetPublicKeyRequest.Builder builder = ApiModels.GetPublicKeyRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static java.util.Map<String, Object> parseGetPublicKeyResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.GetPublicKeyResponse response = ApiModels.GetPublicKeyResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("PublicKey", response.getPublicKey());
+        result.put("RequestId", response.getRequestId());
+        return result;
+    }
 }
