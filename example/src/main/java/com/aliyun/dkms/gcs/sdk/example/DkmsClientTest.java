@@ -5,9 +5,9 @@ import com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions;
 import com.aliyun.dkms.gcs.sdk.Client;
 import com.aliyun.dkms.gcs.sdk.models.*;
 import com.aliyun.tea.TeaException;
-import org.bouncycastle.util.encoders.Hex;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 
 class DkmsClientTest {
@@ -18,28 +18,35 @@ class DkmsClientTest {
 
     private static void encrypt() {
         String encryptionKeyId = "CmkId";
-        String plaintext = "this is test";
+        byte[] plaintext = "<your origin data to encrypt>".getBytes(StandardCharsets.UTF_8);
 
         EncryptRequest encryptRequest = new EncryptRequest();
         encryptRequest.setKeyId(encryptionKeyId);
-        encryptRequest.setPlaintext(plaintext.getBytes(StandardCharsets.UTF_8));
+        encryptRequest.setPlaintext(plaintext);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
         try {
             //EncryptResponse encryptResponse = client.encrypt(encryptRequest);
             EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
-            System.out.printf("encrypt response KeyId: %s\n", encryptResponse.getKeyId());
-            System.out.printf("encrypt response CiphertextBlob: %s\n", new String(Hex.encode(encryptResponse.getCiphertextBlob())));
-            System.out.printf("encrypt response RequestId: %s\n", encryptResponse.getRequestId());
+            // 密文数据
+            byte[] ciphertextBlob = encryptResponse.getCiphertextBlob();
+            // Cipher初始向量，用于解密数据
+            byte[] iv = encryptResponse.getIv();
+            System.out.println("================encrypt================");
+            System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
+            System.out.printf("CiphertextBlob: %s%n", Arrays.toString(ciphertextBlob));
+            System.out.printf("Iv: %s%n", Arrays.toString(iv));
+            System.out.printf("RequestId: %s%n", encryptResponse.getRequestId());
+            System.out.println("================encrypt================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("encrypt error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("encrypt error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("encrypt error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("encrypt error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("encrypt error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("encrypt errMsg: %s\n", e.getMessage());
+                System.out.printf("encrypt errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }
@@ -47,9 +54,9 @@ class DkmsClientTest {
 
     private static void decrypt() {
         String encryptionKeyId = "CmkId";
-        byte[] ciphertextBlob = Hex.decode("ciphertextBlob hex data");
+        byte[] ciphertextBlob = "<your cipher data to decrypt>".getBytes(StandardCharsets.UTF_8);
         String algorithm = "encrypt algorithm";
-        byte[] iv = Hex.decode("encrypt response iv");
+        byte[] iv = "<IV value>".getBytes(StandardCharsets.UTF_8);
 
         DecryptRequest decryptRequest = new DecryptRequest();
         decryptRequest.setKeyId(encryptionKeyId);
@@ -61,18 +68,20 @@ class DkmsClientTest {
         try {
             //DecryptResponse decryptResponse = client.decrypt(decryptRequest);
             DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
-            System.out.printf("decryptResponse KeyId: %s\n", decryptResponse.getKeyId());
-            System.out.printf("decryptResponse Plaintext: %s\n", new String(decryptResponse.getPlaintext()));
-            System.out.printf("decryptResponse RequestId: %s\n", decryptResponse.getRequestId());
+            System.out.println("================decrypt================");
+            System.out.printf("KeyId: %s%n", decryptResponse.getKeyId());
+            System.out.printf("Plaintext: %s%n", new String(decryptResponse.getPlaintext()));
+            System.out.printf("RequestId: %s%n", decryptResponse.getRequestId());
+            System.out.println("================decrypt================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("decrypt error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("decrypt error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("decrypt error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("decrypt error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("decrypt error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s\n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s\n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s\n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s\n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("decrypt errMsg: %s\n", e.getMessage());
+                System.out.printf("decrypt errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }
@@ -80,7 +89,7 @@ class DkmsClientTest {
 
     private static void hmac() {
         String hmacKeyId = "CmkId";
-        String message = "this is test";
+        String message = "message";
 
         HmacRequest hmacRequest = new HmacRequest();
         hmacRequest.setKeyId(hmacKeyId);
@@ -90,18 +99,21 @@ class DkmsClientTest {
         try {
             //HmacResponse hmacResponse = client.hmac(hmacRequest);
             HmacResponse hmacResponse = client.hmacWithOptions(hmacRequest, runtimeOptions);
-            System.out.printf("hmac response KeyId: %s\n", hmacResponse.getKeyId());
-            System.out.printf("hmac response Signature: %s\n", new String(Hex.encode(hmacResponse.getSignature())));
-            System.out.printf("hmac response RequestId: %s\n", hmacResponse.getRequestId());
+            byte[] signature = hmacResponse.getSignature();
+            System.out.println("================hmac================");
+            System.out.printf("KeyId: %s%n", hmacResponse.getKeyId());
+            System.out.printf("Signature: %s%n", Arrays.toString(signature));
+            System.out.printf("RequestId: %s%n", hmacResponse.getRequestId());
+            System.out.println("================hmac================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("hmac error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("hmac error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("hmac error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("hmac error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("hmac error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("hmac errMsg: %s\n", e.getMessage());
+                System.out.printf("hmac errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }
@@ -109,31 +121,38 @@ class DkmsClientTest {
 
     private static void sign() {
         String signKeyId = "CmkId";
-        byte[] message = "this is test".getBytes(StandardCharsets.UTF_8);
         String algorithm = "RSA_PKCS1_SHA_256";
+        // TODO 待签名数据摘要或预处理数据
+        byte[] digest = "<the digest or sm2-signature-pretreatment-value of the plaintext to sign>".getBytes(StandardCharsets.UTF_8);
+        // 待签名数据类型，RAW-原始消息，DIGEST-摘要
+        String messageType = "DIGEST";
 
         SignRequest signRequest = new SignRequest();
         signRequest.setKeyId(signKeyId);
         signRequest.setAlgorithm(algorithm);
-        signRequest.setMessage(message);
-        signRequest.setMessageType("RAW"); // RAW原始消息，DIGEST摘要
+        signRequest.setMessage(digest);
+        signRequest.setMessageType(messageType);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
         try {
             //SignResponse signResponse = client.sign(signRequest);
             SignResponse signResponse = client.signWithOptions(signRequest, runtimeOptions);
-            System.out.printf("sign response KeyId: %s\n", signResponse.getKeyId());
-            System.out.printf("sign response Signature: %s\n", new String(Hex.encode(signResponse.getSignature())));
-            System.out.printf("sign response RequestId: %s\n", signResponse.getRequestId());
+            // 签名值
+            byte[] signature = signResponse.getSignature();
+            System.out.println("================sign================");
+            System.out.printf("KeyId: %s%n", signResponse.getKeyId());
+            System.out.printf("Signature: %s%n", Arrays.toString(signature));
+            System.out.printf("RequestId: %s%n", signResponse.getRequestId());
+            System.out.println("================sign================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("sign error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("sign error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("sign error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("sign error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("sign error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("sign errMsg: %s\n", e.getMessage());
+                System.out.printf("sign errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }
@@ -141,33 +160,40 @@ class DkmsClientTest {
 
     private static void verify() {
         String signKeyId = "CmkId";
-        byte[] message = "this is test".getBytes(StandardCharsets.UTF_8);
-        byte[] signature = "this is test".getBytes(StandardCharsets.UTF_8);
         String algorithm = "RSA_PKCS1_SHA_256";
+        // TODO 待签名数据摘要或预处理数据
+        byte[] digest = "<the digest or sm2-signature-pretreatment-value of the plaintext to sign>".getBytes(StandardCharsets.UTF_8);
+        // 待签名数据类型，RAW-原始消息，DIGEST-摘要
+        String messageType = "DIGEST";
+        // 待验证签名值
+        // TODO fix the follow signature value
+        byte[] signature = "<the signature value>".getBytes(StandardCharsets.UTF_8);
 
         VerifyRequest verifyRequest = new VerifyRequest();
         verifyRequest.setKeyId(signKeyId);
         verifyRequest.setAlgorithm(algorithm);
-        verifyRequest.setMessage(message);
-        verifyRequest.setMessageType("RAW"); // RAW原始消息，DIGEST摘要
+        verifyRequest.setMessage(digest);
+        verifyRequest.setMessageType(messageType);
         verifyRequest.setSignature(signature);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
         try {
             //VerifyResponse verifyResponse = client.verify(verifyRequest);
             VerifyResponse verifyResponse = client.verifyWithOptions(verifyRequest, runtimeOptions);
-            System.out.printf("verify response KeyId: %s\n", verifyResponse.getKeyId());
-            System.out.printf("verify response Value: %s\n", verifyResponse.getValue());
-            System.out.printf("verify response RequestId: %s\n", verifyResponse.getRequestId());
+            System.out.println("================verify================");
+            System.out.printf("KeyId: %s%n", verifyResponse.getKeyId());
+            System.out.printf("Value: %s%n", verifyResponse.getValue());
+            System.out.printf("RequestId: %s%n", verifyResponse.getRequestId());
+            System.out.println("================verify================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("verify error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("verify error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("verify error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("verify error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("verify error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("verify errMsg: %s\n", e.getMessage());
+                System.out.printf("verify errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }
@@ -182,23 +208,25 @@ class DkmsClientTest {
         try {
             //GenerateRandomResponse generateRandomResponse = client.generateRandom(generateRandomRequest);
             GenerateRandomResponse generateRandomResponse = client.generateRandomWithOptions(generateRandomRequest, runtimeOptions);
-            System.out.printf("generateRandom response Random: %s\n", new String(Hex.encode(generateRandomResponse.getRandom())));
-            System.out.printf("generateRandom response RequestId: %s\n", generateRandomResponse.getRequestId());
+            System.out.println("================generateRandom================");
+            System.out.printf("Random: %s%n", Arrays.toString(generateRandomResponse.getRandom()));
+            System.out.printf("RequestId: %s%n", generateRandomResponse.getRequestId());
+            System.out.println("================generateRandom================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("generateRandom error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("generateRandom error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("generateRandom error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("generateRandom error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("generateRandom error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("generateRandom errMsg: %s\n", e.getMessage());
+                System.out.printf("generateRandom errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }
     }
 
-    private static void generateDataKey(){
+    private static void generateDataKey() {
         String keyId = "CmkId";
         Integer numberOfbytes = 32;
 
@@ -209,27 +237,29 @@ class DkmsClientTest {
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
 
-        try{
+        try {
             //GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKey(generateDataKeyRequest);
             GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKeyWithOptions(generateDataKeyRequest, runtimeOptions);
-            System.out.printf("generateDataKey response Plaintext: %s\n", new String(Hex.encode(generateDataKeyResponse.getPlaintext())));
-            System.out.printf("generateDataKey response CiphertextBlob: %s\n", new String(generateDataKeyResponse.getCiphertextBlob()));
-            System.out.printf("generateDataKey response RequestId: %s\n", generateDataKeyResponse.getRequestId());
+            System.out.println("================generateDataKey================");
+            System.out.printf("Plaintext: %s%n", Arrays.toString(generateDataKeyResponse.getPlaintext()));
+            System.out.printf("CiphertextBlob: %s%n", Arrays.toString(generateDataKeyResponse.getCiphertextBlob()));
+            System.out.printf("RequestId: %s%n", generateDataKeyResponse.getRequestId());
+            System.out.println("================generateDataKey================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("generateDataKey error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("generateDataKey error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("generateDataKey error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("generateDataKey error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("generateDataKey error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("generateDataKey errMsg: %s\n", e.getMessage());
+                System.out.printf("generateDataKey errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }
     }
 
-    private static void getPublicKey(){
+    private static void getPublicKey() {
         String keyId = "CmkId";
 
         GetPublicKeyRequest getPublicKeyRequest = new GetPublicKeyRequest();
@@ -238,21 +268,23 @@ class DkmsClientTest {
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
 
-        try{
+        try {
             //GetPublicKeyResponse getPublicKeyResponse = client.getPublicKey(getPublicKeyRequest);
             GetPublicKeyResponse getPublicKeyResponse = client.getPublicKeyWithOptions(getPublicKeyRequest, runtimeOptions);
-            System.out.printf("getPublicKey response KeyId: %s\n", getPublicKeyResponse.getKeyId());
-            System.out.printf("getPublicKey response PublicKey: %s\n", getPublicKeyResponse.getPublicKey());
-            System.out.printf("getPublicKey response RequestId: %s\n", getPublicKeyResponse.getRequestId());
+            System.out.println("================getPublicKey================");
+            System.out.printf("KeyId: %s%n", getPublicKeyResponse.getKeyId());
+            System.out.printf("PublicKey: %s%n", getPublicKeyResponse.getPublicKey());
+            System.out.printf("RequestId: %s%n", getPublicKeyResponse.getRequestId());
+            System.out.println("================getPublicKey================");
         } catch (Exception e) {
             if (e instanceof TeaException) {
-                System.out.printf("getPublicKey error code: %s\n", ((TeaException) e).getCode());
-                System.out.printf("getPublicKey error message: %s\n", ((TeaException) e).getMessage());
-                System.out.printf("getPublicKey error httpCode: %s\n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("getPublicKey error hostId: %s\n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("getPublicKey error requestId: %s\n", ((TeaException) e).getData().get("requestId"));
+                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
             } else {
-                System.out.printf("getPublicKey errMsg: %s\n", e.getMessage());
+                System.out.printf("getPublicKey errMsg: %s%n", e.getMessage());
             }
             e.printStackTrace();
         }

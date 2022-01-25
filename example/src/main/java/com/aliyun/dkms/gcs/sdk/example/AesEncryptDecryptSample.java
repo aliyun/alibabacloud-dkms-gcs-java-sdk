@@ -8,9 +8,9 @@ import com.aliyun.dkms.gcs.sdk.models.DecryptResponse;
 import com.aliyun.dkms.gcs.sdk.models.EncryptRequest;
 import com.aliyun.dkms.gcs.sdk.models.EncryptResponse;
 import com.aliyun.tea.TeaException;
-import org.bouncycastle.util.encoders.Hex;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 /**
  * ClientKey传参支持以下三种方式：
@@ -59,7 +59,7 @@ public class AesEncryptDecryptSample {
     private static String algorithm = "<your encrypt algorithm>";
 
     // 待加密明文
-    private static String plaintext = "aes 256 encrypt and decrypt sample";
+    private static byte[] plaintext = "<your origin data to encrypt>".getBytes(StandardCharsets.UTF_8);
 
     // 主密钥是对称密钥时，加密接口返回值中的Iv
     private static byte[] iv = null;
@@ -103,7 +103,7 @@ public class AesEncryptDecryptSample {
         // 构建加密请求
         EncryptRequest encryptRequest = new EncryptRequest();
         encryptRequest.setKeyId(encryptionKeyId);
-        encryptRequest.setPlaintext(plaintext.getBytes(StandardCharsets.UTF_8));
+        encryptRequest.setPlaintext(plaintext);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
 
@@ -113,8 +113,8 @@ public class AesEncryptDecryptSample {
             // 主密钥是对称密钥时，decrypt接口需要加密返回的Iv
             iv = encryptResponse.getIv();
             System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
-            System.out.printf("CiphertextBlob: %s%n", new String(Hex.encode(encryptResponse.getCiphertextBlob())));
-            System.out.printf("Iv: %s%n", new String(Hex.encode(encryptResponse.getIv())));
+            System.out.printf("CiphertextBlob: %s%n", Arrays.toString(encryptResponse.getCiphertextBlob()));
+            System.out.printf("Iv: %s%n", Arrays.toString(encryptResponse.getIv()));
             System.out.printf("RequestId: %s%n", encryptResponse.getRequestId());
             return encryptResponse.getCiphertextBlob();
         } catch (Exception e) {
