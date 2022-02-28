@@ -52,7 +52,7 @@ public class AsymmetricEncryptDecryptSample {
         //使用专属kms进行非对称加密
         final EncryptResponse encryptResponse = asymmetricEncrypt(keyId, plaintext);
         //使用专属kms进行非对称解密
-        asymmetricDecrypt(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob());
+        asymmetricDecrypt(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob(),encryptResponse.getAlgorithm());
 
     }
 
@@ -91,11 +91,13 @@ public class AsymmetricEncryptDecryptSample {
      * 使用专属kms进行非对称解密
      * @param keyId
      * @param ciphertextBlob
+     * @param algorithm
      */
-    public static void asymmetricDecrypt(String keyId, byte[] ciphertextBlob) {
+    public static void asymmetricDecrypt(String keyId, byte[] ciphertextBlob, String algorithm) {
         com.aliyun.dkms.gcs.sdk.models.DecryptRequest decryptRequest = new com.aliyun.dkms.gcs.sdk.models.DecryptRequest();
         decryptRequest.setKeyId(keyId);
         decryptRequest.setCiphertextBlob(ciphertextBlob);
+        decryptRequest.setAlgorithm(algorithm);
         RuntimeOptions runtimeOptions = new RuntimeOptions();
         runtimeOptions.ignoreSSL = true;
         try {
