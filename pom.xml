@@ -58,6 +58,7 @@
         <module>openapi</module>
         <module>openapi-util</module>
         <module>openapi-credential</module>
+        <module>alibabacloud-dkms-gcs-sdk-samples</module>
     </modules>
 
     <dependencyManagement>

@@ -32,7 +32,8 @@ public class AsymmetricSignVerifySample {
     }
 
     /**
-     *  构建加密服务实例Client对象
+     * 构建加密服务实例Client对象
+     *
      * @throws Exception
      */
     public static void initClient() throws Exception {
@@ -47,6 +48,7 @@ public class AsymmetricSignVerifySample {
 
     /**
      * 使用专属kms实例进行签名和验签
+     *
      * @throws Exception
      */
     public static void asymmetricSignVerify() throws Exception {
@@ -64,6 +66,7 @@ public class AsymmetricSignVerifySample {
 
     /**
      * 使用专属kms对message进行签名
+     *
      * @param keyId
      * @param algorithm
      * @param message
@@ -107,6 +110,7 @@ public class AsymmetricSignVerifySample {
 
     /**
      * 使用专属kms对message进行验证签名
+     *
      * @param keyId
      * @param algorithm
      * @param message

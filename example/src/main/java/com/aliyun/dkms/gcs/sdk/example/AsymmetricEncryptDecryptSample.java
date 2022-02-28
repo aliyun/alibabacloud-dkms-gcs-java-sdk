@@ -31,6 +31,7 @@ public class AsymmetricEncryptDecryptSample {
 
     /**
      * 初始化Client
+     *
      * @throws Exception
      */
     public static void initClient() throws Exception {
@@ -52,12 +53,13 @@ public class AsymmetricEncryptDecryptSample {
         //使用专属kms进行非对称加密
         final EncryptResponse encryptResponse = asymmetricEncrypt(keyId, plaintext);
         //使用专属kms进行非对称解密
-        asymmetricDecrypt(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob(),encryptResponse.getAlgorithm());
+        asymmetricDecrypt(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob(), encryptResponse.getAlgorithm());
 
     }
 
     /**
      * 使用专属kms进行非对称加密
+     *
      * @param keyId
      * @param plaintext
      * @return
@@ -89,6 +91,7 @@ public class AsymmetricEncryptDecryptSample {
 
     /**
      * 使用专属kms进行非对称解密
+     *
      * @param keyId
      * @param ciphertextBlob
      * @param algorithm
