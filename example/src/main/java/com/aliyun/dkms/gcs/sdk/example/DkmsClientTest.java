@@ -23,11 +23,12 @@ class DkmsClientTest {
         EncryptRequest encryptRequest = new EncryptRequest();
         encryptRequest.setKeyId(encryptionKeyId);
         encryptRequest.setPlaintext(plaintext);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            //EncryptResponse encryptResponse = client.encrypt(encryptRequest);
-            EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            EncryptResponse encryptResponse = client.encrypt(encryptRequest);
+//            EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
             // 密文数据
             byte[] ciphertextBlob = encryptResponse.getCiphertextBlob();
             // Cipher初始向量，用于解密数据
@@ -63,11 +64,12 @@ class DkmsClientTest {
         decryptRequest.setCiphertextBlob(ciphertextBlob);
         decryptRequest.setAlgorithm(algorithm);
         decryptRequest.setIv(iv);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            //DecryptResponse decryptResponse = client.decrypt(decryptRequest);
-            DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
+//            DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
             System.out.println("================decrypt================");
             System.out.printf("KeyId: %s%n", decryptResponse.getKeyId());
             System.out.printf("Plaintext: %s%n", new String(decryptResponse.getPlaintext()));
@@ -94,11 +96,12 @@ class DkmsClientTest {
         HmacRequest hmacRequest = new HmacRequest();
         hmacRequest.setKeyId(hmacKeyId);
         hmacRequest.setMessage(message.getBytes(StandardCharsets.UTF_8));
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            //HmacResponse hmacResponse = client.hmac(hmacRequest);
-            HmacResponse hmacResponse = client.hmacWithOptions(hmacRequest, runtimeOptions);
+            HmacResponse hmacResponse = client.hmac(hmacRequest);
+//            HmacResponse hmacResponse = client.hmacWithOptions(hmacRequest, runtimeOptions);
             byte[] signature = hmacResponse.getSignature();
             System.out.println("================hmac================");
             System.out.printf("KeyId: %s%n", hmacResponse.getKeyId());
@@ -132,11 +135,12 @@ class DkmsClientTest {
         signRequest.setAlgorithm(algorithm);
         signRequest.setMessage(digest);
         signRequest.setMessageType(messageType);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            //SignResponse signResponse = client.sign(signRequest);
-            SignResponse signResponse = client.signWithOptions(signRequest, runtimeOptions);
+            SignResponse signResponse = client.sign(signRequest);
+//            SignResponse signResponse = client.signWithOptions(signRequest, runtimeOptions);
             // 签名值
             byte[] signature = signResponse.getSignature();
             System.out.println("================sign================");
@@ -175,11 +179,12 @@ class DkmsClientTest {
         verifyRequest.setMessage(digest);
         verifyRequest.setMessageType(messageType);
         verifyRequest.setSignature(signature);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            //VerifyResponse verifyResponse = client.verify(verifyRequest);
-            VerifyResponse verifyResponse = client.verifyWithOptions(verifyRequest, runtimeOptions);
+            VerifyResponse verifyResponse = client.verify(verifyRequest);
+//            VerifyResponse verifyResponse = client.verifyWithOptions(verifyRequest, runtimeOptions);
             System.out.println("================verify================");
             System.out.printf("KeyId: %s%n", verifyResponse.getKeyId());
             System.out.printf("Value: %s%n", verifyResponse.getValue());
@@ -203,11 +208,12 @@ class DkmsClientTest {
         Integer length = 16;
         GenerateRandomRequest generateRandomRequest = new GenerateRandomRequest();
         generateRandomRequest.setLength(length);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            //GenerateRandomResponse generateRandomResponse = client.generateRandom(generateRandomRequest);
-            GenerateRandomResponse generateRandomResponse = client.generateRandomWithOptions(generateRandomRequest, runtimeOptions);
+            GenerateRandomResponse generateRandomResponse = client.generateRandom(generateRandomRequest);
+//            GenerateRandomResponse generateRandomResponse = client.generateRandomWithOptions(generateRandomRequest, runtimeOptions);
             System.out.println("================generateRandom================");
             System.out.printf("Random: %s%n", Arrays.toString(generateRandomResponse.getRandom()));
             System.out.printf("RequestId: %s%n", generateRandomResponse.getRequestId());
@@ -233,13 +239,13 @@ class DkmsClientTest {
         GenerateDataKeyRequest generateDataKeyRequest = new GenerateDataKeyRequest();
         generateDataKeyRequest.setKeyId(keyId);
         generateDataKeyRequest.setNumberOfBytes(numberOfbytes);
-
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
 
         try {
-            //GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKey(generateDataKeyRequest);
-            GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKeyWithOptions(generateDataKeyRequest, runtimeOptions);
+            GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKey(generateDataKeyRequest);
+//            GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKeyWithOptions(generateDataKeyRequest, runtimeOptions);
             System.out.println("================generateDataKey================");
             System.out.printf("Plaintext: %s%n", Arrays.toString(generateDataKeyResponse.getPlaintext()));
             System.out.printf("CiphertextBlob: %s%n", Arrays.toString(generateDataKeyResponse.getCiphertextBlob()));
@@ -264,13 +270,13 @@ class DkmsClientTest {
 
         GetPublicKeyRequest getPublicKeyRequest = new GetPublicKeyRequest();
         getPublicKeyRequest.setKeyId(keyId);
-
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
 
         try {
-            //GetPublicKeyResponse getPublicKeyResponse = client.getPublicKey(getPublicKeyRequest);
-            GetPublicKeyResponse getPublicKeyResponse = client.getPublicKeyWithOptions(getPublicKeyRequest, runtimeOptions);
+            GetPublicKeyResponse getPublicKeyResponse = client.getPublicKey(getPublicKeyRequest);
+//            GetPublicKeyResponse getPublicKeyResponse = client.getPublicKeyWithOptions(getPublicKeyRequest, runtimeOptions);
             System.out.println("================getPublicKey================");
             System.out.printf("KeyId: %s%n", getPublicKeyResponse.getKeyId());
             System.out.printf("PublicKey: %s%n", getPublicKeyResponse.getPublicKey());

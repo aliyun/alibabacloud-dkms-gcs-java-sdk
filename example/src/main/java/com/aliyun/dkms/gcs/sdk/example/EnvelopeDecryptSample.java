@@ -54,9 +54,11 @@ public class EnvelopeDecryptSample {
                     .setKeyId(keyId)
                     .setCiphertextBlob(encryptedDataKey)
                     .setIv(dataKeyIv);
-            RuntimeOptions runtimeOptions = new RuntimeOptions();
-            runtimeOptions.ignoreSSL = true;
-            DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            //如需跳过https认证，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.ignoreSSL = true;
+            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
+            //DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
             plainDataKey = decryptResponse.getPlaintext();
         } catch (Exception e) {
             e.printStackTrace();
