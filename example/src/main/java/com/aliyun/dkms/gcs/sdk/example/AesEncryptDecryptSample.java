@@ -9,6 +9,7 @@ import com.aliyun.dkms.gcs.sdk.models.EncryptRequest;
 import com.aliyun.dkms.gcs.sdk.models.EncryptResponse;
 import com.aliyun.tea.TeaException;
 
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
@@ -70,71 +71,129 @@ public class AesEncryptDecryptSample {
     private static void encryptDecryptSample() {
         String keyId = "<your-key-id>";
         String plaintext = "<your-plaintext>";
-        final EncryptResponse encryptResponse = encryptSample(keyId, plaintext);
-        String decryptResult = decryptSample(encryptResponse.getKeyId(), encryptResponse.getAlgorithm(), encryptResponse.getIv(), encryptResponse.getCiphertextBlob());
+        final AesEncryptContext aesEncryptContext = encryptSample(keyId, plaintext);
+        String decryptResult = decryptSample(aesEncryptContext);
         if (!plaintext.equals(decryptResult)) {
             System.out.println("Decrypt data not match the plaintext");
         }
     }
 
     // 加密示例
-    private static EncryptResponse encryptSample(String keyId, String plaintext) {
+    private static AesEncryptContext encryptSample(String keyId, String plaintext) {
         // 构建加密请求
         EncryptRequest encryptRequest = new EncryptRequest();
         encryptRequest.setKeyId(keyId);
         encryptRequest.setPlaintext(plaintext.getBytes(StandardCharsets.UTF_8));
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
-
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
             // 调用加密接口进行加密
-            EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            EncryptResponse encryptResponse = client.encrypt(encryptRequest);
+            //EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
             System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
             System.out.printf("CiphertextBlob: %s%n", Arrays.toString(encryptResponse.getCiphertextBlob()));
             System.out.printf("Iv: %s%n", Arrays.toString(encryptResponse.getIv()));
-            System.out.printf("RequestId: %s%n", encryptResponse.getRequestId());
-            return encryptResponse;
+            return new AesEncryptContext(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob(), encryptResponse.getIv(), encryptResponse.getAlgorithm());
+        } catch (TeaException e) {
+            System.out.printf("code: %s%n", ((TeaException) e).getCode());
+            System.out.printf("message: %s%n", e.getMessage());
+            System.out.printf("requestId: %s%n", ((TeaException) e).getData().get("requestId"));
+            e.printStackTrace();
+            throw new RuntimeException(e);
         } catch (Exception e) {
-            if (e instanceof TeaException) {
-                System.out.printf("code: %s%n", ((TeaException) e).getCode());
-                System.out.printf("message: %s%n", ((TeaException) e).getMessage());
-                System.out.printf("requestId: %s%n", ((TeaException) e).getData().get("requestId"));
-            } else {
-                System.out.printf("encrypt err: %s%n", e.getMessage());
-            }
+            System.out.printf("encrypt err: %s%n", e.getMessage());
             e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
 
     // 解密示例
-    private static String decryptSample(String keyId, String algorithm, byte[] iv, byte[] ciphertextBlob) {
+    private static String decryptSample(final AesEncryptContext aesEncryptContext) {
         // 构建解密请求对象
         DecryptRequest decryptRequest = new DecryptRequest();
-        decryptRequest.setKeyId(keyId);
-        decryptRequest.setCiphertextBlob(ciphertextBlob);
-        decryptRequest.setAlgorithm(algorithm);
-        decryptRequest.setIv(iv);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        decryptRequest.setKeyId(aesEncryptContext.getKeyId());
+        decryptRequest.setCiphertextBlob(aesEncryptContext.getCiphertextBlob());
+        decryptRequest.setAlgorithm(aesEncryptContext.getAlgorithm());
+        decryptRequest.setIv(aesEncryptContext.getIv());
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
 
         try {
             // 调用解密接口进行解密
-            DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
+            //DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
             System.out.printf("KeyId: %s%n", decryptResponse.getKeyId());
             System.out.printf("Plaintext: %s%n", new String(decryptResponse.getPlaintext()));
             System.out.printf("RequestId: %s%n", decryptResponse.getRequestId());
             return new String(decryptResponse.getPlaintext());
+        } catch (TeaException e) {
+            System.out.printf("code: %s%n", ((TeaException) e).getCode());
+            System.out.printf("message: %s%n", e.getMessage());
+            System.out.printf("requestId: %s%n", ((TeaException) e).getData().get("requestId"));
+            e.printStackTrace();
+            throw new RuntimeException(e);
         } catch (Exception e) {
-            if (e instanceof TeaException) {
-                System.out.printf("code: %s%n", ((TeaException) e).getCode());
-                System.out.printf("message: %s%n", ((TeaException) e).getMessage());
-                System.out.printf("requestId: %s%n", ((TeaException) e).getData().get("requestId"));
-            } else {
-                System.out.printf("decrypt err: %s%n", e.getMessage());
-            }
+            System.out.printf("decrypt err: %s%n", e.getMessage());
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * The aes encrypt context may be stored.
+     */
+    static class AesEncryptContext implements Serializable {
+        public String keyId;
+        public byte[] ciphertextBlob;
+        public byte[] iv;
+        /**
+         * Use default algorithm value,if the value is not set.
+         */
+        public String algorithm;
+
+        public AesEncryptContext() {
+        }
+
+        public AesEncryptContext(String keyId, byte[] ciphertextBlob, byte[] iv, String algorithm) {
+            this.keyId = keyId;
+            this.ciphertextBlob = ciphertextBlob;
+            this.iv = iv;
+            this.algorithm = algorithm;
+        }
+
+        public String getKeyId() {
+            return keyId;
+        }
+
+        public void setKeyId(String keyId) {
+            this.keyId = keyId;
+        }
+
+        public byte[] getCiphertextBlob() {
+            return ciphertextBlob;
+        }
+
+        public void setCiphertextBlob(byte[] ciphertextBlob) {
+            this.ciphertextBlob = ciphertextBlob;
+        }
+
+        public byte[] getIv() {
+            return iv;
+        }
+
+        public void setIv(byte[] iv) {
+            this.iv = iv;
+        }
+
+        public String getAlgorithm() {
+            return algorithm;
+        }
+
+        public void setAlgorithm(String algorithm) {
+            this.algorithm = algorithm;
+        }
+
     }
 }

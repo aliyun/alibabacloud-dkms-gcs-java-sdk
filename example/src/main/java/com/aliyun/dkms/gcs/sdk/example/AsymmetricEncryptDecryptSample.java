@@ -7,9 +7,13 @@ import com.aliyun.dkms.gcs.sdk.models.DecryptResponse;
 import com.aliyun.dkms.gcs.sdk.models.EncryptResponse;
 import com.aliyun.tea.TeaException;
 
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
+/**
+ * 专属kms非对称加密解密示例
+ */
 public class AsymmetricEncryptDecryptSample {
 
     // 专属kms实例Client对象
@@ -51,9 +55,9 @@ public class AsymmetricEncryptDecryptSample {
         String keyId = "<your-key-id>";
         String plaintext = "<your-plaintext>";
         //使用专属kms进行非对称加密
-        final EncryptResponse encryptResponse = asymmetricEncrypt(keyId, plaintext);
+        final AsymmetricEncryptContext asymmetricEncryptContext = asymmetricEncrypt(keyId, plaintext);
         //使用专属kms进行非对称解密
-        asymmetricDecrypt(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob(), encryptResponse.getAlgorithm());
+        asymmetricDecrypt(asymmetricEncryptContext);
 
     }
 
@@ -64,26 +68,27 @@ public class AsymmetricEncryptDecryptSample {
      * @param plaintext
      * @return
      */
-    public static EncryptResponse asymmetricEncrypt(String keyId, String plaintext) {
+    public static AsymmetricEncryptContext asymmetricEncrypt(String keyId, String plaintext) {
         com.aliyun.dkms.gcs.sdk.models.EncryptRequest encryptRequest = new com.aliyun.dkms.gcs.sdk.models.EncryptRequest();
         encryptRequest.setKeyId(keyId);
         encryptRequest.setPlaintext(plaintext.getBytes(StandardCharsets.UTF_8));
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            EncryptResponse encryptResponse = client.encrypt(encryptRequest);
+            //EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
             System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
             System.out.printf("CiphertextBlob: %s%n", Arrays.toString(encryptResponse.getCiphertextBlob()));
-            System.out.printf("RequestId: %s%n", encryptResponse.getRequestId());
-            return encryptResponse;
+            return new AsymmetricEncryptContext(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob(), encryptResponse.getAlgorithm());
+        } catch (TeaException e) {
+            System.out.printf("code: %s%n", e.getCode());
+            System.out.printf("message: %s%n", e.getMessage());
+            System.out.printf("requestId: %s%n", e.getData().get("requestId"));
+            e.printStackTrace();
+            throw e;
         } catch (Exception e) {
-            if (e instanceof TeaException) {
-                System.out.printf("code: %s%n", ((TeaException) e).getCode());
-                System.out.printf("message: %s%n", ((TeaException) e).getMessage());
-                System.out.printf("requestId: %s%n", ((TeaException) e).getData().get("requestId"));
-            } else {
-                System.out.printf("encrypt err: %s%n", e.getMessage());
-            }
+            System.out.printf("encrypt err: %s%n", e.getMessage());
             e.printStackTrace();
             throw new RuntimeException(e);
         }
@@ -92,31 +97,74 @@ public class AsymmetricEncryptDecryptSample {
     /**
      * 使用专属kms进行非对称解密
      *
-     * @param keyId
-     * @param ciphertextBlob
-     * @param algorithm
+     * @param asymmetricEncryptContext
      */
-    public static void asymmetricDecrypt(String keyId, byte[] ciphertextBlob, String algorithm) {
+    public static void asymmetricDecrypt(final AsymmetricEncryptContext asymmetricEncryptContext) {
         com.aliyun.dkms.gcs.sdk.models.DecryptRequest decryptRequest = new com.aliyun.dkms.gcs.sdk.models.DecryptRequest();
-        decryptRequest.setKeyId(keyId);
-        decryptRequest.setCiphertextBlob(ciphertextBlob);
-        decryptRequest.setAlgorithm(algorithm);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
+        decryptRequest.setKeyId(asymmetricEncryptContext.getKeyId());
+        decryptRequest.setCiphertextBlob(asymmetricEncryptContext.getCiphertextBlob());
+        decryptRequest.setAlgorithm(asymmetricEncryptContext.getAlgorithm());
+        //如需跳过https认证，可使用此处注释代码方式调用
+        //RuntimeOptions runtimeOptions = new RuntimeOptions();
+        //runtimeOptions.ignoreSSL = true;
         try {
-            DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
+            //DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
             System.out.printf("KeyId: %s%n", decryptResponse.getKeyId());
             System.out.printf("Plaintext: %s%n", new String(decryptResponse.getPlaintext(), StandardCharsets.UTF_8));
-            System.out.printf("RequestId: %s%n", decryptResponse.getRequestId());
-        } catch (Exception e) {
-            if (e instanceof TeaException) {
-                System.out.printf("code: %s%n", ((TeaException) e).getCode());
-                System.out.printf("message: %s%n", ((TeaException) e).getMessage());
-                System.out.printf("requestId: %s%n", ((TeaException) e).getData().get("requestId"));
-            } else {
-                System.out.printf("encrypt err: %s%n", e.getMessage());
-            }
+        } catch (TeaException e) {
+            System.out.printf("code: %s%n", e.getCode());
+            System.out.printf("message: %s%n", e.getMessage());
+            System.out.printf("requestId: %s%n", e.getData().get("requestId"));
             e.printStackTrace();
+        } catch (Exception e) {
+            System.out.printf("encrypt err: %s%n", e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * The asymmetric encrypt context may be stored.
+     */
+    static class AsymmetricEncryptContext implements Serializable {
+        public String keyId;
+        public byte[] ciphertextBlob;
+        /**
+         * Use default algorithm value,if the value is not set.
+         */
+        public String algorithm;
+
+        public AsymmetricEncryptContext() {
+        }
+
+        public AsymmetricEncryptContext(String keyId, byte[] ciphertextBlob, String algorithm) {
+            this.keyId = keyId;
+            this.ciphertextBlob = ciphertextBlob;
+            this.algorithm = algorithm;
+        }
+
+        public String getKeyId() {
+            return keyId;
+        }
+
+        public void setKeyId(String keyId) {
+            this.keyId = keyId;
+        }
+
+        public byte[] getCiphertextBlob() {
+            return ciphertextBlob;
+        }
+
+        public void setCiphertextBlob(byte[] ciphertextBlob) {
+            this.ciphertextBlob = ciphertextBlob;
+        }
+
+        public String getAlgorithm() {
+            return algorithm;
+        }
+
+        public void setAlgorithm(String algorithm) {
+            this.algorithm = algorithm;
         }
     }
 }
