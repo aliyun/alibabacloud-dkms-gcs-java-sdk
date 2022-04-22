@@ -80,7 +80,7 @@ public class Client {
         this._maxIdleConns = config.maxIdleConns;
     }
 
-    public ResponseBody doRequest(String apiName, String apiVersion, String protocol, String method, String signatureMethod, byte[] reqBodyBytes, RuntimeOptions runtime, Map<String, String> requestHeaders) throws Exception {
+    public ResponseEntity doRequest(String apiName, String apiVersion, String protocol, String method, String signatureMethod, byte[] reqBodyBytes, RuntimeOptions runtime, Map<String, String> requestHeaders) throws Exception {
         java.util.Map<String, Object> runtime_ = TeaConverter.buildMap(
             new TeaPair("timeouted", "retry"),
             new TeaPair("readTimeout", com.aliyun.teautil.Common.defaultNumber(runtime.readTimeout, _readTimeout)),
@@ -165,7 +165,7 @@ public class Client {
                         }
                     }
                 }
-                return new ResponseBody(bodyBytes, responseHeaders);
+                return new ResponseEntity(bodyBytes, responseHeaders);
             } catch (Exception e) {
                 if (Tea.isRetryable(e)) {
                     _lastException = e;

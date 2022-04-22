@@ -2,14 +2,14 @@ package com.aliyun.dkms.gcs.openapi.models;
 
 import java.util.Map;
 
-public class ResponseBody {
+public class ResponseEntity {
     private byte[] bodyBytes;
     private Map<String, String> responseHeaders;
 
-    public ResponseBody() {
+    public ResponseEntity() {
     }
 
-    public ResponseBody(byte[] bodyBytes, Map<String, String> responseHeaders) {
+    public ResponseEntity(byte[] bodyBytes, Map<String, String> responseHeaders) {
         this.bodyBytes = bodyBytes;
         this.responseHeaders = responseHeaders;
     }

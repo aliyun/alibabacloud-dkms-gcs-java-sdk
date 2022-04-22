@@ -16,8 +16,8 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedEncryptRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("Encrypt", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseEncryptResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("Encrypt", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseEncryptResponse(responseEntity.getBodyBytes());
         EncryptResponse encryptResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("KeyId", respMap.get("KeyId")),
@@ -26,7 +26,7 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
                 new TeaPair("Algorithm", respMap.get("Algorithm")),
                 new TeaPair("PaddingMode", respMap.get("PaddingMode"))
         ), new EncryptResponse());
-        encryptResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        encryptResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return encryptResponse;
     }
 
@@ -39,8 +39,8 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedDecryptRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("Decrypt", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseDecryptResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("Decrypt", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseDecryptResponse(responseEntity.getBodyBytes());
         DecryptResponse decryptResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("KeyId", respMap.get("KeyId")),
@@ -48,7 +48,7 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
                 new TeaPair("Algorithm", respMap.get("Algorithm")),
                 new TeaPair("PaddingMode", respMap.get("PaddingMode"))
         ), new DecryptResponse());
-        decryptResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        decryptResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return decryptResponse;
     }
 
@@ -61,14 +61,14 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedHmacRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("Hmac", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseHmacResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("Hmac", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseHmacResponse(responseEntity.getBodyBytes());
         HmacResponse hmacResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("KeyId", respMap.get("KeyId")),
                 new TeaPair("Signature", respMap.get("Signature"))
         ), new HmacResponse());
-        hmacResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        hmacResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return hmacResponse;
     }
 
@@ -81,8 +81,8 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedSignRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("Sign", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseSignResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("Sign", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseSignResponse(responseEntity.getBodyBytes());
         SignResponse signResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("KeyId", respMap.get("KeyId")),
@@ -90,7 +90,7 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
                 new TeaPair("Algorithm", respMap.get("Algorithm")),
                 new TeaPair("MessageType", respMap.get("MessageType"))
         ), new SignResponse());
-        signResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        signResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return signResponse;
     }
 
@@ -103,8 +103,8 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedVerifyRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("Verify", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseVerifyResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("Verify", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseVerifyResponse(responseEntity.getBodyBytes());
         VerifyResponse verifyResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("KeyId", respMap.get("KeyId")),
@@ -112,7 +112,7 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
                 new TeaPair("Algorithm", respMap.get("Algorithm")),
                 new TeaPair("MessageType", respMap.get("MessageType"))
         ), new VerifyResponse());
-        verifyResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        verifyResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return verifyResponse;
     }
 
@@ -125,13 +125,13 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedGenerateRandomRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("GenerateRandom", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGenerateRandomResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("GenerateRandom", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGenerateRandomResponse(responseEntity.getBodyBytes());
         GenerateRandomResponse generateRandomResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("Random", respMap.get("Random"))
         ), new GenerateRandomResponse());
-        generateRandomResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        generateRandomResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return generateRandomResponse;
     }
 
@@ -144,8 +144,8 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedGenerateDataKeyRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("GenerateDataKey", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGenerateDataKeyResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("GenerateDataKey", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGenerateDataKeyResponse(responseEntity.getBodyBytes());
         GenerateDataKeyResponse generateDataKeyResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("KeyId", respMap.get("KeyId")),
@@ -154,7 +154,7 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
                 new TeaPair("CiphertextBlob", respMap.get("CiphertextBlob")),
                 new TeaPair("Algorithm", respMap.get("Algorithm"))
         ), new GenerateDataKeyResponse());
-        generateDataKeyResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        generateDataKeyResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return generateDataKeyResponse;
     }
 
@@ -167,14 +167,14 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         com.aliyun.teautil.Common.validateModel(request);
         java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
         byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedGetPublicKeyRequest(reqBody);
-        ResponseBody responseBody = this.doRequest("GetPublicKey", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
-        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGetPublicKeyResponse(responseBody.getBodyBytes());
+        ResponseEntity responseEntity = this.doRequest("GetPublicKey", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGetPublicKeyResponse(responseEntity.getBodyBytes());
         GetPublicKeyResponse getPublicKeyResponse = TeaModel.toModel(TeaConverter.buildMap(
                 new TeaPair("RequestId", respMap.get("RequestId")),
                 new TeaPair("KeyId", respMap.get("KeyId")),
                 new TeaPair("PublicKey", respMap.get("PublicKey"))
         ), new GetPublicKeyResponse());
-        getPublicKeyResponse.setResponseHeaders(responseBody.getResponseHeaders());
+        getPublicKeyResponse.setResponseHeaders(responseEntity.getResponseHeaders());
         return getPublicKeyResponse;
     }
 
