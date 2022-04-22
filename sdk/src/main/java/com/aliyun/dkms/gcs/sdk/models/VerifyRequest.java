@@ -1,9 +1,10 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.sdk.models;
 
-import com.aliyun.tea.*;
+import com.aliyun.tea.NameInMap;
+import com.aliyun.tea.TeaModel;
 
-public class VerifyRequest extends TeaModel {
+public class VerifyRequest extends DKMSRequest {
     @NameInMap("KeyId")
     public String keyId;
 

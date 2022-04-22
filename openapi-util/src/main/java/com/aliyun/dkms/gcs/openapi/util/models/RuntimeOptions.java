@@ -3,6 +3,8 @@ package com.aliyun.dkms.gcs.openapi.util.models;
 
 import com.aliyun.tea.*;
 
+import java.util.List;
+
 public class RuntimeOptions extends TeaModel {
     @NameInMap("autoretry")
     public Boolean autoretry;
@@ -43,6 +45,9 @@ public class RuntimeOptions extends TeaModel {
     @NameInMap("socks5NetWork")
     public String socks5NetWork;
 
+    @NameInMap("responseHeaders")
+    public List<String> responseHeaders;
+
     public static RuntimeOptions build(java.util.Map<String, ?> map) throws Exception {
         RuntimeOptions self = new RuntimeOptions();
         return TeaModel.build(map, self);
@@ -52,6 +57,7 @@ public class RuntimeOptions extends TeaModel {
         this.autoretry = autoretry;
         return this;
     }
+
     public Boolean getAutoretry() {
         return this.autoretry;
     }
@@ -60,6 +66,7 @@ public class RuntimeOptions extends TeaModel {
         this.ignoreSSL = ignoreSSL;
         return this;
     }
+
     public Boolean getIgnoreSSL() {
         return this.ignoreSSL;
     }
@@ -68,6 +75,7 @@ public class RuntimeOptions extends TeaModel {
         this.maxAttempts = maxAttempts;
         return this;
     }
+
     public Number getMaxAttempts() {
         return this.maxAttempts;
     }
@@ -76,6 +84,7 @@ public class RuntimeOptions extends TeaModel {
         this.backoffPolicy = backoffPolicy;
         return this;
     }
+
     public String getBackoffPolicy() {
         return this.backoffPolicy;
     }
@@ -84,6 +93,7 @@ public class RuntimeOptions extends TeaModel {
         this.backoffPeriod = backoffPeriod;
         return this;
     }
+
     public Number getBackoffPeriod() {
         return this.backoffPeriod;
     }
@@ -92,6 +102,7 @@ public class RuntimeOptions extends TeaModel {
         this.readTimeout = readTimeout;
         return this;
     }
+
     public Number getReadTimeout() {
         return this.readTimeout;
     }
@@ -100,6 +111,7 @@ public class RuntimeOptions extends TeaModel {
         this.connectTimeout = connectTimeout;
         return this;
     }
+
     public Number getConnectTimeout() {
         return this.connectTimeout;
     }
@@ -108,6 +120,7 @@ public class RuntimeOptions extends TeaModel {
         this.httpProxy = httpProxy;
         return this;
     }
+
     public String getHttpProxy() {
         return this.httpProxy;
     }
@@ -116,6 +129,7 @@ public class RuntimeOptions extends TeaModel {
         this.httpsProxy = httpsProxy;
         return this;
     }
+
     public String getHttpsProxy() {
         return this.httpsProxy;
     }
@@ -124,6 +138,7 @@ public class RuntimeOptions extends TeaModel {
         this.noProxy = noProxy;
         return this;
     }
+
     public String getNoProxy() {
         return this.noProxy;
     }
@@ -132,6 +147,7 @@ public class RuntimeOptions extends TeaModel {
         this.maxIdleConns = maxIdleConns;
         return this;
     }
+
     public Number getMaxIdleConns() {
         return this.maxIdleConns;
     }
@@ -140,6 +156,7 @@ public class RuntimeOptions extends TeaModel {
         this.socks5Proxy = socks5Proxy;
         return this;
     }
+
     public String getSocks5Proxy() {
         return this.socks5Proxy;
     }
@@ -148,8 +165,16 @@ public class RuntimeOptions extends TeaModel {
         this.socks5NetWork = socks5NetWork;
         return this;
     }
+
     public String getSocks5NetWork() {
         return this.socks5NetWork;
     }
 
+    public List<String> getResponseHeaders() {
+        return responseHeaders;
+    }
+
+    public void setResponseHeaders(List<String> responseHeaders) {
+        this.responseHeaders = responseHeaders;
+    }
 }
