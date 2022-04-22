@@ -3,11 +3,10 @@ package com.aliyun.dkms.gcs.openapi;
 
 import com.aliyun.tea.*;
 import com.aliyun.dkms.gcs.openapi.models.*;
-import com.aliyun.teautil.*;
-import com.aliyun.dkms.gcs.openapi.credential.*;
-import com.aliyun.dkms.gcs.openapi.credential.models.*;
-import com.aliyun.dkms.gcs.openapi.util.*;
 import com.aliyun.dkms.gcs.openapi.util.models.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Client {
 
@@ -81,7 +80,7 @@ public class Client {
         this._maxIdleConns = config.maxIdleConns;
     }
 
-    public byte[] doRequest(String apiName, String apiVersion, String protocol, String method, String signatureMethod, byte[] reqBodyBytes, RuntimeOptions runtime) throws Exception {
+    public ResponseEntity doRequest(String apiName, String apiVersion, String protocol, String method, String signatureMethod, byte[] reqBodyBytes, RuntimeOptions runtime, Map<String, String> requestHeaders) throws Exception {
         java.util.Map<String, Object> runtime_ = TeaConverter.buildMap(
             new TeaPair("timeouted", "retry"),
             new TeaPair("readTimeout", com.aliyun.teautil.Common.defaultNumber(runtime.readTimeout, _readTimeout)),
@@ -120,16 +119,18 @@ public class Client {
                 request_.protocol = com.aliyun.teautil.Common.defaultString(_protocol, protocol);
                 request_.method = method;
                 request_.pathname = "/";
-                request_.headers = TeaConverter.buildMap(
-                    new TeaPair("accept", "application/x-protobuf"),
-                    new TeaPair("host", com.aliyun.dkms.gcs.openapi.util.Client.getHost(_regionId, _endpoint)),
-                    new TeaPair("date", com.aliyun.teautil.Common.getDateUTCString()),
-                    new TeaPair("user-agent", com.aliyun.teautil.Common.getUserAgent(_userAgent)),
-                    new TeaPair("x-kms-apiversion", apiVersion),
-                    new TeaPair("x-kms-apiname", apiName),
-                    new TeaPair("x-kms-signaturemethod", signatureMethod),
-                    new TeaPair("x-kms-acccesskeyid", _credential.getAccessKeyId())
-                );
+                request_.headers = TeaConverter.buildMap();
+                if (requestHeaders != null && requestHeaders.size() > 0) {
+                    request_.headers.putAll(requestHeaders);
+                }
+                request_.headers.put("accept", "application/x-protobuf");
+                request_.headers.put("host", com.aliyun.dkms.gcs.openapi.util.Client.getHost(_regionId, _endpoint));
+                request_.headers.put("date", com.aliyun.teautil.Common.getDateUTCString());
+                request_.headers.put("user-agent", com.aliyun.teautil.Common.getUserAgent(_userAgent));
+                request_.headers.put("x-kms-apiversion", apiVersion);
+                request_.headers.put("x-kms-apiname", apiName);
+                request_.headers.put("x-kms-signaturemethod", signatureMethod);
+                request_.headers.put("x-kms-acccesskeyid", _credential.getAccessKeyId());
                 request_.headers.put("content-type", "application/x-protobuf");
                 request_.headers.put("content-length", com.aliyun.dkms.gcs.openapi.util.Client.getContentLength(reqBodyBytes));
                 request_.headers.put("content-sha256", com.aliyun.dkms.gcs.openapi.util.Client.getContentSHA256(reqBodyBytes));
@@ -155,7 +156,16 @@ public class Client {
                 }
 
                 bodyBytes = com.aliyun.teautil.Common.readAsBytes(response_.body);
-                return bodyBytes;
+                Map<String, String> responseHeaders = null;
+                if (runtime.getResponseHeaders() != null && runtime.getResponseHeaders().size() > 0) {
+                    responseHeaders = new HashMap<>();
+                    for (String header : runtime.getResponseHeaders()) {
+                        if (response_.headers.containsKey(header)) {
+                            responseHeaders.put(header, response_.headers.get(header));
+                        }
+                    }
+                }
+                return new ResponseEntity(bodyBytes, responseHeaders);
             } catch (Exception e) {
                 if (Tea.isRetryable(e)) {
                     _lastException = e;
