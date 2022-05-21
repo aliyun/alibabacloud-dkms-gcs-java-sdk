@@ -19,7 +19,7 @@
 <dependency>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
-    <version>0.2.4</version>
+    <version>0.2.5</version>
 </dependency>
 ```
 
@@ -33,4 +33,4 @@ mvn clean install -DskipTests
 
 [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-版权所有 2009-present, 阿里巴巴集团.
+Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
