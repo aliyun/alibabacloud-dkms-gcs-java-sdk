@@ -18706,6 +18706,3150 @@ public final class ApiModels {
 
   }
 
+  public interface GetSecretValueRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetSecretValueRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    java.lang.String getSecretName();
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSecretNameBytes();
+
+    /**
+     * <code>string VersionStage = 2;</code>
+     */
+    java.lang.String getVersionStage();
+    /**
+     * <code>string VersionStage = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getVersionStageBytes();
+
+    /**
+     * <code>string VersionId = 3;</code>
+     */
+    java.lang.String getVersionId();
+    /**
+     * <code>string VersionId = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getVersionIdBytes();
+
+    /**
+     * <code>bool FetchExtendedConfig = 4;</code>
+     */
+    boolean getFetchExtendedConfig();
+  }
+  /**
+   * <pre>
+   * 凭据管家API
+   * </pre>
+   *
+   * Protobuf type {@code GetSecretValueRequest}
+   */
+  public  static final class GetSecretValueRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetSecretValueRequest)
+      GetSecretValueRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetSecretValueRequest.newBuilder() to construct.
+    private GetSecretValueRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetSecretValueRequest() {
+      secretName_ = "";
+      versionStage_ = "";
+      versionId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetSecretValueRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              secretName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              versionStage_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              versionId_ = s;
+              break;
+            }
+            case 32: {
+
+              fetchExtendedConfig_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.Builder.class);
+    }
+
+    public static final int SECRETNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object secretName_;
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    public java.lang.String getSecretName() {
+      java.lang.Object ref = secretName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        secretName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSecretNameBytes() {
+      java.lang.Object ref = secretName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        secretName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VERSIONSTAGE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object versionStage_;
+    /**
+     * <code>string VersionStage = 2;</code>
+     */
+    public java.lang.String getVersionStage() {
+      java.lang.Object ref = versionStage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        versionStage_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string VersionStage = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVersionStageBytes() {
+      java.lang.Object ref = versionStage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        versionStage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VERSIONID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object versionId_;
+    /**
+     * <code>string VersionId = 3;</code>
+     */
+    public java.lang.String getVersionId() {
+      java.lang.Object ref = versionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        versionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string VersionId = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVersionIdBytes() {
+      java.lang.Object ref = versionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        versionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FETCHEXTENDEDCONFIG_FIELD_NUMBER = 4;
+    private boolean fetchExtendedConfig_;
+    /**
+     * <code>bool FetchExtendedConfig = 4;</code>
+     */
+    public boolean getFetchExtendedConfig() {
+      return fetchExtendedConfig_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getSecretNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, secretName_);
+      }
+      if (!getVersionStageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, versionStage_);
+      }
+      if (!getVersionIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, versionId_);
+      }
+      if (fetchExtendedConfig_ != false) {
+        output.writeBool(4, fetchExtendedConfig_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getSecretNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, secretName_);
+      }
+      if (!getVersionStageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, versionStage_);
+      }
+      if (!getVersionIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, versionId_);
+      }
+      if (fetchExtendedConfig_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, fetchExtendedConfig_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest)) {
+        return super.equals(obj);
+      }
+      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest) obj;
+
+      if (!getSecretName()
+          .equals(other.getSecretName())) return false;
+      if (!getVersionStage()
+          .equals(other.getVersionStage())) return false;
+      if (!getVersionId()
+          .equals(other.getVersionId())) return false;
+      if (getFetchExtendedConfig()
+          != other.getFetchExtendedConfig()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SECRETNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSecretName().hashCode();
+      hash = (37 * hash) + VERSIONSTAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getVersionStage().hashCode();
+      hash = (37 * hash) + VERSIONID_FIELD_NUMBER;
+      hash = (53 * hash) + getVersionId().hashCode();
+      hash = (37 * hash) + FETCHEXTENDEDCONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFetchExtendedConfig());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 凭据管家API
+     * </pre>
+     *
+     * Protobuf type {@code GetSecretValueRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetSecretValueRequest)
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.Builder.class);
+      }
+
+      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        secretName_ = "";
+
+        versionStage_ = "";
+
+        versionId_ = "";
+
+        fetchExtendedConfig_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest getDefaultInstanceForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest build() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest buildPartial() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest(this);
+        result.secretName_ = secretName_;
+        result.versionStage_ = versionStage_;
+        result.versionId_ = versionId_;
+        result.fetchExtendedConfig_ = fetchExtendedConfig_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest) {
+          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest other) {
+        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.getDefaultInstance()) return this;
+        if (!other.getSecretName().isEmpty()) {
+          secretName_ = other.secretName_;
+          onChanged();
+        }
+        if (!other.getVersionStage().isEmpty()) {
+          versionStage_ = other.versionStage_;
+          onChanged();
+        }
+        if (!other.getVersionId().isEmpty()) {
+          versionId_ = other.versionId_;
+          onChanged();
+        }
+        if (other.getFetchExtendedConfig() != false) {
+          setFetchExtendedConfig(other.getFetchExtendedConfig());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object secretName_ = "";
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public java.lang.String getSecretName() {
+        java.lang.Object ref = secretName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          secretName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSecretNameBytes() {
+        java.lang.Object ref = secretName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          secretName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public Builder setSecretName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secretName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public Builder clearSecretName() {
+        
+        secretName_ = getDefaultInstance().getSecretName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public Builder setSecretNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        secretName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object versionStage_ = "";
+      /**
+       * <code>string VersionStage = 2;</code>
+       */
+      public java.lang.String getVersionStage() {
+        java.lang.Object ref = versionStage_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          versionStage_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string VersionStage = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVersionStageBytes() {
+        java.lang.Object ref = versionStage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          versionStage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string VersionStage = 2;</code>
+       */
+      public Builder setVersionStage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        versionStage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string VersionStage = 2;</code>
+       */
+      public Builder clearVersionStage() {
+        
+        versionStage_ = getDefaultInstance().getVersionStage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string VersionStage = 2;</code>
+       */
+      public Builder setVersionStageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        versionStage_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object versionId_ = "";
+      /**
+       * <code>string VersionId = 3;</code>
+       */
+      public java.lang.String getVersionId() {
+        java.lang.Object ref = versionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          versionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string VersionId = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVersionIdBytes() {
+        java.lang.Object ref = versionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          versionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string VersionId = 3;</code>
+       */
+      public Builder setVersionId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        versionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string VersionId = 3;</code>
+       */
+      public Builder clearVersionId() {
+        
+        versionId_ = getDefaultInstance().getVersionId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string VersionId = 3;</code>
+       */
+      public Builder setVersionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        versionId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean fetchExtendedConfig_ ;
+      /**
+       * <code>bool FetchExtendedConfig = 4;</code>
+       */
+      public boolean getFetchExtendedConfig() {
+        return fetchExtendedConfig_;
+      }
+      /**
+       * <code>bool FetchExtendedConfig = 4;</code>
+       */
+      public Builder setFetchExtendedConfig(boolean value) {
+        
+        fetchExtendedConfig_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool FetchExtendedConfig = 4;</code>
+       */
+      public Builder clearFetchExtendedConfig() {
+        
+        fetchExtendedConfig_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetSecretValueRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetSecretValueRequest)
+    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest();
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetSecretValueRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetSecretValueRequest>() {
+      @java.lang.Override
+      public GetSecretValueRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetSecretValueRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetSecretValueRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetSecretValueRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetSecretValueResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetSecretValueResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    java.lang.String getSecretName();
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSecretNameBytes();
+
+    /**
+     * <code>string SecretType = 2;</code>
+     */
+    java.lang.String getSecretType();
+    /**
+     * <code>string SecretType = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getSecretTypeBytes();
+
+    /**
+     * <code>string SecretData = 3;</code>
+     */
+    java.lang.String getSecretData();
+    /**
+     * <code>string SecretData = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSecretDataBytes();
+
+    /**
+     * <code>string SecretDataType = 4;</code>
+     */
+    java.lang.String getSecretDataType();
+    /**
+     * <code>string SecretDataType = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getSecretDataTypeBytes();
+
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getVersionStagesList();
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    int getVersionStagesCount();
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    java.lang.String getVersionStages(int index);
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getVersionStagesBytes(int index);
+
+    /**
+     * <code>string VersionId = 6;</code>
+     */
+    java.lang.String getVersionId();
+    /**
+     * <code>string VersionId = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getVersionIdBytes();
+
+    /**
+     * <code>string CreateTime = 7;</code>
+     */
+    java.lang.String getCreateTime();
+    /**
+     * <code>string CreateTime = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getCreateTimeBytes();
+
+    /**
+     * <code>string RequestId = 8;</code>
+     */
+    java.lang.String getRequestId();
+    /**
+     * <code>string RequestId = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getRequestIdBytes();
+
+    /**
+     * <code>string LastRotationDate = 9;</code>
+     */
+    java.lang.String getLastRotationDate();
+    /**
+     * <code>string LastRotationDate = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getLastRotationDateBytes();
+
+    /**
+     * <code>string NextRotationDate = 10;</code>
+     */
+    java.lang.String getNextRotationDate();
+    /**
+     * <code>string NextRotationDate = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getNextRotationDateBytes();
+
+    /**
+     * <code>string ExtendedConfig = 11;</code>
+     */
+    java.lang.String getExtendedConfig();
+    /**
+     * <code>string ExtendedConfig = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getExtendedConfigBytes();
+
+    /**
+     * <code>string AutomaticRotation = 12;</code>
+     */
+    java.lang.String getAutomaticRotation();
+    /**
+     * <code>string AutomaticRotation = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getAutomaticRotationBytes();
+
+    /**
+     * <code>string RotationInterval = 13;</code>
+     */
+    java.lang.String getRotationInterval();
+    /**
+     * <code>string RotationInterval = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getRotationIntervalBytes();
+  }
+  /**
+   * Protobuf type {@code GetSecretValueResponse}
+   */
+  public  static final class GetSecretValueResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetSecretValueResponse)
+      GetSecretValueResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetSecretValueResponse.newBuilder() to construct.
+    private GetSecretValueResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetSecretValueResponse() {
+      secretName_ = "";
+      secretType_ = "";
+      secretData_ = "";
+      secretDataType_ = "";
+      versionStages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      versionId_ = "";
+      createTime_ = "";
+      requestId_ = "";
+      lastRotationDate_ = "";
+      nextRotationDate_ = "";
+      extendedConfig_ = "";
+      automaticRotation_ = "";
+      rotationInterval_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetSecretValueResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              secretName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              secretType_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              secretData_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              secretDataType_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                versionStages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              versionStages_.add(s);
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              versionId_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              createTime_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              requestId_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              lastRotationDate_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              nextRotationDate_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              extendedConfig_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              automaticRotation_ = s;
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              rotationInterval_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+          versionStages_ = versionStages_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SECRETNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object secretName_;
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    public java.lang.String getSecretName() {
+      java.lang.Object ref = secretName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        secretName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string SecretName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSecretNameBytes() {
+      java.lang.Object ref = secretName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        secretName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SECRETTYPE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object secretType_;
+    /**
+     * <code>string SecretType = 2;</code>
+     */
+    public java.lang.String getSecretType() {
+      java.lang.Object ref = secretType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        secretType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string SecretType = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSecretTypeBytes() {
+      java.lang.Object ref = secretType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        secretType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SECRETDATA_FIELD_NUMBER = 3;
+    private volatile java.lang.Object secretData_;
+    /**
+     * <code>string SecretData = 3;</code>
+     */
+    public java.lang.String getSecretData() {
+      java.lang.Object ref = secretData_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        secretData_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string SecretData = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSecretDataBytes() {
+      java.lang.Object ref = secretData_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        secretData_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SECRETDATATYPE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object secretDataType_;
+    /**
+     * <code>string SecretDataType = 4;</code>
+     */
+    public java.lang.String getSecretDataType() {
+      java.lang.Object ref = secretDataType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        secretDataType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string SecretDataType = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSecretDataTypeBytes() {
+      java.lang.Object ref = secretDataType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        secretDataType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VERSIONSTAGES_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList versionStages_;
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getVersionStagesList() {
+      return versionStages_;
+    }
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    public int getVersionStagesCount() {
+      return versionStages_.size();
+    }
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    public java.lang.String getVersionStages(int index) {
+      return versionStages_.get(index);
+    }
+    /**
+     * <code>repeated string VersionStages = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVersionStagesBytes(int index) {
+      return versionStages_.getByteString(index);
+    }
+
+    public static final int VERSIONID_FIELD_NUMBER = 6;
+    private volatile java.lang.Object versionId_;
+    /**
+     * <code>string VersionId = 6;</code>
+     */
+    public java.lang.String getVersionId() {
+      java.lang.Object ref = versionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        versionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string VersionId = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVersionIdBytes() {
+      java.lang.Object ref = versionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        versionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CREATETIME_FIELD_NUMBER = 7;
+    private volatile java.lang.Object createTime_;
+    /**
+     * <code>string CreateTime = 7;</code>
+     */
+    public java.lang.String getCreateTime() {
+      java.lang.Object ref = createTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        createTime_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string CreateTime = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCreateTimeBytes() {
+      java.lang.Object ref = createTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        createTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REQUESTID_FIELD_NUMBER = 8;
+    private volatile java.lang.Object requestId_;
+    /**
+     * <code>string RequestId = 8;</code>
+     */
+    public java.lang.String getRequestId() {
+      java.lang.Object ref = requestId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        requestId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string RequestId = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRequestIdBytes() {
+      java.lang.Object ref = requestId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        requestId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LASTROTATIONDATE_FIELD_NUMBER = 9;
+    private volatile java.lang.Object lastRotationDate_;
+    /**
+     * <code>string LastRotationDate = 9;</code>
+     */
+    public java.lang.String getLastRotationDate() {
+      java.lang.Object ref = lastRotationDate_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        lastRotationDate_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string LastRotationDate = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLastRotationDateBytes() {
+      java.lang.Object ref = lastRotationDate_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        lastRotationDate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NEXTROTATIONDATE_FIELD_NUMBER = 10;
+    private volatile java.lang.Object nextRotationDate_;
+    /**
+     * <code>string NextRotationDate = 10;</code>
+     */
+    public java.lang.String getNextRotationDate() {
+      java.lang.Object ref = nextRotationDate_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nextRotationDate_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string NextRotationDate = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNextRotationDateBytes() {
+      java.lang.Object ref = nextRotationDate_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nextRotationDate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXTENDEDCONFIG_FIELD_NUMBER = 11;
+    private volatile java.lang.Object extendedConfig_;
+    /**
+     * <code>string ExtendedConfig = 11;</code>
+     */
+    public java.lang.String getExtendedConfig() {
+      java.lang.Object ref = extendedConfig_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extendedConfig_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ExtendedConfig = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExtendedConfigBytes() {
+      java.lang.Object ref = extendedConfig_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extendedConfig_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AUTOMATICROTATION_FIELD_NUMBER = 12;
+    private volatile java.lang.Object automaticRotation_;
+    /**
+     * <code>string AutomaticRotation = 12;</code>
+     */
+    public java.lang.String getAutomaticRotation() {
+      java.lang.Object ref = automaticRotation_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        automaticRotation_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string AutomaticRotation = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAutomaticRotationBytes() {
+      java.lang.Object ref = automaticRotation_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        automaticRotation_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ROTATIONINTERVAL_FIELD_NUMBER = 13;
+    private volatile java.lang.Object rotationInterval_;
+    /**
+     * <code>string RotationInterval = 13;</code>
+     */
+    public java.lang.String getRotationInterval() {
+      java.lang.Object ref = rotationInterval_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rotationInterval_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string RotationInterval = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRotationIntervalBytes() {
+      java.lang.Object ref = rotationInterval_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rotationInterval_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getSecretNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, secretName_);
+      }
+      if (!getSecretTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, secretType_);
+      }
+      if (!getSecretDataBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, secretData_);
+      }
+      if (!getSecretDataTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, secretDataType_);
+      }
+      for (int i = 0; i < versionStages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, versionStages_.getRaw(i));
+      }
+      if (!getVersionIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, versionId_);
+      }
+      if (!getCreateTimeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, createTime_);
+      }
+      if (!getRequestIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, requestId_);
+      }
+      if (!getLastRotationDateBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, lastRotationDate_);
+      }
+      if (!getNextRotationDateBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, nextRotationDate_);
+      }
+      if (!getExtendedConfigBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, extendedConfig_);
+      }
+      if (!getAutomaticRotationBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, automaticRotation_);
+      }
+      if (!getRotationIntervalBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, rotationInterval_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getSecretNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, secretName_);
+      }
+      if (!getSecretTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, secretType_);
+      }
+      if (!getSecretDataBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, secretData_);
+      }
+      if (!getSecretDataTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, secretDataType_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < versionStages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(versionStages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getVersionStagesList().size();
+      }
+      if (!getVersionIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, versionId_);
+      }
+      if (!getCreateTimeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, createTime_);
+      }
+      if (!getRequestIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, requestId_);
+      }
+      if (!getLastRotationDateBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, lastRotationDate_);
+      }
+      if (!getNextRotationDateBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, nextRotationDate_);
+      }
+      if (!getExtendedConfigBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, extendedConfig_);
+      }
+      if (!getAutomaticRotationBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, automaticRotation_);
+      }
+      if (!getRotationIntervalBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, rotationInterval_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse)) {
+        return super.equals(obj);
+      }
+      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse) obj;
+
+      if (!getSecretName()
+          .equals(other.getSecretName())) return false;
+      if (!getSecretType()
+          .equals(other.getSecretType())) return false;
+      if (!getSecretData()
+          .equals(other.getSecretData())) return false;
+      if (!getSecretDataType()
+          .equals(other.getSecretDataType())) return false;
+      if (!getVersionStagesList()
+          .equals(other.getVersionStagesList())) return false;
+      if (!getVersionId()
+          .equals(other.getVersionId())) return false;
+      if (!getCreateTime()
+          .equals(other.getCreateTime())) return false;
+      if (!getRequestId()
+          .equals(other.getRequestId())) return false;
+      if (!getLastRotationDate()
+          .equals(other.getLastRotationDate())) return false;
+      if (!getNextRotationDate()
+          .equals(other.getNextRotationDate())) return false;
+      if (!getExtendedConfig()
+          .equals(other.getExtendedConfig())) return false;
+      if (!getAutomaticRotation()
+          .equals(other.getAutomaticRotation())) return false;
+      if (!getRotationInterval()
+          .equals(other.getRotationInterval())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SECRETNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSecretName().hashCode();
+      hash = (37 * hash) + SECRETTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getSecretType().hashCode();
+      hash = (37 * hash) + SECRETDATA_FIELD_NUMBER;
+      hash = (53 * hash) + getSecretData().hashCode();
+      hash = (37 * hash) + SECRETDATATYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getSecretDataType().hashCode();
+      if (getVersionStagesCount() > 0) {
+        hash = (37 * hash) + VERSIONSTAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getVersionStagesList().hashCode();
+      }
+      hash = (37 * hash) + VERSIONID_FIELD_NUMBER;
+      hash = (53 * hash) + getVersionId().hashCode();
+      hash = (37 * hash) + CREATETIME_FIELD_NUMBER;
+      hash = (53 * hash) + getCreateTime().hashCode();
+      hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
+      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + LASTROTATIONDATE_FIELD_NUMBER;
+      hash = (53 * hash) + getLastRotationDate().hashCode();
+      hash = (37 * hash) + NEXTROTATIONDATE_FIELD_NUMBER;
+      hash = (53 * hash) + getNextRotationDate().hashCode();
+      hash = (37 * hash) + EXTENDEDCONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getExtendedConfig().hashCode();
+      hash = (37 * hash) + AUTOMATICROTATION_FIELD_NUMBER;
+      hash = (53 * hash) + getAutomaticRotation().hashCode();
+      hash = (37 * hash) + ROTATIONINTERVAL_FIELD_NUMBER;
+      hash = (53 * hash) + getRotationInterval().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetSecretValueResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetSecretValueResponse)
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.Builder.class);
+      }
+
+      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        secretName_ = "";
+
+        secretType_ = "";
+
+        secretData_ = "";
+
+        secretDataType_ = "";
+
+        versionStages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        versionId_ = "";
+
+        createTime_ = "";
+
+        requestId_ = "";
+
+        lastRotationDate_ = "";
+
+        nextRotationDate_ = "";
+
+        extendedConfig_ = "";
+
+        automaticRotation_ = "";
+
+        rotationInterval_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse getDefaultInstanceForType() {
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse build() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse buildPartial() {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.secretName_ = secretName_;
+        result.secretType_ = secretType_;
+        result.secretData_ = secretData_;
+        result.secretDataType_ = secretDataType_;
+        if (((bitField0_ & 0x00000010) != 0)) {
+          versionStages_ = versionStages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.versionStages_ = versionStages_;
+        result.versionId_ = versionId_;
+        result.createTime_ = createTime_;
+        result.requestId_ = requestId_;
+        result.lastRotationDate_ = lastRotationDate_;
+        result.nextRotationDate_ = nextRotationDate_;
+        result.extendedConfig_ = extendedConfig_;
+        result.automaticRotation_ = automaticRotation_;
+        result.rotationInterval_ = rotationInterval_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse) {
+          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse other) {
+        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.getDefaultInstance()) return this;
+        if (!other.getSecretName().isEmpty()) {
+          secretName_ = other.secretName_;
+          onChanged();
+        }
+        if (!other.getSecretType().isEmpty()) {
+          secretType_ = other.secretType_;
+          onChanged();
+        }
+        if (!other.getSecretData().isEmpty()) {
+          secretData_ = other.secretData_;
+          onChanged();
+        }
+        if (!other.getSecretDataType().isEmpty()) {
+          secretDataType_ = other.secretDataType_;
+          onChanged();
+        }
+        if (!other.versionStages_.isEmpty()) {
+          if (versionStages_.isEmpty()) {
+            versionStages_ = other.versionStages_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureVersionStagesIsMutable();
+            versionStages_.addAll(other.versionStages_);
+          }
+          onChanged();
+        }
+        if (!other.getVersionId().isEmpty()) {
+          versionId_ = other.versionId_;
+          onChanged();
+        }
+        if (!other.getCreateTime().isEmpty()) {
+          createTime_ = other.createTime_;
+          onChanged();
+        }
+        if (!other.getRequestId().isEmpty()) {
+          requestId_ = other.requestId_;
+          onChanged();
+        }
+        if (!other.getLastRotationDate().isEmpty()) {
+          lastRotationDate_ = other.lastRotationDate_;
+          onChanged();
+        }
+        if (!other.getNextRotationDate().isEmpty()) {
+          nextRotationDate_ = other.nextRotationDate_;
+          onChanged();
+        }
+        if (!other.getExtendedConfig().isEmpty()) {
+          extendedConfig_ = other.extendedConfig_;
+          onChanged();
+        }
+        if (!other.getAutomaticRotation().isEmpty()) {
+          automaticRotation_ = other.automaticRotation_;
+          onChanged();
+        }
+        if (!other.getRotationInterval().isEmpty()) {
+          rotationInterval_ = other.rotationInterval_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object secretName_ = "";
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public java.lang.String getSecretName() {
+        java.lang.Object ref = secretName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          secretName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSecretNameBytes() {
+        java.lang.Object ref = secretName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          secretName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public Builder setSecretName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secretName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public Builder clearSecretName() {
+        
+        secretName_ = getDefaultInstance().getSecretName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretName = 1;</code>
+       */
+      public Builder setSecretNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        secretName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object secretType_ = "";
+      /**
+       * <code>string SecretType = 2;</code>
+       */
+      public java.lang.String getSecretType() {
+        java.lang.Object ref = secretType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          secretType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string SecretType = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSecretTypeBytes() {
+        java.lang.Object ref = secretType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          secretType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string SecretType = 2;</code>
+       */
+      public Builder setSecretType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secretType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretType = 2;</code>
+       */
+      public Builder clearSecretType() {
+        
+        secretType_ = getDefaultInstance().getSecretType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretType = 2;</code>
+       */
+      public Builder setSecretTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        secretType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object secretData_ = "";
+      /**
+       * <code>string SecretData = 3;</code>
+       */
+      public java.lang.String getSecretData() {
+        java.lang.Object ref = secretData_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          secretData_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string SecretData = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSecretDataBytes() {
+        java.lang.Object ref = secretData_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          secretData_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string SecretData = 3;</code>
+       */
+      public Builder setSecretData(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secretData_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretData = 3;</code>
+       */
+      public Builder clearSecretData() {
+        
+        secretData_ = getDefaultInstance().getSecretData();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretData = 3;</code>
+       */
+      public Builder setSecretDataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        secretData_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object secretDataType_ = "";
+      /**
+       * <code>string SecretDataType = 4;</code>
+       */
+      public java.lang.String getSecretDataType() {
+        java.lang.Object ref = secretDataType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          secretDataType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string SecretDataType = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSecretDataTypeBytes() {
+        java.lang.Object ref = secretDataType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          secretDataType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string SecretDataType = 4;</code>
+       */
+      public Builder setSecretDataType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secretDataType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretDataType = 4;</code>
+       */
+      public Builder clearSecretDataType() {
+        
+        secretDataType_ = getDefaultInstance().getSecretDataType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string SecretDataType = 4;</code>
+       */
+      public Builder setSecretDataTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        secretDataType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList versionStages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureVersionStagesIsMutable() {
+        if (!((bitField0_ & 0x00000010) != 0)) {
+          versionStages_ = new com.google.protobuf.LazyStringArrayList(versionStages_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getVersionStagesList() {
+        return versionStages_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public int getVersionStagesCount() {
+        return versionStages_.size();
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public java.lang.String getVersionStages(int index) {
+        return versionStages_.get(index);
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVersionStagesBytes(int index) {
+        return versionStages_.getByteString(index);
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public Builder setVersionStages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVersionStagesIsMutable();
+        versionStages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public Builder addVersionStages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVersionStagesIsMutable();
+        versionStages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public Builder addAllVersionStages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureVersionStagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, versionStages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public Builder clearVersionStages() {
+        versionStages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string VersionStages = 5;</code>
+       */
+      public Builder addVersionStagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureVersionStagesIsMutable();
+        versionStages_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object versionId_ = "";
+      /**
+       * <code>string VersionId = 6;</code>
+       */
+      public java.lang.String getVersionId() {
+        java.lang.Object ref = versionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          versionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string VersionId = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVersionIdBytes() {
+        java.lang.Object ref = versionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          versionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string VersionId = 6;</code>
+       */
+      public Builder setVersionId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        versionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string VersionId = 6;</code>
+       */
+      public Builder clearVersionId() {
+        
+        versionId_ = getDefaultInstance().getVersionId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string VersionId = 6;</code>
+       */
+      public Builder setVersionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        versionId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object createTime_ = "";
+      /**
+       * <code>string CreateTime = 7;</code>
+       */
+      public java.lang.String getCreateTime() {
+        java.lang.Object ref = createTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          createTime_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string CreateTime = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCreateTimeBytes() {
+        java.lang.Object ref = createTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          createTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string CreateTime = 7;</code>
+       */
+      public Builder setCreateTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        createTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string CreateTime = 7;</code>
+       */
+      public Builder clearCreateTime() {
+        
+        createTime_ = getDefaultInstance().getCreateTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string CreateTime = 7;</code>
+       */
+      public Builder setCreateTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        createTime_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object requestId_ = "";
+      /**
+       * <code>string RequestId = 8;</code>
+       */
+      public java.lang.String getRequestId() {
+        java.lang.Object ref = requestId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          requestId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string RequestId = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRequestIdBytes() {
+        java.lang.Object ref = requestId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          requestId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string RequestId = 8;</code>
+       */
+      public Builder setRequestId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        requestId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RequestId = 8;</code>
+       */
+      public Builder clearRequestId() {
+        
+        requestId_ = getDefaultInstance().getRequestId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RequestId = 8;</code>
+       */
+      public Builder setRequestIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        requestId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object lastRotationDate_ = "";
+      /**
+       * <code>string LastRotationDate = 9;</code>
+       */
+      public java.lang.String getLastRotationDate() {
+        java.lang.Object ref = lastRotationDate_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          lastRotationDate_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string LastRotationDate = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLastRotationDateBytes() {
+        java.lang.Object ref = lastRotationDate_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          lastRotationDate_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string LastRotationDate = 9;</code>
+       */
+      public Builder setLastRotationDate(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        lastRotationDate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string LastRotationDate = 9;</code>
+       */
+      public Builder clearLastRotationDate() {
+        
+        lastRotationDate_ = getDefaultInstance().getLastRotationDate();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string LastRotationDate = 9;</code>
+       */
+      public Builder setLastRotationDateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        lastRotationDate_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object nextRotationDate_ = "";
+      /**
+       * <code>string NextRotationDate = 10;</code>
+       */
+      public java.lang.String getNextRotationDate() {
+        java.lang.Object ref = nextRotationDate_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          nextRotationDate_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string NextRotationDate = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNextRotationDateBytes() {
+        java.lang.Object ref = nextRotationDate_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nextRotationDate_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string NextRotationDate = 10;</code>
+       */
+      public Builder setNextRotationDate(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        nextRotationDate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string NextRotationDate = 10;</code>
+       */
+      public Builder clearNextRotationDate() {
+        
+        nextRotationDate_ = getDefaultInstance().getNextRotationDate();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string NextRotationDate = 10;</code>
+       */
+      public Builder setNextRotationDateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        nextRotationDate_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object extendedConfig_ = "";
+      /**
+       * <code>string ExtendedConfig = 11;</code>
+       */
+      public java.lang.String getExtendedConfig() {
+        java.lang.Object ref = extendedConfig_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extendedConfig_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string ExtendedConfig = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExtendedConfigBytes() {
+        java.lang.Object ref = extendedConfig_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extendedConfig_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ExtendedConfig = 11;</code>
+       */
+      public Builder setExtendedConfig(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        extendedConfig_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ExtendedConfig = 11;</code>
+       */
+      public Builder clearExtendedConfig() {
+        
+        extendedConfig_ = getDefaultInstance().getExtendedConfig();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ExtendedConfig = 11;</code>
+       */
+      public Builder setExtendedConfigBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        extendedConfig_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object automaticRotation_ = "";
+      /**
+       * <code>string AutomaticRotation = 12;</code>
+       */
+      public java.lang.String getAutomaticRotation() {
+        java.lang.Object ref = automaticRotation_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          automaticRotation_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string AutomaticRotation = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAutomaticRotationBytes() {
+        java.lang.Object ref = automaticRotation_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          automaticRotation_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string AutomaticRotation = 12;</code>
+       */
+      public Builder setAutomaticRotation(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        automaticRotation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string AutomaticRotation = 12;</code>
+       */
+      public Builder clearAutomaticRotation() {
+        
+        automaticRotation_ = getDefaultInstance().getAutomaticRotation();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string AutomaticRotation = 12;</code>
+       */
+      public Builder setAutomaticRotationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        automaticRotation_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object rotationInterval_ = "";
+      /**
+       * <code>string RotationInterval = 13;</code>
+       */
+      public java.lang.String getRotationInterval() {
+        java.lang.Object ref = rotationInterval_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          rotationInterval_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string RotationInterval = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRotationIntervalBytes() {
+        java.lang.Object ref = rotationInterval_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          rotationInterval_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string RotationInterval = 13;</code>
+       */
+      public Builder setRotationInterval(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rotationInterval_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RotationInterval = 13;</code>
+       */
+      public Builder clearRotationInterval() {
+        
+        rotationInterval_ = getDefaultInstance().getRotationInterval();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RotationInterval = 13;</code>
+       */
+      public Builder setRotationIntervalBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        rotationInterval_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetSecretValueResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetSecretValueResponse)
+    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse();
+    }
+
+    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetSecretValueResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetSecretValueResponse>() {
+      @java.lang.Override
+      public GetSecretValueResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetSecretValueResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetSecretValueResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetSecretValueResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_KmsEncryptRequest_descriptor;
   private static final 
@@ -18821,6 +21965,16 @@ public final class ApiModels {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Error_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetSecretValueRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetSecretValueRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetSecretValueResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetSecretValueResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -18879,8 +22033,19 @@ public final class ApiModels {
       " \001(\t\022\021\n\tPublicKey\030\002 \001(\t\022\021\n\tRequestId\030\003 \001" +
       "(\t\"W\n\005Error\022\022\n\nStatusCode\030\001 \001(\005\022\021\n\tError" +
       "Code\030\002 \001(\t\022\024\n\014ErrorMessage\030\003 \001(\t\022\021\n\tRequ" +
-      "estId\030\004 \001(\tB6\n)com.aliyun.dkms.gcs.opena" +
-      "pi.util.protobufB\tApiModelsb\006proto3"
+      "estId\030\004 \001(\t\"q\n\025GetSecretValueRequest\022\022\n\n" +
+      "SecretName\030\001 \001(\t\022\024\n\014VersionStage\030\002 \001(\t\022\021" +
+      "\n\tVersionId\030\003 \001(\t\022\033\n\023FetchExtendedConfig" +
+      "\030\004 \001(\010\"\276\002\n\026GetSecretValueResponse\022\022\n\nSec" +
+      "retName\030\001 \001(\t\022\022\n\nSecretType\030\002 \001(\t\022\022\n\nSec" +
+      "retData\030\003 \001(\t\022\026\n\016SecretDataType\030\004 \001(\t\022\025\n" +
+      "\rVersionStages\030\005 \003(\t\022\021\n\tVersionId\030\006 \001(\t\022" +
+      "\022\n\nCreateTime\030\007 \001(\t\022\021\n\tRequestId\030\010 \001(\t\022\030" +
+      "\n\020LastRotationDate\030\t \001(\t\022\030\n\020NextRotation" +
+      "Date\030\n \001(\t\022\026\n\016ExtendedConfig\030\013 \001(\t\022\031\n\021Au" +
+      "tomaticRotation\030\014 \001(\t\022\030\n\020RotationInterva" +
+      "l\030\r \001(\tB6\n)com.aliyun.dkms.gcs.openapi.u" +
+      "til.protobufB\tApiModelsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19032,6 +22197,18 @@ public final class ApiModels {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Error_descriptor,
         new java.lang.String[] { "StatusCode", "ErrorCode", "ErrorMessage", "RequestId", });
+    internal_static_GetSecretValueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_GetSecretValueRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetSecretValueRequest_descriptor,
+        new java.lang.String[] { "SecretName", "VersionStage", "VersionId", "FetchExtendedConfig", });
+    internal_static_GetSecretValueResponse_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_GetSecretValueResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetSecretValueResponse_descriptor,
+        new java.lang.String[] { "SecretName", "SecretType", "SecretData", "SecretDataType", "VersionStages", "VersionId", "CreateTime", "RequestId", "LastRotationDate", "NextRotationDate", "ExtendedConfig", "AutomaticRotation", "RotationInterval", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

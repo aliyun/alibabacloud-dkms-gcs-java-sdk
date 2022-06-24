@@ -118,4 +118,12 @@ public class Client {
     public static java.util.Map<String, Object> parseGetPublicKeyResponse(byte[] resBody) throws Exception {
         return Utils.parseGetPublicKeyResponse(resBody);
     }
+
+    public static byte[] getSerializedGetSecretValueRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        return Utils.getSerializedGetSecretValueRequest(reqBody);
+    }
+
+    public static java.util.Map<String, Object> parseGetSecretValueResponse(byte[] resBody) throws Exception {
+        return Utils.parseGetSecretValueResponse(resBody);
+    }
 }
