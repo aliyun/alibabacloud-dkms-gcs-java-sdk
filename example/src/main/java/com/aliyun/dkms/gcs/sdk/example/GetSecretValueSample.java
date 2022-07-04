@@ -20,12 +20,9 @@ public class GetSecretValueSample {
             initClient();
 
             String secretName = "<your-secret-name>";
-            String versionId = "<your-version-id>";
-            String versionStage = "<your-version-stage>";
-            Boolean fetchExtendedConfig = false;
 
             // 使用专属kms获取凭据示例
-            getSecretValueSample(secretName, versionId, versionStage, fetchExtendedConfig);
+            getSecretValueSample(secretName);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,16 +46,10 @@ public class GetSecretValueSample {
     /**
      * 使用专属kms获取凭据示例
      * @param secretName
-     * @param versionId
-     * @param versionStage
-     * @param fetchExtendedConfig
      */
-    private static void getSecretValueSample(String secretName, String versionId, String versionStage, Boolean fetchExtendedConfig) {
+    private static void getSecretValueSample(String secretName) {
         GetSecretValueRequest request = new GetSecretValueRequest()
-                .setSecretName(secretName)
-                .setVersionId(versionId)
-                .setVersionStage(versionStage)
-                .setFetchExtendedConfig(fetchExtendedConfig);
+                .setSecretName(secretName);
         //如需跳过https认证，可使用此处注释代码方式调用
         //RuntimeOptions runtimeOptions = new RuntimeOptions();
         //runtimeOptions.ignoreSSL = true;
