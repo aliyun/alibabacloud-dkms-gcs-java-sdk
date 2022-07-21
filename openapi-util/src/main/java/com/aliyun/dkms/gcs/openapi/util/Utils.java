@@ -439,4 +439,44 @@ public class Utils {
         result.put("RequestId", response.getRequestId());
         return result;
     }
+
+    public static byte[] getSerializedGetSecretValueRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.GetSecretValueRequest.Builder builder = ApiModels.GetSecretValueRequest.newBuilder();
+        Object secretName = reqBody.get("SecretName");
+        if (secretName != null) {
+            builder.setSecretName((String) secretName);
+        }
+        Object versionStage = reqBody.get("VersionStage");
+        if (versionStage != null) {
+            builder.setVersionStage((String) versionStage);
+        }
+        Object versionId = reqBody.get("VersionId");
+        if (versionId != null) {
+            builder.setVersionId((String) versionId);
+        }
+        Object fetchExtendedConfig = reqBody.get("FetchExtendedConfig");
+        if (fetchExtendedConfig != null) {
+            builder.setFetchExtendedConfig((boolean) fetchExtendedConfig);
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static java.util.Map<String, Object> parseGetSecretValueResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.GetSecretValueResponse response = ApiModels.GetSecretValueResponse.parseFrom(resBody);
+        result.put("SecretName", response.getSecretName());
+        result.put("SecretType", response.getSecretType());
+        result.put("SecretData", response.getSecretData());
+        result.put("SecretDataType", response.getSecretDataType());
+        result.put("VersionStages", response.getVersionStagesList());
+        result.put("VersionId", response.getVersionId());
+        result.put("CreateTime", response.getCreateTime());
+        result.put("LastRotationDate", response.getLastRotationDate());
+        result.put("NextRotationDate", response.getNextRotationDate());
+        result.put("ExtendedConfig", response.getExtendedConfig());
+        result.put("AutomaticRotation", response.getAutomaticRotation());
+        result.put("RotationInterval", response.getRotationInterval());
+        result.put("RequestId", response.getRequestId());
+        return result;
+    }
 }

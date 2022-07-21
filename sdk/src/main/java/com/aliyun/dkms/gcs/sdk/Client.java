@@ -182,4 +182,34 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         RuntimeOptions runtime = new RuntimeOptions();
         return this.getPublicKeyWithOptions(request, runtime);
     }
+
+    public GetSecretValueResponse getSecretValueWithOptions(GetSecretValueRequest request, RuntimeOptions runtime) throws Exception {
+        com.aliyun.teautil.Common.validateModel(request);
+        java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
+        byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedGetSecretValueRequest(reqBody);
+        ResponseEntity responseEntity = this.doRequest("GetSecretValue", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseGetSecretValueResponse(responseEntity.getBodyBytes());
+        GetSecretValueResponse getSecretValueResponse = TeaModel.toModel(TeaConverter.buildMap(
+                new TeaPair("RequestId", respMap.get("RequestId")),
+                new TeaPair("SecretName", respMap.get("SecretName")),
+                new TeaPair("SecretType", respMap.get("SecretType")),
+                new TeaPair("SecretData", respMap.get("SecretData")),
+                new TeaPair("SecretDataType", respMap.get("SecretDataType")),
+                new TeaPair("VersionStages", respMap.get("VersionStages")),
+                new TeaPair("VersionId", respMap.get("VersionId")),
+                new TeaPair("CreateTime", respMap.get("CreateTime")),
+                new TeaPair("LastRotationDate", respMap.get("LastRotationDate")),
+                new TeaPair("NextRotationDate", respMap.get("NextRotationDate")),
+                new TeaPair("ExtendedConfig", respMap.get("ExtendedConfig")),
+                new TeaPair("AutomaticRotation", respMap.get("AutomaticRotation")),
+                new TeaPair("RotationInterval", respMap.get("RotationInterval"))
+        ), new GetSecretValueResponse());
+        getSecretValueResponse.setResponseHeaders(responseEntity.getResponseHeaders());
+        return getSecretValueResponse;
+    }
+
+    public GetSecretValueResponse getSecretValue(GetSecretValueRequest request) throws Exception {
+        RuntimeOptions runtime = new RuntimeOptions();
+        return this.getSecretValueWithOptions(request, runtime);
+    }
 }
