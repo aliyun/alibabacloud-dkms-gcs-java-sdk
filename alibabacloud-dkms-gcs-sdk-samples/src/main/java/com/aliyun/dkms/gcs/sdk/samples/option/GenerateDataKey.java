@@ -60,6 +60,10 @@ public class GenerateDataKey {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         try {
             Client client = new Client(config);
             generateDataKey(client);
@@ -76,11 +80,12 @@ public class GenerateDataKey {
         generateDataKeyRequest.setKeyId(keyId);
         generateDataKeyRequest.setNumberOfBytes(numberOfbytes);
 
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
-
         try {
-            com.aliyun.dkms.gcs.sdk.models.GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKeyWithOptions(generateDataKeyRequest, runtimeOptions);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
+            //com.aliyun.dkms.gcs.sdk.models.GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKeyWithOptions(generateDataKeyRequest, runtimeOptions);
+            com.aliyun.dkms.gcs.sdk.models.GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKey(generateDataKeyRequest);
             System.out.println("================generateDataKey================");
             System.out.printf("Plaintext: %s%n", Arrays.toString(generateDataKeyResponse.getPlaintext()));
             System.out.printf("CiphertextBlob: %s%n", Arrays.toString(generateDataKeyResponse.getCiphertextBlob()));

@@ -40,6 +40,10 @@ public class GetSecretValueSample {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         client = new Client(config);
     }
 
@@ -50,10 +54,10 @@ public class GetSecretValueSample {
     private static void getSecretValueSample(String secretName) {
         GetSecretValueRequest request = new GetSecretValueRequest()
                 .setSecretName(secretName);
-        //如需跳过https认证，可使用此处注释代码方式调用
-        //RuntimeOptions runtimeOptions = new RuntimeOptions();
-        //runtimeOptions.ignoreSSL = true;
         try {
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
             //GetSecretValueResponse getSecretValueResponse = client.getSecretValueWithOptions(request, runtimeOptions);
             GetSecretValueResponse getSecretValueResponse = client.getSecretValue(request);
             System.out.printf("SecretName: %s%n", getSecretValueResponse.getSecretName());

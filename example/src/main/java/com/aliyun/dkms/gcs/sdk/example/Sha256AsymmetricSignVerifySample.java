@@ -47,6 +47,10 @@ public class Sha256AsymmetricSignVerifySample {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         client = new Client(config);
     }
 
@@ -85,12 +89,12 @@ public class Sha256AsymmetricSignVerifySample {
         signRequest.setAlgorithm(algorithm);
         signRequest.setMessage(getDigest(message));
         signRequest.setMessageType(messageType);
-        //如需跳过https认证，可使用此处注释代码方式调用
-        //RuntimeOptions runtimeOptions = new RuntimeOptions();
-        //runtimeOptions.ignoreSSL = true;
         try {
-            SignResponse signResponse = client.sign(signRequest);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
             //SignResponse signResponse = client.signWithOptions(signRequest, runtimeOptions);
+            SignResponse signResponse = client.sign(signRequest);
             // 签名值
             byte[] signature = signResponse.getSignature();
             System.out.println("================sign================");
@@ -126,12 +130,12 @@ public class Sha256AsymmetricSignVerifySample {
         verifyRequest.setMessage(getDigest(message));
         verifyRequest.setMessageType(signContext.getMessageType());
         verifyRequest.setSignature(signContext.getSignature());
-        //如需跳过https认证，可使用此处注释代码方式调用
-        //RuntimeOptions runtimeOptions = new RuntimeOptions();
-        //runtimeOptions.ignoreSSL = true;
         try {
-            VerifyResponse verifyResponse = client.verify(verifyRequest);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
             //VerifyResponse verifyResponse = client.verifyWithOptions(verifyRequest, runtimeOptions);
+            VerifyResponse verifyResponse = client.verify(verifyRequest);
             System.out.println("================verify================");
             System.out.printf("KeyId: %s%n", verifyResponse.getKeyId());
             System.out.printf("Value: %s%n", verifyResponse.getValue());

@@ -5,7 +5,16 @@ import com.aliyun.tea.TeaRequest;
 import com.aliyun.tea.utils.StringUtils;
 import com.google.protobuf.ByteString;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.*;
 
 public class Utils {
@@ -13,6 +22,9 @@ public class Utils {
     public final static String URL_ENCODING = "UTF-8";
     public static final String HASH_SHA256 = "SHA-256";
     private static final String HEXES_ARRAY = "0123456789ABCDEF";
+    private static final String BEGIN_CERT = "-----BEGIN CERTIFICATE-----";
+    private static final String END_CERT = "-----END CERTIFICATE-----";
+    private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
     public static String getHost(String regionId, String endpoint) {
         if (!StringUtils.isEmpty(endpoint)) {
@@ -130,6 +142,44 @@ public class Utils {
             hex.append(HEXES_ARRAY.charAt((b & 0xF0) >> 4)).append(HEXES_ARRAY.charAt((b & 0x0F)));
         }
         return hex.toString();
+    }
+
+    public static String getCaCertFromFile(String caFilePath) throws Exception {
+        File file = new File(caFilePath);
+        if (!file.exists()) {
+            throw new RuntimeException(String.format("ca certificate file[%s] not found", caFilePath));
+        }
+        try (InputStream is = new FileInputStream(file)) {
+            return readCaCertificate(is);
+        }
+    }
+
+    public static String getCaCertFromContent(byte[] caContent) throws Exception {
+        ByteArrayInputStream in = new ByteArrayInputStream(caContent);
+        return readCaCertificate(in);
+    }
+
+    public static String readCaCertificate(InputStream inStream) throws Exception {
+        X509Certificate[] certificateChain = readCertificateChain(inStream);
+        for (X509Certificate certificate : certificateChain) {
+            if (!certificate.getIssuerDN().equals(certificate.getSubjectDN())) {
+                return convertToPEM(certificate);
+            }
+        }
+        throw new RuntimeException("not found second CA certificate, expect sub CA certificate or CA certificate chain");
+    }
+
+    public static X509Certificate[] readCertificateChain(InputStream inStream) throws Exception {
+        CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
+        Collection<? extends Certificate> certList = certFactory.generateCertificates(inStream);
+        X509Certificate[] certs = new X509Certificate[certList.size()];
+        return certList.toArray(certs);
+    }
+
+    public static String convertToPEM(X509Certificate cert) throws CertificateEncodingException {
+        return BEGIN_CERT + LINE_SEPARATOR +
+                Base64.getMimeEncoder(64, LINE_SEPARATOR.getBytes(StandardCharsets.UTF_8)).encodeToString(cert.getEncoded()) +
+                LINE_SEPARATOR + END_CERT;
     }
 
     public static byte[] getSerializedEncryptRequest(java.util.Map<String, Object> reqBody) throws Exception {

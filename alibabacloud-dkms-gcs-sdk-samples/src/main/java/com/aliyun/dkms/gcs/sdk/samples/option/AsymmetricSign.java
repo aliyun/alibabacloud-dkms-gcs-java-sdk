@@ -13,7 +13,6 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.kms.model.v20160120.*;
 import com.aliyuncs.profile.DefaultProfile;
 
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Arrays;
@@ -66,7 +65,10 @@ public class AsymmetricSign {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
-
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         try {
             Client client = new Client(config);
             asymmetricSign(client);
@@ -89,11 +91,12 @@ public class AsymmetricSign {
         signRequest.setAlgorithm(algorithm);
         signRequest.setMessage(digest);
         signRequest.setMessageType(messageType);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
         try {
-            SignResponse signResponse = client.signWithOptions(signRequest, runtimeOptions);
-
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
+            //SignResponse signResponse = client.signWithOptions(signRequest, runtimeOptions);
+            SignResponse signResponse = client.sign(signRequest);
             System.out.println("================sign================");
             //用于签名/验签的密钥Id,验签时需使用到此参数
             System.out.printf("KeyId: %s%n", signResponse.getKeyId());

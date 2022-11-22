@@ -61,6 +61,10 @@ public class Decrypt {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         try {
             Client client = new Client(config);
             decrypt(client);
@@ -76,10 +80,12 @@ public class Decrypt {
         decryptRequest.setKeyId(keyId);
         decryptRequest.setIv("<your-encrypt-response-iv>".getBytes());
         decryptRequest.setCiphertextBlob("<your-encrypt-response-ciphertext-blob>".getBytes());
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
         try {
-            com.aliyun.dkms.gcs.sdk.models.DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
+            //com.aliyun.dkms.gcs.sdk.models.DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            com.aliyun.dkms.gcs.sdk.models.DecryptResponse decryptResponse = client.decrypt(decryptRequest);
             System.out.printf("KeyId: %s%n", decryptResponse.getKeyId());
             System.out.printf("Plaintext: %s%n", new String(decryptResponse.getPlaintext(), StandardCharsets.UTF_8));
             System.out.printf("RequestId: %s%n", decryptResponse.getRequestId());

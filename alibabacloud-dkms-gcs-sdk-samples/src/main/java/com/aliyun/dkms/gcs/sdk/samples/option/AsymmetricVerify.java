@@ -69,6 +69,10 @@ public class AsymmetricVerify {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         try {
             Client client = new Client(config);
             asymmetricVerify(client);
@@ -91,10 +95,12 @@ public class AsymmetricVerify {
         verifyRequest.setMessage(digest);
         verifyRequest.setMessageType(messageType);
         verifyRequest.setSignature(signature);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
         try {
-            VerifyResponse verifyResponse = client.verifyWithOptions(verifyRequest, runtimeOptions);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
+            //VerifyResponse verifyResponse = client.verifyWithOptions(verifyRequest, runtimeOptions);
+            VerifyResponse verifyResponse = client.verify(verifyRequest);
             System.out.println("================verify================");
             System.out.printf("KeyId: %s%n", verifyResponse.getKeyId());
             //验签结果
