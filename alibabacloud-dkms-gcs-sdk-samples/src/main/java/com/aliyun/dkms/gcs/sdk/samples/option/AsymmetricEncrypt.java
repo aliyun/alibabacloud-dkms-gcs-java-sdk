@@ -43,9 +43,9 @@ public class AsymmetricEncrypt {
         request.setAlgorithm("<your-algorithm>");
         try {
             AsymmetricEncryptResponse response = client.getAcsResponse(request);
-            System.out.printf("CiphertextBlob: %s%n" , response.getCiphertextBlob());
-            System.out.printf("KeyId: %s%n" , response.getKeyId());
-            System.out.printf("KeyVersionId: %s%n" , response.getKeyVersionId());
+            System.out.printf("CiphertextBlob: %s%n", response.getCiphertextBlob());
+            System.out.printf("KeyId: %s%n", response.getKeyId());
+            System.out.printf("KeyVersionId: %s%n", response.getKeyVersionId());
         } catch (ServerException e) {
             e.printStackTrace();
         } catch (ClientException e) {
@@ -66,6 +66,10 @@ public class AsymmetricEncrypt {
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
         config.setProtocol("https");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         try {
             Client client = new Client(config);
             asymmetricEncrypt(client);
@@ -82,10 +86,12 @@ public class AsymmetricEncrypt {
         encryptRequest.setKeyId(keyId);
         //加密的明文数据字节数组
         encryptRequest.setPlaintext(plaintext.getBytes(StandardCharsets.UTF_8));
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
         try {
-            EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
+            //EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            EncryptResponse encryptResponse = client.encrypt(encryptRequest);
             //密钥Id,解密时需传入此参数
             System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
             //密文字节数组,解密时需传入此参数

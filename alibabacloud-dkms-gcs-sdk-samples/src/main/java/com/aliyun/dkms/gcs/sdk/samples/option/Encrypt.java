@@ -63,6 +63,10 @@ public class Encrypt {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         try {
             Client client = new Client(config);
             encrypt(client);
@@ -77,10 +81,12 @@ public class Encrypt {
         com.aliyun.dkms.gcs.sdk.models.EncryptRequest encryptRequest = new com.aliyun.dkms.gcs.sdk.models.EncryptRequest();
         encryptRequest.setKeyId(keyId);
         encryptRequest.setPlaintext(plaintext.getBytes(StandardCharsets.UTF_8));
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
         try {
-            com.aliyun.dkms.gcs.sdk.models.EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
+            //com.aliyun.dkms.gcs.sdk.models.EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            com.aliyun.dkms.gcs.sdk.models.EncryptResponse encryptResponse = client.encrypt(encryptRequest);
             System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
             System.out.printf("CiphertextBlob: %s%n", Arrays.toString(encryptResponse.getCiphertextBlob()));
             System.out.printf("Iv: %s%n", Arrays.toString(encryptResponse.getIv()));

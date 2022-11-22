@@ -45,6 +45,10 @@ public class AsymmetricEncryptDecryptSample {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         client = new Client(config);
     }
 
@@ -72,12 +76,12 @@ public class AsymmetricEncryptDecryptSample {
         com.aliyun.dkms.gcs.sdk.models.EncryptRequest encryptRequest = new com.aliyun.dkms.gcs.sdk.models.EncryptRequest();
         encryptRequest.setKeyId(keyId);
         encryptRequest.setPlaintext(plaintext.getBytes(StandardCharsets.UTF_8));
-        //如需跳过https认证，可使用此处注释代码方式调用
-        //RuntimeOptions runtimeOptions = new RuntimeOptions();
-        //runtimeOptions.ignoreSSL = true;
         try {
-            EncryptResponse encryptResponse = client.encrypt(encryptRequest);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
             //EncryptResponse encryptResponse = client.encryptWithOptions(encryptRequest, runtimeOptions);
+            EncryptResponse encryptResponse = client.encrypt(encryptRequest);
             System.out.printf("KeyId: %s%n", encryptResponse.getKeyId());
             System.out.printf("CiphertextBlob: %s%n", Arrays.toString(encryptResponse.getCiphertextBlob()));
             return new AsymmetricEncryptContext(encryptResponse.getKeyId(), encryptResponse.getCiphertextBlob(), encryptResponse.getAlgorithm());
@@ -104,12 +108,12 @@ public class AsymmetricEncryptDecryptSample {
         decryptRequest.setKeyId(asymmetricEncryptContext.getKeyId());
         decryptRequest.setCiphertextBlob(asymmetricEncryptContext.getCiphertextBlob());
         decryptRequest.setAlgorithm(asymmetricEncryptContext.getAlgorithm());
-        //如需跳过https认证，可使用此处注释代码方式调用
-        //RuntimeOptions runtimeOptions = new RuntimeOptions();
-        //runtimeOptions.ignoreSSL = true;
         try {
-            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
             //DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
             System.out.printf("KeyId: %s%n", decryptResponse.getKeyId());
             System.out.printf("Plaintext: %s%n", new String(decryptResponse.getPlaintext(), StandardCharsets.UTF_8));
         } catch (TeaException e) {

@@ -39,7 +39,11 @@ public class EnvelopeEncryptSample {
         Config config = new Config().setProtocol("https")
                 .setClientKeyContent(clientKeyContent)
                 .setPassword(password)
-                .setEndpoint(endpoint);
+                .setEndpoint(endpoint)
+                // 验证服务端证书，这里需要设置为您的服务端证书路径
+                .setCaFilePath("<path/to/yourCaCert>");
+                // 或者，设置为您的服务端证书内容
+                //.setCa("<your-ca-certificate-content");
         try {
             client = new Client(config);
         } catch (Exception e) {
@@ -51,15 +55,15 @@ public class EnvelopeEncryptSample {
         GenerateDataKeyRequest generateDataKeyRequest = new GenerateDataKeyRequest()
                 .setKeyId(keyId) // 生成数据密钥的主密钥Id
                 .setNumberOfBytes(32); // 生成的数据密钥的长度
-        //如需跳过https认证，可使用此处注释代码方式调用
-        //RuntimeOptions runtimeOptions = new RuntimeOptions();
-        //runtimeOptions.ignoreSSL = true;
         byte[] plainDataKey = null; // 专属KMS返回的数据密钥明文, 加密本地数据使用
         byte[] encryptedDataKey = null; // 专属KMS返回的数据密钥密文，解密本地数据密文时，先将数据密钥密文解密后使用
         byte[] dataKeyIV = null;// 由专属KMS生成的加密初始向量，解密数据密钥密文时需要传入
         try {
-            GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKey(generateDataKeyRequest);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
             //GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKeyWithOptions(generateDataKeyRequest, runtimeOptions);
+            GenerateDataKeyResponse generateDataKeyResponse = client.generateDataKey(generateDataKeyRequest);
             plainDataKey = generateDataKeyResponse.getPlaintext();
             encryptedDataKey = generateDataKeyResponse.getCiphertextBlob();
             dataKeyIV = generateDataKeyResponse.getIv();

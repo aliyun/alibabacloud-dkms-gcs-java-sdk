@@ -35,7 +35,11 @@ public class EnvelopeDecryptSample {
         Config config = new Config().setProtocol("https")
                 .setClientKeyContent(clientKeyContent)
                 .setPassword(password)
-                .setEndpoint(endpoint);
+                .setEndpoint(endpoint)
+                // 验证服务端证书，这里需要设置为您的服务端证书路径
+                .setCaFilePath("<path/to/yourCaCert>");
+                // 或者，设置为您的服务端证书内容
+                //.setCa("<your-ca-certificate-content");
         try {
             client = new Client(config);
         } catch (Exception e) {
@@ -54,11 +58,11 @@ public class EnvelopeDecryptSample {
                     .setKeyId(keyId)
                     .setCiphertextBlob(encryptedDataKey)
                     .setIv(dataKeyIv);
-            //如需跳过https认证，可使用此处注释代码方式调用
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
             //RuntimeOptions runtimeOptions = new RuntimeOptions();
-            //runtimeOptions.ignoreSSL = true;
-            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
+            //runtimeOptions.setIgnoreSSL(true);
             //DecryptResponse decryptResponse = client.decryptWithOptions(decryptRequest, runtimeOptions);
+            DecryptResponse decryptResponse = client.decrypt(decryptRequest);
             plainDataKey = decryptResponse.getPlaintext();
         } catch (Exception e) {
             e.printStackTrace();

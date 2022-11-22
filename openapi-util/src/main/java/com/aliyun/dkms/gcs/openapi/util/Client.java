@@ -31,6 +31,14 @@ public class Client {
         return Utils.toHexString(byteArray);
     }
 
+    public static String getCaCertFromFile(String caFilePath) throws Exception {
+        return Utils.getCaCertFromFile(caFilePath);
+    }
+
+    public static String getCaCertFromContent(byte[] caContent) throws Exception {
+        return Utils.getCaCertFromContent(caContent);
+    }
+
     public static byte[] getSerializedEncryptRequest(java.util.Map<String, Object> reqBody) throws Exception {
         return Utils.getSerializedEncryptRequest(reqBody);
     }

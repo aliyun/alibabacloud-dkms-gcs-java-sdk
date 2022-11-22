@@ -60,6 +60,10 @@ public class GetPublicKey {
         config.setClientKeyFile("<your-client-key-file>");
         config.setPassword("<your-password>");
         config.setEndpoint("<your-endpoint>");
+        // 验证服务端证书，这里需要设置为您的服务端证书路径
+        config.setCaFilePath("<path/to/yourCaCert>");
+        // 或者，设置为您的服务端证书内容
+        //config.setCa("<your-ca-certificate-content");
         try {
             Client client = new Client(config);
             getPublicKey(client);
@@ -72,11 +76,13 @@ public class GetPublicKey {
         String keyId = "<your-key-id>";
         com.aliyun.dkms.gcs.sdk.models.GetPublicKeyRequest getPublicKeyRequest = new com.aliyun.dkms.gcs.sdk.models.GetPublicKeyRequest();
         getPublicKeyRequest.setKeyId(keyId);
-        RuntimeOptions runtimeOptions = new RuntimeOptions();
-        runtimeOptions.ignoreSSL = true;
 
         try {
-            com.aliyun.dkms.gcs.sdk.models.GetPublicKeyResponse getPublicKeyResponse = client.getPublicKeyWithOptions(getPublicKeyRequest, runtimeOptions);
+            // 如需忽略服务端证书，可使用此处注释代码方式调用
+            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+            //runtimeOptions.setIgnoreSSL(true);
+            //com.aliyun.dkms.gcs.sdk.models.GetPublicKeyResponse getPublicKeyResponse = client.getPublicKeyWithOptions(getPublicKeyRequest, runtimeOptions);
+            com.aliyun.dkms.gcs.sdk.models.GetPublicKeyResponse getPublicKeyResponse = client.getPublicKey(getPublicKeyRequest);
             System.out.println("================getPublicKey================");
             System.out.printf("KeyId: %s%n", getPublicKeyResponse.getKeyId());
             System.out.printf("PublicKey: %s%n", getPublicKeyResponse.getPublicKey());
