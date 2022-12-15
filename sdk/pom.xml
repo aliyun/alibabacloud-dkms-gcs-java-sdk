@@ -6,10 +6,10 @@
     <parent>
         <groupId>com.aliyun</groupId>
         <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
-        <version>0.2.7</version>
+        <version>0.2.8</version>
     </parent>
     <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
-    <version>0.2.7</version>
+    <version>0.2.8</version>
     <packaging>jar</packaging>
     <name>Dedicated Key Management Service Java SDK</name>
 

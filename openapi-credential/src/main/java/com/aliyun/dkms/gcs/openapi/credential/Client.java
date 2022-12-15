@@ -5,10 +5,9 @@ import com.aliyun.dkms.gcs.openapi.credential.auth.AlibabaCloudCredentials;
 import com.aliyun.dkms.gcs.openapi.credential.auth.Signer;
 import com.aliyun.dkms.gcs.openapi.credential.provider.AlibabaCloudCredentialsProvider;
 import com.aliyun.dkms.gcs.openapi.credential.provider.RsaKeyPairCredentialProvider;
-import com.aliyun.dkms.gcs.openapi.credential.utils.JsonUtils;
 import com.aliyun.dkms.gcs.openapi.credential.utils.KeyStoreUtils;
-import com.aliyun.tea.*;
 import com.aliyun.dkms.gcs.openapi.credential.models.*;
+import com.aliyun.dkms.gcs.openapi.util.JsonUtils;
 import com.aliyun.tea.utils.StringUtils;
 
 import java.util.Base64;

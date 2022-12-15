@@ -145,7 +145,7 @@ public class Utils {
     }
 
     public static String getCaCertFromFile(String caFilePath) throws Exception {
-        File file = new File(caFilePath);
+        File file = JsonUtils.getFileByPath(caFilePath);
         if (!file.exists()) {
             throw new RuntimeException(String.format("ca certificate file[%s] not found", caFilePath));
         }

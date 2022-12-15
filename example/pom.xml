@@ -6,7 +6,7 @@
 
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk-example</artifactId>
-    <version>0.2.7</version>
+    <version>0.2.8</version>
     <name>Dedicated Key Management Service Java SDK Example</name>
     <description>Dedicated Key Management Service SDK for Java
 
