@@ -248,19 +248,20 @@ public class Config extends TeaModel {
     }
 
     public String getCaFilePath() {
-        return this.caFilePath;
+        return caFilePath;
     }
 
-    public void setCaFilePath(String caFilePath) {
+    public Config setCaFilePath(String caFilePath) {
         this.caFilePath = caFilePath;
+        return this;
     }
 
     public String getCa() {
-        return this.ca;
+        return ca;
     }
 
-    public void setCa(String ca) {
+    public Config setCa(String ca) {
         this.ca = ca;
+        return this;
     }
-
 }
