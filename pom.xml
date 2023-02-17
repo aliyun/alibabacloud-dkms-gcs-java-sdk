@@ -5,7 +5,7 @@
 
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
-    <version>0.2.8</version>
+    <version>0.2.9</version>
     <packaging>pom</packaging>
     <name>Dedicated Key Management Service</name>
     <description>Dedicated Key Management Service SDK for Java

@@ -2,7 +2,7 @@
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## AlibabaCloud DKMS-GCS SDK for Python
+## AlibabaCloud DKMS-GCS SDK for Java
 
 - [概述](https://help.aliyun.com/document_detail/311016.html)
 - [入门指南](https://help.aliyun.com/document_detail/311368.html)
@@ -19,7 +19,7 @@
 <dependency>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
-    <version>0.2.8</version>
+    <version>0.2.9</version>
 </dependency>
 ```
 
