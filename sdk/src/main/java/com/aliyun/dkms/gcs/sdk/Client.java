@@ -212,4 +212,76 @@ public class Client extends com.aliyun.dkms.gcs.openapi.Client {
         RuntimeOptions runtime = new RuntimeOptions();
         return this.getSecretValueWithOptions(request, runtime);
     }
+
+    public AdvanceEncryptResponse advanceEncrypt(AdvanceEncryptRequest request) throws Exception {
+        com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions runtime = new com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions();
+        return this.advanceEncryptWithOptions(request, runtime);
+    }
+
+    public AdvanceEncryptResponse advanceEncryptWithOptions(AdvanceEncryptRequest request, com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions runtime) throws Exception {
+        com.aliyun.teautil.Common.validateModel(request);
+        java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
+        byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedAdvanceEncryptRequest(reqBody);
+        ResponseEntity responseEntity = this.doRequest("AdvanceEncrypt", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseAdvanceEncryptResponse(com.aliyun.teautil.Common.assertAsBytes(responseEntity.getBodyBytes()));
+        AdvanceEncryptResponse response = TeaModel.toModel(TeaConverter.buildMap(
+                new TeaPair("KeyId", respMap.get("KeyId")),
+                new TeaPair("CiphertextBlob", respMap.get("CiphertextBlob")),
+                new TeaPair("Iv", respMap.get("Iv")),
+                new TeaPair("RequestId", respMap.get("RequestId")),
+                new TeaPair("Algorithm", respMap.get("Algorithm")),
+                new TeaPair("PaddingMode", respMap.get("PaddingMode")),
+                new TeaPair("KeyVersionId", respMap.get("KeyVersionId"))
+        ), new AdvanceEncryptResponse());
+        response.setResponseHeaders(responseEntity.getResponseHeaders());
+        return response;
+    }
+
+    public AdvanceDecryptResponse advanceDecrypt(AdvanceDecryptRequest request) throws Exception {
+        com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions runtime = new com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions();
+        return this.advanceDecryptWithOptions(request, runtime);
+    }
+
+    public AdvanceDecryptResponse advanceDecryptWithOptions(AdvanceDecryptRequest request, com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions runtime) throws Exception {
+        com.aliyun.teautil.Common.validateModel(request);
+        java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
+        byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedAdvanceDecryptRequest(reqBody);
+        ResponseEntity responseEntity = this.doRequest("AdvanceDecrypt", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseAdvanceDecryptResponse(com.aliyun.teautil.Common.assertAsBytes(responseEntity.getBodyBytes()));
+        AdvanceDecryptResponse response = TeaModel.toModel(TeaConverter.buildMap(
+                new TeaPair("KeyId", respMap.get("KeyId")),
+                new TeaPair("Plaintext", respMap.get("Plaintext")),
+                new TeaPair("RequestId", respMap.get("RequestId")),
+                new TeaPair("Algorithm", respMap.get("Algorithm")),
+                new TeaPair("PaddingMode", respMap.get("PaddingMode")),
+                new TeaPair("KeyVersionId", respMap.get("KeyVersionId"))
+        ), new AdvanceDecryptResponse());
+        response.setResponseHeaders(responseEntity.getResponseHeaders());
+        return response;
+    }
+
+    public AdvanceGenerateDataKeyResponse advanceGenerateDataKey(AdvanceGenerateDataKeyRequest request) throws Exception {
+        com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions runtime = new com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions();
+        return this.advanceGenerateDataKeyWithOptions(request, runtime);
+    }
+
+    public AdvanceGenerateDataKeyResponse advanceGenerateDataKeyWithOptions(AdvanceGenerateDataKeyRequest request, com.aliyun.dkms.gcs.openapi.util.models.RuntimeOptions runtime) throws Exception {
+        com.aliyun.teautil.Common.validateModel(request);
+        java.util.Map<String, Object> reqBody = com.aliyun.teautil.Common.toMap(request);
+        byte[] reqBodyBytes = com.aliyun.dkms.gcs.openapi.util.Client.getSerializedAdvanceGenerateDataKeyRequest(reqBody);
+        ResponseEntity responseEntity = this.doRequest("AdvanceGenerateDataKey", "dkms-gcs-0.2", "https", "POST", "RSA_PKCS1_SHA_256", reqBodyBytes, runtime, request.getRequestHeaders());
+        java.util.Map<String, Object> respMap = com.aliyun.dkms.gcs.openapi.util.Client.parseAdvanceGenerateDataKeyResponse(com.aliyun.teautil.Common.assertAsBytes(responseEntity.getBodyBytes()));
+        AdvanceGenerateDataKeyResponse response = TeaModel.toModel(TeaConverter.buildMap(
+                new TeaPair("KeyId", respMap.get("KeyId")),
+                new TeaPair("Iv", respMap.get("Iv")),
+                new TeaPair("Plaintext", respMap.get("Plaintext")),
+                new TeaPair("CiphertextBlob", respMap.get("CiphertextBlob")),
+                new TeaPair("RequestId", respMap.get("RequestId")),
+                new TeaPair("Algorithm", respMap.get("Algorithm")),
+                new TeaPair("KeyVersionId", respMap.get("KeyVersionId")),
+                new TeaPair("responseHeaders", responseEntity.getResponseHeaders())
+        ), new AdvanceGenerateDataKeyResponse());
+        response.setResponseHeaders(responseEntity.getResponseHeaders());
+        return response;
+    }
 }

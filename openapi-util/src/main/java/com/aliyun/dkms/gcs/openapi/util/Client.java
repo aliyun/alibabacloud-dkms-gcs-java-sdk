@@ -134,4 +134,27 @@ public class Client {
     public static java.util.Map<String, Object> parseGetSecretValueResponse(byte[] resBody) throws Exception {
         return Utils.parseGetSecretValueResponse(resBody);
     }
+    public static byte[] getSerializedAdvanceEncryptRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        return Utils.getSerializedAdvanceEncryptRequest(reqBody);
+    }
+
+    public static java.util.Map<String, Object> parseAdvanceEncryptResponse(byte[] resBody) throws Exception {
+        return Utils.parseAdvanceEncryptResponse(resBody);
+    }
+
+    public static byte[] getSerializedAdvanceDecryptRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        return Utils.getSerializedAdvanceDecryptRequest(reqBody);
+    }
+
+    public static java.util.Map<String, Object> parseAdvanceDecryptResponse(byte[] resBody) throws Exception {
+        return Utils.parseAdvanceDecryptResponse(resBody);
+    }
+
+    public static byte[] getSerializedAdvanceGenerateDataKeyRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        return Utils.getSerializedAdvanceGenerateDataKeyRequest(reqBody);
+    }
+
+    public static java.util.Map<String, Object> parseAdvanceGenerateDataKeyResponse(byte[] resBody) throws Exception {
+        return Utils.parseAdvanceGenerateDataKeyResponse(resBody);
+    }
 }

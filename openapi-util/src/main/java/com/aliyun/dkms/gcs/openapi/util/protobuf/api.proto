@@ -181,3 +181,57 @@ message GetSecretValueResponse {
   string AutomaticRotation = 12;
   string RotationInterval = 13;
 }
+
+//高级加解密接口
+message AdvanceEncryptRequest {
+     string KeyId = 1;
+     bytes Plaintext = 2;
+     string Algorithm = 3;
+     bytes Aad = 4;
+     bytes Iv = 5;
+     string PaddingMode = 6;
+}
+
+message AdvanceEncryptResponse {
+     string KeyId = 1;
+     bytes CiphertextBlob = 2;
+     bytes Iv = 3;
+     string RequestId = 4;
+     string Algorithm = 5;
+     string PaddingMode = 6;
+     string KeyVersionId = 7;
+}
+
+message AdvanceDecryptRequest {
+     bytes CiphertextBlob = 1;
+     string KeyId = 2;
+     string Algorithm = 3;
+     bytes Aad = 4;
+     bytes Iv = 5;
+     string PaddingMode = 6;
+}
+
+message AdvanceDecryptResponse {
+     string KeyId = 1;
+     bytes Plaintext = 2;
+     string RequestId = 3;
+     string Algorithm = 4;
+     string PaddingMode = 5;
+     string KeyVersionId = 6;
+}
+
+message AdvanceGenerateDataKeyRequest {
+     string KeyId = 1;
+     int32 NumberOfBytes = 2;
+     bytes Aad = 3;
+}
+
+message AdvanceGenerateDataKeyResponse {
+     string KeyId = 1;
+     bytes  Iv = 2;
+     bytes  Plaintext = 3;
+     bytes  CiphertextBlob = 4;
+     string RequestId = 5;
+     string Algorithm = 6;
+     string KeyVersionId = 7;
+}
