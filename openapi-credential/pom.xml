@@ -6,10 +6,10 @@
     <parent>
         <groupId>com.aliyun</groupId>
         <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
-        <version>0.2.9</version>
+        <version>0.3.0</version>
     </parent>
     <artifactId>alibabacloud-dkms-gcs-openapi-credential</artifactId>
-    <version>0.2.9</version>
+    <version>0.3.0</version>
     <packaging>jar</packaging>
     <name>Dedicated Key Management Service Open API Credential</name>
 

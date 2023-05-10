@@ -529,4 +529,116 @@ public class Utils {
         result.put("RequestId", response.getRequestId());
         return result;
     }
+    public static byte[] getSerializedAdvanceEncryptRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.AdvanceEncryptRequest.Builder builder = ApiModels.AdvanceEncryptRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object plaintext = reqBody.get("Plaintext");
+        if (plaintext != null) {
+            builder.setPlaintext(ByteString.copyFrom((byte[]) plaintext));
+        }
+        Object algorithm = reqBody.get("Algorithm");
+        if (algorithm != null) {
+            builder.setAlgorithm((String) algorithm);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        Object iv = reqBody.get("Iv");
+        if (iv != null) {
+            builder.setIv(ByteString.copyFrom((byte[]) iv));
+        }
+        Object paddingMode = reqBody.get("PaddingMode");
+        if (paddingMode != null) {
+            builder.setPaddingMode((String) paddingMode);
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static java.util.Map<String, Object> parseAdvanceEncryptResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.AdvanceEncryptResponse response = ApiModels.AdvanceEncryptResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("CiphertextBlob", response.getCiphertextBlob().toByteArray());
+        result.put("Iv", response.getIv().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("PaddingMode", response.getPaddingMode());
+        result.put("KeyVersionId", response.getKeyVersionId());
+        return result;
+    }
+
+    public static byte[] getSerializedAdvanceDecryptRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.AdvanceDecryptRequest.Builder builder = ApiModels.AdvanceDecryptRequest.newBuilder();
+        Object ciphertextBlob = reqBody.get("CiphertextBlob");
+        if (ciphertextBlob != null) {
+            builder.setCiphertextBlob(ByteString.copyFrom((byte[]) ciphertextBlob));
+        }
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object algorithm = reqBody.get("Algorithm");
+        if (algorithm != null) {
+            builder.setAlgorithm((String) algorithm);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        Object iv = reqBody.get("Iv");
+        if (iv != null) {
+            builder.setIv(ByteString.copyFrom((byte[]) iv));
+        }
+        Object paddingMode = reqBody.get("PaddingMode");
+        if (paddingMode != null) {
+            builder.setPaddingMode((String) paddingMode);
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static java.util.Map<String, Object> parseAdvanceDecryptResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.AdvanceDecryptResponse response = ApiModels.AdvanceDecryptResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("Plaintext", response.getPlaintext().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("PaddingMode", response.getPaddingMode());
+        result.put("KeyVersionId", response.getKeyVersionId());
+        return result;
+    }
+
+    public static byte[] getSerializedAdvanceGenerateDataKeyRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.AdvanceGenerateDataKeyRequest.Builder builder = ApiModels.AdvanceGenerateDataKeyRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object numberOfBytes = reqBody.get("NumberOfBytes");
+        if (numberOfBytes != null) {
+            builder.setNumberOfBytes((Integer) numberOfBytes);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static java.util.Map<String, Object> parseAdvanceGenerateDataKeyResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.AdvanceGenerateDataKeyResponse response = ApiModels.AdvanceGenerateDataKeyResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("Iv", response.getIv().toByteArray());
+        result.put("Plaintext", response.getPlaintext().toByteArray());
+        result.put("CiphertextBlob", response.getCiphertextBlob().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("KeyVersionId", response.getKeyVersionId());
+        return result;
+    }
 }
