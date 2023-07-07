@@ -14,1516 +14,8 @@ public final class ApiModels {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface KmsEncryptRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:KmsEncryptRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The keyId.
-     */
-    java.lang.String getKeyId();
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The bytes for keyId.
-     */
-    com.google.protobuf.ByteString
-        getKeyIdBytes();
-
-    /**
-     * <code>bytes Plaintext = 2;</code>
-     * @return The plaintext.
-     */
-    com.google.protobuf.ByteString getPlaintext();
-
-    /**
-     * <code>bytes Aad = 3;</code>
-     * @return The aad.
-     */
-    com.google.protobuf.ByteString getAad();
-  }
-  /**
-   * Protobuf type {@code KmsEncryptRequest}
-   */
-  public static final class KmsEncryptRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:KmsEncryptRequest)
-      KmsEncryptRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use KmsEncryptRequest.newBuilder() to construct.
-    private KmsEncryptRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private KmsEncryptRequest() {
-      keyId_ = "";
-      plaintext_ = com.google.protobuf.ByteString.EMPTY;
-      aad_ = com.google.protobuf.ByteString.EMPTY;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new KmsEncryptRequest();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private KmsEncryptRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              keyId_ = s;
-              break;
-            }
-            case 18: {
-
-              plaintext_ = input.readBytes();
-              break;
-            }
-            case 26: {
-
-              aad_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest.Builder.class);
-    }
-
-    public static final int KEYID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object keyId_;
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The keyId.
-     */
-    @java.lang.Override
-    public java.lang.String getKeyId() {
-      java.lang.Object ref = keyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        keyId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The bytes for keyId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getKeyIdBytes() {
-      java.lang.Object ref = keyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        keyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PLAINTEXT_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString plaintext_;
-    /**
-     * <code>bytes Plaintext = 2;</code>
-     * @return The plaintext.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getPlaintext() {
-      return plaintext_;
-    }
-
-    public static final int AAD_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString aad_;
-    /**
-     * <code>bytes Aad = 3;</code>
-     * @return The aad.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getAad() {
-      return aad_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getKeyIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
-      }
-      if (!plaintext_.isEmpty()) {
-        output.writeBytes(2, plaintext_);
-      }
-      if (!aad_.isEmpty()) {
-        output.writeBytes(3, aad_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getKeyIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
-      }
-      if (!plaintext_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, plaintext_);
-      }
-      if (!aad_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, aad_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest)) {
-        return super.equals(obj);
-      }
-      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest) obj;
-
-      if (!getKeyId()
-          .equals(other.getKeyId())) return false;
-      if (!getPlaintext()
-          .equals(other.getPlaintext())) return false;
-      if (!getAad()
-          .equals(other.getAad())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + KEYID_FIELD_NUMBER;
-      hash = (53 * hash) + getKeyId().hashCode();
-      hash = (37 * hash) + PLAINTEXT_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaintext().hashCode();
-      hash = (37 * hash) + AAD_FIELD_NUMBER;
-      hash = (53 * hash) + getAad().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code KmsEncryptRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:KmsEncryptRequest)
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest.Builder.class);
-      }
-
-      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        keyId_ = "";
-
-        plaintext_ = com.google.protobuf.ByteString.EMPTY;
-
-        aad_ = com.google.protobuf.ByteString.EMPTY;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest getDefaultInstanceForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest build() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest buildPartial() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest(this);
-        result.keyId_ = keyId_;
-        result.plaintext_ = plaintext_;
-        result.aad_ = aad_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest) {
-          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest other) {
-        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest.getDefaultInstance()) return this;
-        if (!other.getKeyId().isEmpty()) {
-          keyId_ = other.keyId_;
-          onChanged();
-        }
-        if (other.getPlaintext() != com.google.protobuf.ByteString.EMPTY) {
-          setPlaintext(other.getPlaintext());
-        }
-        if (other.getAad() != com.google.protobuf.ByteString.EMPTY) {
-          setAad(other.getAad());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object keyId_ = "";
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return The keyId.
-       */
-      public java.lang.String getKeyId() {
-        java.lang.Object ref = keyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          keyId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return The bytes for keyId.
-       */
-      public com.google.protobuf.ByteString
-          getKeyIdBytes() {
-        java.lang.Object ref = keyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          keyId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @param value The keyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKeyId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        keyId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearKeyId() {
-        
-        keyId_ = getDefaultInstance().getKeyId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @param value The bytes for keyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKeyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        keyId_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString plaintext_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes Plaintext = 2;</code>
-       * @return The plaintext.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getPlaintext() {
-        return plaintext_;
-      }
-      /**
-       * <code>bytes Plaintext = 2;</code>
-       * @param value The plaintext to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPlaintext(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        plaintext_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes Plaintext = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPlaintext() {
-        
-        plaintext_ = getDefaultInstance().getPlaintext();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString aad_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes Aad = 3;</code>
-       * @return The aad.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getAad() {
-        return aad_;
-      }
-      /**
-       * <code>bytes Aad = 3;</code>
-       * @param value The aad to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAad(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        aad_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes Aad = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAad() {
-        
-        aad_ = getDefaultInstance().getAad();
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:KmsEncryptRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:KmsEncryptRequest)
-    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest();
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<KmsEncryptRequest>
-        PARSER = new com.google.protobuf.AbstractParser<KmsEncryptRequest>() {
-      @java.lang.Override
-      public KmsEncryptRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new KmsEncryptRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<KmsEncryptRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<KmsEncryptRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface KmsEncryptResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:KmsEncryptResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The keyId.
-     */
-    java.lang.String getKeyId();
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The bytes for keyId.
-     */
-    com.google.protobuf.ByteString
-        getKeyIdBytes();
-
-    /**
-     * <code>bytes CiphertextBlob = 2;</code>
-     * @return The ciphertextBlob.
-     */
-    com.google.protobuf.ByteString getCiphertextBlob();
-
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The requestId.
-     */
-    java.lang.String getRequestId();
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The bytes for requestId.
-     */
-    com.google.protobuf.ByteString
-        getRequestIdBytes();
-  }
-  /**
-   * Protobuf type {@code KmsEncryptResponse}
-   */
-  public static final class KmsEncryptResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:KmsEncryptResponse)
-      KmsEncryptResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use KmsEncryptResponse.newBuilder() to construct.
-    private KmsEncryptResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private KmsEncryptResponse() {
-      keyId_ = "";
-      ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
-      requestId_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new KmsEncryptResponse();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private KmsEncryptResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              keyId_ = s;
-              break;
-            }
-            case 18: {
-
-              ciphertextBlob_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse.Builder.class);
-    }
-
-    public static final int KEYID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object keyId_;
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The keyId.
-     */
-    @java.lang.Override
-    public java.lang.String getKeyId() {
-      java.lang.Object ref = keyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        keyId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The bytes for keyId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getKeyIdBytes() {
-      java.lang.Object ref = keyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        keyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CIPHERTEXTBLOB_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString ciphertextBlob_;
-    /**
-     * <code>bytes CiphertextBlob = 2;</code>
-     * @return The ciphertextBlob.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getCiphertextBlob() {
-      return ciphertextBlob_;
-    }
-
-    public static final int REQUESTID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object requestId_;
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The requestId.
-     */
-    @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The bytes for requestId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        requestId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getKeyIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
-      }
-      if (!ciphertextBlob_.isEmpty()) {
-        output.writeBytes(2, ciphertextBlob_);
-      }
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requestId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getKeyIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
-      }
-      if (!ciphertextBlob_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, ciphertextBlob_);
-      }
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, requestId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse)) {
-        return super.equals(obj);
-      }
-      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse) obj;
-
-      if (!getKeyId()
-          .equals(other.getKeyId())) return false;
-      if (!getCiphertextBlob()
-          .equals(other.getCiphertextBlob())) return false;
-      if (!getRequestId()
-          .equals(other.getRequestId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + KEYID_FIELD_NUMBER;
-      hash = (53 * hash) + getKeyId().hashCode();
-      hash = (37 * hash) + CIPHERTEXTBLOB_FIELD_NUMBER;
-      hash = (53 * hash) + getCiphertextBlob().hashCode();
-      hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code KmsEncryptResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:KmsEncryptResponse)
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse.Builder.class);
-      }
-
-      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        keyId_ = "";
-
-        ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
-
-        requestId_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsEncryptResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse getDefaultInstanceForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse build() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse buildPartial() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse(this);
-        result.keyId_ = keyId_;
-        result.ciphertextBlob_ = ciphertextBlob_;
-        result.requestId_ = requestId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse) {
-          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse other) {
-        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse.getDefaultInstance()) return this;
-        if (!other.getKeyId().isEmpty()) {
-          keyId_ = other.keyId_;
-          onChanged();
-        }
-        if (other.getCiphertextBlob() != com.google.protobuf.ByteString.EMPTY) {
-          setCiphertextBlob(other.getCiphertextBlob());
-        }
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object keyId_ = "";
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return The keyId.
-       */
-      public java.lang.String getKeyId() {
-        java.lang.Object ref = keyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          keyId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return The bytes for keyId.
-       */
-      public com.google.protobuf.ByteString
-          getKeyIdBytes() {
-        java.lang.Object ref = keyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          keyId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @param value The keyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKeyId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        keyId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearKeyId() {
-        
-        keyId_ = getDefaultInstance().getKeyId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @param value The bytes for keyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKeyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        keyId_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes CiphertextBlob = 2;</code>
-       * @return The ciphertextBlob.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getCiphertextBlob() {
-        return ciphertextBlob_;
-      }
-      /**
-       * <code>bytes CiphertextBlob = 2;</code>
-       * @param value The ciphertextBlob to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCiphertextBlob(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        ciphertextBlob_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes CiphertextBlob = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCiphertextBlob() {
-        
-        ciphertextBlob_ = getDefaultInstance().getCiphertextBlob();
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object requestId_ = "";
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return The requestId.
-       */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return The bytes for requestId.
-       */
-      public com.google.protobuf.ByteString
-          getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          requestId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @param value The requestId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRequestId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        requestId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRequestId() {
-        
-        requestId_ = getDefaultInstance().getRequestId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @param value The bytes for requestId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRequestIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        requestId_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:KmsEncryptResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:KmsEncryptResponse)
-    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse();
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<KmsEncryptResponse>
-        PARSER = new com.google.protobuf.AbstractParser<KmsEncryptResponse>() {
-      @java.lang.Override
-      public KmsEncryptResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new KmsEncryptResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<KmsEncryptResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<KmsEncryptResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsEncryptResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface EncryptRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EncryptRequest)
+      // @@protoc_insertion_point(interface_extends:api.EncryptRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1581,11 +73,11 @@ public final class ApiModels {
         getPaddingModeBytes();
   }
   /**
-   * Protobuf type {@code EncryptRequest}
+   * Protobuf type {@code api.EncryptRequest}
    */
   public static final class EncryptRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EncryptRequest)
+      // @@protoc_insertion_point(message_implements:api.EncryptRequest)
       EncryptRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EncryptRequest.newBuilder() to construct.
@@ -1685,13 +177,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptRequest.Builder.class);
     }
@@ -2051,21 +543,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code EncryptRequest}
+     * Protobuf type {@code api.EncryptRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EncryptRequest)
+        // @@protoc_insertion_point(builder_implements:api.EncryptRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptRequest.Builder.class);
       }
@@ -2106,7 +598,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptRequest_descriptor;
       }
 
       @java.lang.Override
@@ -2572,10 +1064,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EncryptRequest)
+      // @@protoc_insertion_point(builder_scope:api.EncryptRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:EncryptRequest)
+    // @@protoc_insertion_point(class_scope:api.EncryptRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptRequest();
@@ -2613,7 +1105,7 @@ public final class ApiModels {
   }
 
   public interface EncryptResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EncryptResponse)
+      // @@protoc_insertion_point(interface_extends:api.EncryptResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2677,11 +1169,11 @@ public final class ApiModels {
         getPaddingModeBytes();
   }
   /**
-   * Protobuf type {@code EncryptResponse}
+   * Protobuf type {@code api.EncryptResponse}
    */
   public static final class EncryptResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EncryptResponse)
+      // @@protoc_insertion_point(message_implements:api.EncryptResponse)
       EncryptResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EncryptResponse.newBuilder() to construct.
@@ -2782,13 +1274,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptResponse.Builder.class);
     }
@@ -3174,21 +1666,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code EncryptResponse}
+     * Protobuf type {@code api.EncryptResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EncryptResponse)
+        // @@protoc_insertion_point(builder_implements:api.EncryptResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptResponse.Builder.class);
       }
@@ -3229,7 +1721,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_EncryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_EncryptResponse_descriptor;
       }
 
       @java.lang.Override
@@ -3738,10 +2230,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EncryptResponse)
+      // @@protoc_insertion_point(builder_scope:api.EncryptResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:EncryptResponse)
+    // @@protoc_insertion_point(class_scope:api.EncryptResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.EncryptResponse();
@@ -3778,1366 +2270,8 @@ public final class ApiModels {
 
   }
 
-  public interface KmsDecryptRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:KmsDecryptRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>bytes CiphertextBlob = 1;</code>
-     * @return The ciphertextBlob.
-     */
-    com.google.protobuf.ByteString getCiphertextBlob();
-
-    /**
-     * <code>bytes Aad = 2;</code>
-     * @return The aad.
-     */
-    com.google.protobuf.ByteString getAad();
-  }
-  /**
-   * Protobuf type {@code KmsDecryptRequest}
-   */
-  public static final class KmsDecryptRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:KmsDecryptRequest)
-      KmsDecryptRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use KmsDecryptRequest.newBuilder() to construct.
-    private KmsDecryptRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private KmsDecryptRequest() {
-      ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
-      aad_ = com.google.protobuf.ByteString.EMPTY;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new KmsDecryptRequest();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private KmsDecryptRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              ciphertextBlob_ = input.readBytes();
-              break;
-            }
-            case 18: {
-
-              aad_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest.Builder.class);
-    }
-
-    public static final int CIPHERTEXTBLOB_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString ciphertextBlob_;
-    /**
-     * <code>bytes CiphertextBlob = 1;</code>
-     * @return The ciphertextBlob.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getCiphertextBlob() {
-      return ciphertextBlob_;
-    }
-
-    public static final int AAD_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString aad_;
-    /**
-     * <code>bytes Aad = 2;</code>
-     * @return The aad.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getAad() {
-      return aad_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!ciphertextBlob_.isEmpty()) {
-        output.writeBytes(1, ciphertextBlob_);
-      }
-      if (!aad_.isEmpty()) {
-        output.writeBytes(2, aad_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!ciphertextBlob_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, ciphertextBlob_);
-      }
-      if (!aad_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, aad_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest)) {
-        return super.equals(obj);
-      }
-      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest) obj;
-
-      if (!getCiphertextBlob()
-          .equals(other.getCiphertextBlob())) return false;
-      if (!getAad()
-          .equals(other.getAad())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CIPHERTEXTBLOB_FIELD_NUMBER;
-      hash = (53 * hash) + getCiphertextBlob().hashCode();
-      hash = (37 * hash) + AAD_FIELD_NUMBER;
-      hash = (53 * hash) + getAad().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code KmsDecryptRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:KmsDecryptRequest)
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest.Builder.class);
-      }
-
-      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
-
-        aad_ = com.google.protobuf.ByteString.EMPTY;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest getDefaultInstanceForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest build() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest buildPartial() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest(this);
-        result.ciphertextBlob_ = ciphertextBlob_;
-        result.aad_ = aad_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest) {
-          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest other) {
-        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest.getDefaultInstance()) return this;
-        if (other.getCiphertextBlob() != com.google.protobuf.ByteString.EMPTY) {
-          setCiphertextBlob(other.getCiphertextBlob());
-        }
-        if (other.getAad() != com.google.protobuf.ByteString.EMPTY) {
-          setAad(other.getAad());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private com.google.protobuf.ByteString ciphertextBlob_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes CiphertextBlob = 1;</code>
-       * @return The ciphertextBlob.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getCiphertextBlob() {
-        return ciphertextBlob_;
-      }
-      /**
-       * <code>bytes CiphertextBlob = 1;</code>
-       * @param value The ciphertextBlob to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCiphertextBlob(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        ciphertextBlob_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes CiphertextBlob = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCiphertextBlob() {
-        
-        ciphertextBlob_ = getDefaultInstance().getCiphertextBlob();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString aad_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes Aad = 2;</code>
-       * @return The aad.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getAad() {
-        return aad_;
-      }
-      /**
-       * <code>bytes Aad = 2;</code>
-       * @param value The aad to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAad(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        aad_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes Aad = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAad() {
-        
-        aad_ = getDefaultInstance().getAad();
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:KmsDecryptRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:KmsDecryptRequest)
-    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest();
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<KmsDecryptRequest>
-        PARSER = new com.google.protobuf.AbstractParser<KmsDecryptRequest>() {
-      @java.lang.Override
-      public KmsDecryptRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new KmsDecryptRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<KmsDecryptRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<KmsDecryptRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface KmsDecryptResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:KmsDecryptResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The keyId.
-     */
-    java.lang.String getKeyId();
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The bytes for keyId.
-     */
-    com.google.protobuf.ByteString
-        getKeyIdBytes();
-
-    /**
-     * <code>bytes Plaintext = 2;</code>
-     * @return The plaintext.
-     */
-    com.google.protobuf.ByteString getPlaintext();
-
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The requestId.
-     */
-    java.lang.String getRequestId();
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The bytes for requestId.
-     */
-    com.google.protobuf.ByteString
-        getRequestIdBytes();
-  }
-  /**
-   * Protobuf type {@code KmsDecryptResponse}
-   */
-  public static final class KmsDecryptResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:KmsDecryptResponse)
-      KmsDecryptResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use KmsDecryptResponse.newBuilder() to construct.
-    private KmsDecryptResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private KmsDecryptResponse() {
-      keyId_ = "";
-      plaintext_ = com.google.protobuf.ByteString.EMPTY;
-      requestId_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new KmsDecryptResponse();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private KmsDecryptResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              keyId_ = s;
-              break;
-            }
-            case 18: {
-
-              plaintext_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse.Builder.class);
-    }
-
-    public static final int KEYID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object keyId_;
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The keyId.
-     */
-    @java.lang.Override
-    public java.lang.String getKeyId() {
-      java.lang.Object ref = keyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        keyId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string KeyId = 1;</code>
-     * @return The bytes for keyId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getKeyIdBytes() {
-      java.lang.Object ref = keyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        keyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PLAINTEXT_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString plaintext_;
-    /**
-     * <code>bytes Plaintext = 2;</code>
-     * @return The plaintext.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getPlaintext() {
-      return plaintext_;
-    }
-
-    public static final int REQUESTID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object requestId_;
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The requestId.
-     */
-    @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The bytes for requestId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        requestId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getKeyIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
-      }
-      if (!plaintext_.isEmpty()) {
-        output.writeBytes(2, plaintext_);
-      }
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requestId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getKeyIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
-      }
-      if (!plaintext_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, plaintext_);
-      }
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, requestId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse)) {
-        return super.equals(obj);
-      }
-      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse) obj;
-
-      if (!getKeyId()
-          .equals(other.getKeyId())) return false;
-      if (!getPlaintext()
-          .equals(other.getPlaintext())) return false;
-      if (!getRequestId()
-          .equals(other.getRequestId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + KEYID_FIELD_NUMBER;
-      hash = (53 * hash) + getKeyId().hashCode();
-      hash = (37 * hash) + PLAINTEXT_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaintext().hashCode();
-      hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code KmsDecryptResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:KmsDecryptResponse)
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse.Builder.class);
-      }
-
-      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        keyId_ = "";
-
-        plaintext_ = com.google.protobuf.ByteString.EMPTY;
-
-        requestId_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_KmsDecryptResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse getDefaultInstanceForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse build() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse buildPartial() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse(this);
-        result.keyId_ = keyId_;
-        result.plaintext_ = plaintext_;
-        result.requestId_ = requestId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse) {
-          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse other) {
-        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse.getDefaultInstance()) return this;
-        if (!other.getKeyId().isEmpty()) {
-          keyId_ = other.keyId_;
-          onChanged();
-        }
-        if (other.getPlaintext() != com.google.protobuf.ByteString.EMPTY) {
-          setPlaintext(other.getPlaintext());
-        }
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object keyId_ = "";
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return The keyId.
-       */
-      public java.lang.String getKeyId() {
-        java.lang.Object ref = keyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          keyId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return The bytes for keyId.
-       */
-      public com.google.protobuf.ByteString
-          getKeyIdBytes() {
-        java.lang.Object ref = keyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          keyId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @param value The keyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKeyId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        keyId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearKeyId() {
-        
-        keyId_ = getDefaultInstance().getKeyId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string KeyId = 1;</code>
-       * @param value The bytes for keyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKeyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        keyId_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString plaintext_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes Plaintext = 2;</code>
-       * @return The plaintext.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getPlaintext() {
-        return plaintext_;
-      }
-      /**
-       * <code>bytes Plaintext = 2;</code>
-       * @param value The plaintext to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPlaintext(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        plaintext_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes Plaintext = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPlaintext() {
-        
-        plaintext_ = getDefaultInstance().getPlaintext();
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object requestId_ = "";
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return The requestId.
-       */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return The bytes for requestId.
-       */
-      public com.google.protobuf.ByteString
-          getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          requestId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @param value The requestId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRequestId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        requestId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRequestId() {
-        
-        requestId_ = getDefaultInstance().getRequestId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @param value The bytes for requestId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRequestIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        requestId_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:KmsDecryptResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:KmsDecryptResponse)
-    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse();
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<KmsDecryptResponse>
-        PARSER = new com.google.protobuf.AbstractParser<KmsDecryptResponse>() {
-      @java.lang.Override
-      public KmsDecryptResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new KmsDecryptResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<KmsDecryptResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<KmsDecryptResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.KmsDecryptResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface DecryptRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DecryptRequest)
+      // @@protoc_insertion_point(interface_extends:api.DecryptRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -5195,11 +2329,11 @@ public final class ApiModels {
         getPaddingModeBytes();
   }
   /**
-   * Protobuf type {@code DecryptRequest}
+   * Protobuf type {@code api.DecryptRequest}
    */
   public static final class DecryptRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DecryptRequest)
+      // @@protoc_insertion_point(message_implements:api.DecryptRequest)
       DecryptRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DecryptRequest.newBuilder() to construct.
@@ -5299,13 +2433,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptRequest.Builder.class);
     }
@@ -5665,21 +2799,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code DecryptRequest}
+     * Protobuf type {@code api.DecryptRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DecryptRequest)
+        // @@protoc_insertion_point(builder_implements:api.DecryptRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptRequest.Builder.class);
       }
@@ -5720,7 +2854,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptRequest_descriptor;
       }
 
       @java.lang.Override
@@ -6186,10 +3320,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DecryptRequest)
+      // @@protoc_insertion_point(builder_scope:api.DecryptRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:DecryptRequest)
+    // @@protoc_insertion_point(class_scope:api.DecryptRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptRequest();
@@ -6227,7 +3361,7 @@ public final class ApiModels {
   }
 
   public interface DecryptResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DecryptResponse)
+      // @@protoc_insertion_point(interface_extends:api.DecryptResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -6285,11 +3419,11 @@ public final class ApiModels {
         getPaddingModeBytes();
   }
   /**
-   * Protobuf type {@code DecryptResponse}
+   * Protobuf type {@code api.DecryptResponse}
    */
   public static final class DecryptResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DecryptResponse)
+      // @@protoc_insertion_point(message_implements:api.DecryptResponse)
       DecryptResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DecryptResponse.newBuilder() to construct.
@@ -6384,13 +3518,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptResponse.Builder.class);
     }
@@ -6754,21 +3888,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code DecryptResponse}
+     * Protobuf type {@code api.DecryptResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DecryptResponse)
+        // @@protoc_insertion_point(builder_implements:api.DecryptResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptResponse.Builder.class);
       }
@@ -6807,7 +3941,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_DecryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_DecryptResponse_descriptor;
       }
 
       @java.lang.Override
@@ -7278,10 +4412,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DecryptResponse)
+      // @@protoc_insertion_point(builder_scope:api.DecryptResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:DecryptResponse)
+    // @@protoc_insertion_point(class_scope:api.DecryptResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.DecryptResponse();
@@ -7319,7 +4453,7 @@ public final class ApiModels {
   }
 
   public interface SignRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SignRequest)
+      // @@protoc_insertion_point(interface_extends:api.SignRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -7371,11 +4505,11 @@ public final class ApiModels {
         getMessageTypeBytes();
   }
   /**
-   * Protobuf type {@code SignRequest}
+   * Protobuf type {@code api.SignRequest}
    */
   public static final class SignRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SignRequest)
+      // @@protoc_insertion_point(message_implements:api.SignRequest)
       SignRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SignRequest.newBuilder() to construct.
@@ -7469,13 +4603,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignRequest.Builder.class);
     }
@@ -7813,21 +4947,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code SignRequest}
+     * Protobuf type {@code api.SignRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SignRequest)
+        // @@protoc_insertion_point(builder_implements:api.SignRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignRequest.Builder.class);
       }
@@ -7866,7 +5000,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignRequest_descriptor;
       }
 
       @java.lang.Override
@@ -8294,10 +5428,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SignRequest)
+      // @@protoc_insertion_point(builder_scope:api.SignRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:SignRequest)
+    // @@protoc_insertion_point(class_scope:api.SignRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignRequest();
@@ -8335,7 +5469,7 @@ public final class ApiModels {
   }
 
   public interface SignResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SignResponse)
+      // @@protoc_insertion_point(interface_extends:api.SignResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -8393,11 +5527,11 @@ public final class ApiModels {
         getMessageTypeBytes();
   }
   /**
-   * Protobuf type {@code SignResponse}
+   * Protobuf type {@code api.SignResponse}
    */
   public static final class SignResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SignResponse)
+      // @@protoc_insertion_point(message_implements:api.SignResponse)
       SignResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SignResponse.newBuilder() to construct.
@@ -8492,13 +5626,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignResponse.Builder.class);
     }
@@ -8862,21 +5996,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code SignResponse}
+     * Protobuf type {@code api.SignResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SignResponse)
+        // @@protoc_insertion_point(builder_implements:api.SignResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignResponse.Builder.class);
       }
@@ -8915,7 +6049,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_SignResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_SignResponse_descriptor;
       }
 
       @java.lang.Override
@@ -9386,10 +6520,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SignResponse)
+      // @@protoc_insertion_point(builder_scope:api.SignResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:SignResponse)
+    // @@protoc_insertion_point(class_scope:api.SignResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.SignResponse();
@@ -9427,7 +6561,7 @@ public final class ApiModels {
   }
 
   public interface VerifyRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:VerifyRequest)
+      // @@protoc_insertion_point(interface_extends:api.VerifyRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -9485,11 +6619,11 @@ public final class ApiModels {
         getMessageTypeBytes();
   }
   /**
-   * Protobuf type {@code VerifyRequest}
+   * Protobuf type {@code api.VerifyRequest}
    */
   public static final class VerifyRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:VerifyRequest)
+      // @@protoc_insertion_point(message_implements:api.VerifyRequest)
       VerifyRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use VerifyRequest.newBuilder() to construct.
@@ -9589,13 +6723,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyRequest.Builder.class);
     }
@@ -9955,21 +7089,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code VerifyRequest}
+     * Protobuf type {@code api.VerifyRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:VerifyRequest)
+        // @@protoc_insertion_point(builder_implements:api.VerifyRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyRequest.Builder.class);
       }
@@ -10010,7 +7144,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyRequest_descriptor;
       }
 
       @java.lang.Override
@@ -10476,10 +7610,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:VerifyRequest)
+      // @@protoc_insertion_point(builder_scope:api.VerifyRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:VerifyRequest)
+    // @@protoc_insertion_point(class_scope:api.VerifyRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyRequest();
@@ -10517,7 +7651,7 @@ public final class ApiModels {
   }
 
   public interface VerifyResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:VerifyResponse)
+      // @@protoc_insertion_point(interface_extends:api.VerifyResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -10575,11 +7709,11 @@ public final class ApiModels {
         getMessageTypeBytes();
   }
   /**
-   * Protobuf type {@code VerifyResponse}
+   * Protobuf type {@code api.VerifyResponse}
    */
   public static final class VerifyResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:VerifyResponse)
+      // @@protoc_insertion_point(message_implements:api.VerifyResponse)
       VerifyResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use VerifyResponse.newBuilder() to construct.
@@ -10673,13 +7807,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyResponse.Builder.class);
     }
@@ -11044,21 +8178,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code VerifyResponse}
+     * Protobuf type {@code api.VerifyResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:VerifyResponse)
+        // @@protoc_insertion_point(builder_implements:api.VerifyResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyResponse.Builder.class);
       }
@@ -11097,7 +8231,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_VerifyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_VerifyResponse_descriptor;
       }
 
       @java.lang.Override
@@ -11565,10 +8699,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:VerifyResponse)
+      // @@protoc_insertion_point(builder_scope:api.VerifyResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:VerifyResponse)
+    // @@protoc_insertion_point(class_scope:api.VerifyResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.VerifyResponse();
@@ -11606,7 +8740,7 @@ public final class ApiModels {
   }
 
   public interface HmacRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:HmacRequest)
+      // @@protoc_insertion_point(interface_extends:api.HmacRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11628,11 +8762,11 @@ public final class ApiModels {
     com.google.protobuf.ByteString getMessage();
   }
   /**
-   * Protobuf type {@code HmacRequest}
+   * Protobuf type {@code api.HmacRequest}
    */
   public static final class HmacRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:HmacRequest)
+      // @@protoc_insertion_point(message_implements:api.HmacRequest)
       HmacRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use HmacRequest.newBuilder() to construct.
@@ -11706,13 +8840,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacRequest.Builder.class);
     }
@@ -11932,21 +9066,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code HmacRequest}
+     * Protobuf type {@code api.HmacRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:HmacRequest)
+        // @@protoc_insertion_point(builder_implements:api.HmacRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacRequest.Builder.class);
       }
@@ -11979,7 +9113,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacRequest_descriptor;
       }
 
       @java.lang.Override
@@ -12207,10 +9341,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:HmacRequest)
+      // @@protoc_insertion_point(builder_scope:api.HmacRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:HmacRequest)
+    // @@protoc_insertion_point(class_scope:api.HmacRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacRequest();
@@ -12248,7 +9382,7 @@ public final class ApiModels {
   }
 
   public interface HmacResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:HmacResponse)
+      // @@protoc_insertion_point(interface_extends:api.HmacResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12282,11 +9416,11 @@ public final class ApiModels {
         getRequestIdBytes();
   }
   /**
-   * Protobuf type {@code HmacResponse}
+   * Protobuf type {@code api.HmacResponse}
    */
   public static final class HmacResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:HmacResponse)
+      // @@protoc_insertion_point(message_implements:api.HmacResponse)
       HmacResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use HmacResponse.newBuilder() to construct.
@@ -12367,13 +9501,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacResponse.Builder.class);
     }
@@ -12641,21 +9775,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code HmacResponse}
+     * Protobuf type {@code api.HmacResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:HmacResponse)
+        // @@protoc_insertion_point(builder_implements:api.HmacResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacResponse.Builder.class);
       }
@@ -12690,7 +9824,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HmacResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_HmacResponse_descriptor;
       }
 
       @java.lang.Override
@@ -12999,10 +10133,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:HmacResponse)
+      // @@protoc_insertion_point(builder_scope:api.HmacResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:HmacResponse)
+    // @@protoc_insertion_point(class_scope:api.HmacResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HmacResponse();
@@ -13040,7 +10174,7 @@ public final class ApiModels {
   }
 
   public interface GenerateRandomRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GenerateRandomRequest)
+      // @@protoc_insertion_point(interface_extends:api.GenerateRandomRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -13050,11 +10184,11 @@ public final class ApiModels {
     int getLength();
   }
   /**
-   * Protobuf type {@code GenerateRandomRequest}
+   * Protobuf type {@code api.GenerateRandomRequest}
    */
   public static final class GenerateRandomRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GenerateRandomRequest)
+      // @@protoc_insertion_point(message_implements:api.GenerateRandomRequest)
       GenerateRandomRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GenerateRandomRequest.newBuilder() to construct.
@@ -13120,13 +10254,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomRequest.Builder.class);
     }
@@ -13298,21 +10432,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code GenerateRandomRequest}
+     * Protobuf type {@code api.GenerateRandomRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GenerateRandomRequest)
+        // @@protoc_insertion_point(builder_implements:api.GenerateRandomRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomRequest.Builder.class);
       }
@@ -13343,7 +10477,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomRequest_descriptor;
       }
 
       @java.lang.Override
@@ -13487,10 +10621,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GenerateRandomRequest)
+      // @@protoc_insertion_point(builder_scope:api.GenerateRandomRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GenerateRandomRequest)
+    // @@protoc_insertion_point(class_scope:api.GenerateRandomRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomRequest();
@@ -13528,7 +10662,7 @@ public final class ApiModels {
   }
 
   public interface GenerateRandomResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GenerateRandomResponse)
+      // @@protoc_insertion_point(interface_extends:api.GenerateRandomResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -13550,11 +10684,11 @@ public final class ApiModels {
         getRequestIdBytes();
   }
   /**
-   * Protobuf type {@code GenerateRandomResponse}
+   * Protobuf type {@code api.GenerateRandomResponse}
    */
   public static final class GenerateRandomResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GenerateRandomResponse)
+      // @@protoc_insertion_point(message_implements:api.GenerateRandomResponse)
       GenerateRandomResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GenerateRandomResponse.newBuilder() to construct.
@@ -13628,13 +10762,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomResponse.Builder.class);
     }
@@ -13854,21 +10988,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code GenerateRandomResponse}
+     * Protobuf type {@code api.GenerateRandomResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GenerateRandomResponse)
+        // @@protoc_insertion_point(builder_implements:api.GenerateRandomResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomResponse.Builder.class);
       }
@@ -13901,7 +11035,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateRandomResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateRandomResponse_descriptor;
       }
 
       @java.lang.Override
@@ -14129,10 +11263,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GenerateRandomResponse)
+      // @@protoc_insertion_point(builder_scope:api.GenerateRandomResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:GenerateRandomResponse)
+    // @@protoc_insertion_point(class_scope:api.GenerateRandomResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateRandomResponse();
@@ -14169,1292 +11303,8 @@ public final class ApiModels {
 
   }
 
-  public interface HashRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:HashRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>bytes Message = 1;</code>
-     * @return The message.
-     */
-    com.google.protobuf.ByteString getMessage();
-
-    /**
-     * <code>string Algorithm = 2;</code>
-     * @return The algorithm.
-     */
-    java.lang.String getAlgorithm();
-    /**
-     * <code>string Algorithm = 2;</code>
-     * @return The bytes for algorithm.
-     */
-    com.google.protobuf.ByteString
-        getAlgorithmBytes();
-  }
-  /**
-   * Protobuf type {@code HashRequest}
-   */
-  public static final class HashRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:HashRequest)
-      HashRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use HashRequest.newBuilder() to construct.
-    private HashRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private HashRequest() {
-      message_ = com.google.protobuf.ByteString.EMPTY;
-      algorithm_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new HashRequest();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private HashRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              message_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              algorithm_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest.Builder.class);
-    }
-
-    public static final int MESSAGE_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString message_;
-    /**
-     * <code>bytes Message = 1;</code>
-     * @return The message.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getMessage() {
-      return message_;
-    }
-
-    public static final int ALGORITHM_FIELD_NUMBER = 2;
-    private volatile java.lang.Object algorithm_;
-    /**
-     * <code>string Algorithm = 2;</code>
-     * @return The algorithm.
-     */
-    @java.lang.Override
-    public java.lang.String getAlgorithm() {
-      java.lang.Object ref = algorithm_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        algorithm_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Algorithm = 2;</code>
-     * @return The bytes for algorithm.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAlgorithmBytes() {
-      java.lang.Object ref = algorithm_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        algorithm_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!message_.isEmpty()) {
-        output.writeBytes(1, message_);
-      }
-      if (!getAlgorithmBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, algorithm_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!message_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, message_);
-      }
-      if (!getAlgorithmBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, algorithm_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest)) {
-        return super.equals(obj);
-      }
-      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest) obj;
-
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-      if (!getAlgorithm()
-          .equals(other.getAlgorithm())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
-      hash = (53 * hash) + getAlgorithm().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code HashRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:HashRequest)
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest.Builder.class);
-      }
-
-      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        message_ = com.google.protobuf.ByteString.EMPTY;
-
-        algorithm_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest getDefaultInstanceForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest build() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest buildPartial() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest(this);
-        result.message_ = message_;
-        result.algorithm_ = algorithm_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest) {
-          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest other) {
-        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest.getDefaultInstance()) return this;
-        if (other.getMessage() != com.google.protobuf.ByteString.EMPTY) {
-          setMessage(other.getMessage());
-        }
-        if (!other.getAlgorithm().isEmpty()) {
-          algorithm_ = other.algorithm_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private com.google.protobuf.ByteString message_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes Message = 1;</code>
-       * @return The message.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getMessage() {
-        return message_;
-      }
-      /**
-       * <code>bytes Message = 1;</code>
-       * @param value The message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessage(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        message_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes Message = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        
-        message_ = getDefaultInstance().getMessage();
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object algorithm_ = "";
-      /**
-       * <code>string Algorithm = 2;</code>
-       * @return The algorithm.
-       */
-      public java.lang.String getAlgorithm() {
-        java.lang.Object ref = algorithm_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          algorithm_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string Algorithm = 2;</code>
-       * @return The bytes for algorithm.
-       */
-      public com.google.protobuf.ByteString
-          getAlgorithmBytes() {
-        java.lang.Object ref = algorithm_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          algorithm_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Algorithm = 2;</code>
-       * @param value The algorithm to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAlgorithm(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        algorithm_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Algorithm = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAlgorithm() {
-        
-        algorithm_ = getDefaultInstance().getAlgorithm();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Algorithm = 2;</code>
-       * @param value The bytes for algorithm to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAlgorithmBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        algorithm_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:HashRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:HashRequest)
-    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest();
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<HashRequest>
-        PARSER = new com.google.protobuf.AbstractParser<HashRequest>() {
-      @java.lang.Override
-      public HashRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HashRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<HashRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<HashRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface HashResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:HashResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>bytes Digest = 1;</code>
-     * @return The digest.
-     */
-    com.google.protobuf.ByteString getDigest();
-
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The requestId.
-     */
-    java.lang.String getRequestId();
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The bytes for requestId.
-     */
-    com.google.protobuf.ByteString
-        getRequestIdBytes();
-  }
-  /**
-   * Protobuf type {@code HashResponse}
-   */
-  public static final class HashResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:HashResponse)
-      HashResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use HashResponse.newBuilder() to construct.
-    private HashResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private HashResponse() {
-      digest_ = com.google.protobuf.ByteString.EMPTY;
-      requestId_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new HashResponse();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private HashResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              digest_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse.Builder.class);
-    }
-
-    public static final int DIGEST_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString digest_;
-    /**
-     * <code>bytes Digest = 1;</code>
-     * @return The digest.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getDigest() {
-      return digest_;
-    }
-
-    public static final int REQUESTID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object requestId_;
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The requestId.
-     */
-    @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string RequestId = 3;</code>
-     * @return The bytes for requestId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        requestId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!digest_.isEmpty()) {
-        output.writeBytes(1, digest_);
-      }
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requestId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!digest_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, digest_);
-      }
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, requestId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse)) {
-        return super.equals(obj);
-      }
-      com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse other = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse) obj;
-
-      if (!getDigest()
-          .equals(other.getDigest())) return false;
-      if (!getRequestId()
-          .equals(other.getRequestId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DIGEST_FIELD_NUMBER;
-      hash = (53 * hash) + getDigest().hashCode();
-      hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code HashResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:HashResponse)
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse.Builder.class);
-      }
-
-      // Construct using com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        digest_ = com.google.protobuf.ByteString.EMPTY;
-
-        requestId_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_HashResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse getDefaultInstanceForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse build() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse buildPartial() {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse result = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse(this);
-        result.digest_ = digest_;
-        result.requestId_ = requestId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse) {
-          return mergeFrom((com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse other) {
-        if (other == com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse.getDefaultInstance()) return this;
-        if (other.getDigest() != com.google.protobuf.ByteString.EMPTY) {
-          setDigest(other.getDigest());
-        }
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private com.google.protobuf.ByteString digest_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes Digest = 1;</code>
-       * @return The digest.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getDigest() {
-        return digest_;
-      }
-      /**
-       * <code>bytes Digest = 1;</code>
-       * @param value The digest to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDigest(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        digest_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes Digest = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDigest() {
-        
-        digest_ = getDefaultInstance().getDigest();
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object requestId_ = "";
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return The requestId.
-       */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return The bytes for requestId.
-       */
-      public com.google.protobuf.ByteString
-          getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          requestId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @param value The requestId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRequestId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        requestId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRequestId() {
-        
-        requestId_ = getDefaultInstance().getRequestId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string RequestId = 3;</code>
-       * @param value The bytes for requestId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRequestIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        requestId_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:HashResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:HashResponse)
-    private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse();
-    }
-
-    public static com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<HashResponse>
-        PARSER = new com.google.protobuf.AbstractParser<HashResponse>() {
-      @java.lang.Override
-      public HashResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HashResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<HashResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<HashResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.HashResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface GenerateDataKeyRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GenerateDataKeyRequest)
+      // @@protoc_insertion_point(interface_extends:api.GenerateDataKeyRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -15494,11 +11344,11 @@ public final class ApiModels {
     com.google.protobuf.ByteString getAad();
   }
   /**
-   * Protobuf type {@code GenerateDataKeyRequest}
+   * Protobuf type {@code api.GenerateDataKeyRequest}
    */
   public static final class GenerateDataKeyRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GenerateDataKeyRequest)
+      // @@protoc_insertion_point(message_implements:api.GenerateDataKeyRequest)
       GenerateDataKeyRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GenerateDataKeyRequest.newBuilder() to construct.
@@ -15584,13 +11434,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.Builder.class);
     }
@@ -15880,21 +11730,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code GenerateDataKeyRequest}
+     * Protobuf type {@code api.GenerateDataKeyRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GenerateDataKeyRequest)
+        // @@protoc_insertion_point(builder_implements:api.GenerateDataKeyRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest.Builder.class);
       }
@@ -15931,7 +11781,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyRequest_descriptor;
       }
 
       @java.lang.Override
@@ -16275,10 +12125,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GenerateDataKeyRequest)
+      // @@protoc_insertion_point(builder_scope:api.GenerateDataKeyRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GenerateDataKeyRequest)
+    // @@protoc_insertion_point(class_scope:api.GenerateDataKeyRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyRequest();
@@ -16316,7 +12166,7 @@ public final class ApiModels {
   }
 
   public interface GenerateDataKeyResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GenerateDataKeyResponse)
+      // @@protoc_insertion_point(interface_extends:api.GenerateDataKeyResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -16374,11 +12224,11 @@ public final class ApiModels {
         getAlgorithmBytes();
   }
   /**
-   * Protobuf type {@code GenerateDataKeyResponse}
+   * Protobuf type {@code api.GenerateDataKeyResponse}
    */
   public static final class GenerateDataKeyResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GenerateDataKeyResponse)
+      // @@protoc_insertion_point(message_implements:api.GenerateDataKeyResponse)
       GenerateDataKeyResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GenerateDataKeyResponse.newBuilder() to construct.
@@ -16478,13 +12328,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.Builder.class);
     }
@@ -16844,21 +12694,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code GenerateDataKeyResponse}
+     * Protobuf type {@code api.GenerateDataKeyResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GenerateDataKeyResponse)
+        // @@protoc_insertion_point(builder_implements:api.GenerateDataKeyResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse.Builder.class);
       }
@@ -16899,7 +12749,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GenerateDataKeyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GenerateDataKeyResponse_descriptor;
       }
 
       @java.lang.Override
@@ -17365,10 +13215,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GenerateDataKeyResponse)
+      // @@protoc_insertion_point(builder_scope:api.GenerateDataKeyResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:GenerateDataKeyResponse)
+    // @@protoc_insertion_point(class_scope:api.GenerateDataKeyResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GenerateDataKeyResponse();
@@ -17406,7 +13256,7 @@ public final class ApiModels {
   }
 
   public interface GetPublicKeyRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetPublicKeyRequest)
+      // @@protoc_insertion_point(interface_extends:api.GetPublicKeyRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -17422,11 +13272,11 @@ public final class ApiModels {
         getKeyIdBytes();
   }
   /**
-   * Protobuf type {@code GetPublicKeyRequest}
+   * Protobuf type {@code api.GetPublicKeyRequest}
    */
   public static final class GetPublicKeyRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetPublicKeyRequest)
+      // @@protoc_insertion_point(message_implements:api.GetPublicKeyRequest)
       GetPublicKeyRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetPublicKeyRequest.newBuilder() to construct.
@@ -17494,13 +13344,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.Builder.class);
     }
@@ -17698,21 +13548,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code GetPublicKeyRequest}
+     * Protobuf type {@code api.GetPublicKeyRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetPublicKeyRequest)
+        // @@protoc_insertion_point(builder_implements:api.GetPublicKeyRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest.Builder.class);
       }
@@ -17743,7 +13593,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyRequest_descriptor;
       }
 
       @java.lang.Override
@@ -17933,10 +13783,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetPublicKeyRequest)
+      // @@protoc_insertion_point(builder_scope:api.GetPublicKeyRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetPublicKeyRequest)
+    // @@protoc_insertion_point(class_scope:api.GetPublicKeyRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyRequest();
@@ -17974,7 +13824,7 @@ public final class ApiModels {
   }
 
   public interface GetPublicKeyResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetPublicKeyResponse)
+      // @@protoc_insertion_point(interface_extends:api.GetPublicKeyResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -18014,11 +13864,11 @@ public final class ApiModels {
         getRequestIdBytes();
   }
   /**
-   * Protobuf type {@code GetPublicKeyResponse}
+   * Protobuf type {@code api.GetPublicKeyResponse}
    */
   public static final class GetPublicKeyResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetPublicKeyResponse)
+      // @@protoc_insertion_point(message_implements:api.GetPublicKeyResponse)
       GetPublicKeyResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetPublicKeyResponse.newBuilder() to construct.
@@ -18100,13 +13950,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.Builder.class);
     }
@@ -18400,21 +14250,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code GetPublicKeyResponse}
+     * Protobuf type {@code api.GetPublicKeyResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetPublicKeyResponse)
+        // @@protoc_insertion_point(builder_implements:api.GetPublicKeyResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse.Builder.class);
       }
@@ -18449,7 +14299,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetPublicKeyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetPublicKeyResponse_descriptor;
       }
 
       @java.lang.Override
@@ -18801,10 +14651,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetPublicKeyResponse)
+      // @@protoc_insertion_point(builder_scope:api.GetPublicKeyResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:GetPublicKeyResponse)
+    // @@protoc_insertion_point(class_scope:api.GetPublicKeyResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetPublicKeyResponse();
@@ -18842,7 +14692,7 @@ public final class ApiModels {
   }
 
   public interface ErrorOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Error)
+      // @@protoc_insertion_point(interface_extends:api.Error)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -18888,11 +14738,11 @@ public final class ApiModels {
         getRequestIdBytes();
   }
   /**
-   * Protobuf type {@code Error}
+   * Protobuf type {@code api.Error}
    */
   public static final class Error extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Error)
+      // @@protoc_insertion_point(message_implements:api.Error)
       ErrorOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Error.newBuilder() to construct.
@@ -18979,13 +14829,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_Error_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_Error_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_Error_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_Error_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.Error.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.Error.Builder.class);
     }
@@ -19301,21 +15151,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code Error}
+     * Protobuf type {@code api.Error}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Error)
+        // @@protoc_insertion_point(builder_implements:api.Error)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.ErrorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_Error_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_Error_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_Error_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_Error_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.Error.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.Error.Builder.class);
       }
@@ -19352,7 +15202,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_Error_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_Error_descriptor;
       }
 
       @java.lang.Override
@@ -19739,10 +15589,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Error)
+      // @@protoc_insertion_point(builder_scope:api.Error)
     }
 
-    // @@protoc_insertion_point(class_scope:Error)
+    // @@protoc_insertion_point(class_scope:api.Error)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.Error DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.Error();
@@ -19780,7 +15630,7 @@ public final class ApiModels {
   }
 
   public interface GetSecretValueRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetSecretValueRequest)
+      // @@protoc_insertion_point(interface_extends:api.GetSecretValueRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -19830,11 +15680,11 @@ public final class ApiModels {
    * 凭据管家API
    * </pre>
    *
-   * Protobuf type {@code GetSecretValueRequest}
+   * Protobuf type {@code api.GetSecretValueRequest}
    */
   public static final class GetSecretValueRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetSecretValueRequest)
+      // @@protoc_insertion_point(message_implements:api.GetSecretValueRequest)
       GetSecretValueRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetSecretValueRequest.newBuilder() to construct.
@@ -19921,13 +15771,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.Builder.class);
     }
@@ -20248,21 +16098,21 @@ public final class ApiModels {
      * 凭据管家API
      * </pre>
      *
-     * Protobuf type {@code GetSecretValueRequest}
+     * Protobuf type {@code api.GetSecretValueRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetSecretValueRequest)
+        // @@protoc_insertion_point(builder_implements:api.GetSecretValueRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest.Builder.class);
       }
@@ -20299,7 +16149,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueRequest_descriptor;
       }
 
       @java.lang.Override
@@ -20686,10 +16536,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetSecretValueRequest)
+      // @@protoc_insertion_point(builder_scope:api.GetSecretValueRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetSecretValueRequest)
+    // @@protoc_insertion_point(class_scope:api.GetSecretValueRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueRequest();
@@ -20727,7 +16577,7 @@ public final class ApiModels {
   }
 
   public interface GetSecretValueResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetSecretValueResponse)
+      // @@protoc_insertion_point(interface_extends:api.GetSecretValueResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -20900,11 +16750,11 @@ public final class ApiModels {
         getRotationIntervalBytes();
   }
   /**
-   * Protobuf type {@code GetSecretValueResponse}
+   * Protobuf type {@code api.GetSecretValueResponse}
    */
   public static final class GetSecretValueResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetSecretValueResponse)
+      // @@protoc_insertion_point(message_implements:api.GetSecretValueResponse)
       GetSecretValueResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetSecretValueResponse.newBuilder() to construct.
@@ -21063,13 +16913,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.Builder.class);
     }
@@ -21847,21 +17697,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code GetSecretValueResponse}
+     * Protobuf type {@code api.GetSecretValueResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetSecretValueResponse)
+        // @@protoc_insertion_point(builder_implements:api.GetSecretValueResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse.Builder.class);
       }
@@ -21916,7 +17766,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_GetSecretValueResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_GetSecretValueResponse_descriptor;
       }
 
       @java.lang.Override
@@ -23124,10 +18974,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetSecretValueResponse)
+      // @@protoc_insertion_point(builder_scope:api.GetSecretValueResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:GetSecretValueResponse)
+    // @@protoc_insertion_point(class_scope:api.GetSecretValueResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.GetSecretValueResponse();
@@ -23165,7 +19015,7 @@ public final class ApiModels {
   }
 
   public interface AdvanceEncryptRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AdvanceEncryptRequest)
+      // @@protoc_insertion_point(interface_extends:api.AdvanceEncryptRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -23227,11 +19077,11 @@ public final class ApiModels {
    *高级加解密接口
    * </pre>
    *
-   * Protobuf type {@code AdvanceEncryptRequest}
+   * Protobuf type {@code api.AdvanceEncryptRequest}
    */
   public static final class AdvanceEncryptRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AdvanceEncryptRequest)
+      // @@protoc_insertion_point(message_implements:api.AdvanceEncryptRequest)
       AdvanceEncryptRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AdvanceEncryptRequest.newBuilder() to construct.
@@ -23331,13 +19181,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptRequest.Builder.class);
     }
@@ -23701,21 +19551,21 @@ public final class ApiModels {
      *高级加解密接口
      * </pre>
      *
-     * Protobuf type {@code AdvanceEncryptRequest}
+     * Protobuf type {@code api.AdvanceEncryptRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AdvanceEncryptRequest)
+        // @@protoc_insertion_point(builder_implements:api.AdvanceEncryptRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptRequest.Builder.class);
       }
@@ -23756,7 +19606,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptRequest_descriptor;
       }
 
       @java.lang.Override
@@ -24222,10 +20072,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AdvanceEncryptRequest)
+      // @@protoc_insertion_point(builder_scope:api.AdvanceEncryptRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:AdvanceEncryptRequest)
+    // @@protoc_insertion_point(class_scope:api.AdvanceEncryptRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptRequest();
@@ -24263,7 +20113,7 @@ public final class ApiModels {
   }
 
   public interface AdvanceEncryptResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AdvanceEncryptResponse)
+      // @@protoc_insertion_point(interface_extends:api.AdvanceEncryptResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -24339,11 +20189,11 @@ public final class ApiModels {
         getKeyVersionIdBytes();
   }
   /**
-   * Protobuf type {@code AdvanceEncryptResponse}
+   * Protobuf type {@code api.AdvanceEncryptResponse}
    */
   public static final class AdvanceEncryptResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AdvanceEncryptResponse)
+      // @@protoc_insertion_point(message_implements:api.AdvanceEncryptResponse)
       AdvanceEncryptResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AdvanceEncryptResponse.newBuilder() to construct.
@@ -24451,13 +20301,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptResponse.Builder.class);
     }
@@ -24891,21 +20741,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code AdvanceEncryptResponse}
+     * Protobuf type {@code api.AdvanceEncryptResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AdvanceEncryptResponse)
+        // @@protoc_insertion_point(builder_implements:api.AdvanceEncryptResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptResponse.Builder.class);
       }
@@ -24948,7 +20798,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceEncryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceEncryptResponse_descriptor;
       }
 
       @java.lang.Override
@@ -25538,10 +21388,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AdvanceEncryptResponse)
+      // @@protoc_insertion_point(builder_scope:api.AdvanceEncryptResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:AdvanceEncryptResponse)
+    // @@protoc_insertion_point(class_scope:api.AdvanceEncryptResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceEncryptResponse();
@@ -25579,7 +21429,7 @@ public final class ApiModels {
   }
 
   public interface AdvanceDecryptRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AdvanceDecryptRequest)
+      // @@protoc_insertion_point(interface_extends:api.AdvanceDecryptRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -25637,11 +21487,11 @@ public final class ApiModels {
         getPaddingModeBytes();
   }
   /**
-   * Protobuf type {@code AdvanceDecryptRequest}
+   * Protobuf type {@code api.AdvanceDecryptRequest}
    */
   public static final class AdvanceDecryptRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AdvanceDecryptRequest)
+      // @@protoc_insertion_point(message_implements:api.AdvanceDecryptRequest)
       AdvanceDecryptRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AdvanceDecryptRequest.newBuilder() to construct.
@@ -25741,13 +21591,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptRequest.Builder.class);
     }
@@ -26107,21 +21957,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code AdvanceDecryptRequest}
+     * Protobuf type {@code api.AdvanceDecryptRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AdvanceDecryptRequest)
+        // @@protoc_insertion_point(builder_implements:api.AdvanceDecryptRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptRequest.Builder.class);
       }
@@ -26162,7 +22012,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptRequest_descriptor;
       }
 
       @java.lang.Override
@@ -26628,10 +22478,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AdvanceDecryptRequest)
+      // @@protoc_insertion_point(builder_scope:api.AdvanceDecryptRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:AdvanceDecryptRequest)
+    // @@protoc_insertion_point(class_scope:api.AdvanceDecryptRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptRequest();
@@ -26669,7 +22519,7 @@ public final class ApiModels {
   }
 
   public interface AdvanceDecryptResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AdvanceDecryptResponse)
+      // @@protoc_insertion_point(interface_extends:api.AdvanceDecryptResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -26739,11 +22589,11 @@ public final class ApiModels {
         getKeyVersionIdBytes();
   }
   /**
-   * Protobuf type {@code AdvanceDecryptResponse}
+   * Protobuf type {@code api.AdvanceDecryptResponse}
    */
   public static final class AdvanceDecryptResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AdvanceDecryptResponse)
+      // @@protoc_insertion_point(message_implements:api.AdvanceDecryptResponse)
       AdvanceDecryptResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AdvanceDecryptResponse.newBuilder() to construct.
@@ -26845,13 +22695,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptResponse.Builder.class);
     }
@@ -27263,21 +23113,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code AdvanceDecryptResponse}
+     * Protobuf type {@code api.AdvanceDecryptResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AdvanceDecryptResponse)
+        // @@protoc_insertion_point(builder_implements:api.AdvanceDecryptResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptResponse.Builder.class);
       }
@@ -27318,7 +23168,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceDecryptResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceDecryptResponse_descriptor;
       }
 
       @java.lang.Override
@@ -27870,10 +23720,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AdvanceDecryptResponse)
+      // @@protoc_insertion_point(builder_scope:api.AdvanceDecryptResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:AdvanceDecryptResponse)
+    // @@protoc_insertion_point(class_scope:api.AdvanceDecryptResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceDecryptResponse();
@@ -27911,7 +23761,7 @@ public final class ApiModels {
   }
 
   public interface AdvanceGenerateDataKeyRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AdvanceGenerateDataKeyRequest)
+      // @@protoc_insertion_point(interface_extends:api.AdvanceGenerateDataKeyRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -27939,11 +23789,11 @@ public final class ApiModels {
     com.google.protobuf.ByteString getAad();
   }
   /**
-   * Protobuf type {@code AdvanceGenerateDataKeyRequest}
+   * Protobuf type {@code api.AdvanceGenerateDataKeyRequest}
    */
   public static final class AdvanceGenerateDataKeyRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AdvanceGenerateDataKeyRequest)
+      // @@protoc_insertion_point(message_implements:api.AdvanceGenerateDataKeyRequest)
       AdvanceGenerateDataKeyRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AdvanceGenerateDataKeyRequest.newBuilder() to construct.
@@ -28022,13 +23872,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyRequest_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyRequest_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyRequest.Builder.class);
     }
@@ -28270,21 +24120,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code AdvanceGenerateDataKeyRequest}
+     * Protobuf type {@code api.AdvanceGenerateDataKeyRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AdvanceGenerateDataKeyRequest)
+        // @@protoc_insertion_point(builder_implements:api.AdvanceGenerateDataKeyRequest)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyRequest_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyRequest.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyRequest.Builder.class);
       }
@@ -28319,7 +24169,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyRequest_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyRequest_descriptor;
       }
 
       @java.lang.Override
@@ -28582,10 +24432,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AdvanceGenerateDataKeyRequest)
+      // @@protoc_insertion_point(builder_scope:api.AdvanceGenerateDataKeyRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:AdvanceGenerateDataKeyRequest)
+    // @@protoc_insertion_point(class_scope:api.AdvanceGenerateDataKeyRequest)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyRequest();
@@ -28623,7 +24473,7 @@ public final class ApiModels {
   }
 
   public interface AdvanceGenerateDataKeyResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AdvanceGenerateDataKeyResponse)
+      // @@protoc_insertion_point(interface_extends:api.AdvanceGenerateDataKeyResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -28693,11 +24543,11 @@ public final class ApiModels {
         getKeyVersionIdBytes();
   }
   /**
-   * Protobuf type {@code AdvanceGenerateDataKeyResponse}
+   * Protobuf type {@code api.AdvanceGenerateDataKeyResponse}
    */
   public static final class AdvanceGenerateDataKeyResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AdvanceGenerateDataKeyResponse)
+      // @@protoc_insertion_point(message_implements:api.AdvanceGenerateDataKeyResponse)
       AdvanceGenerateDataKeyResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AdvanceGenerateDataKeyResponse.newBuilder() to construct.
@@ -28804,13 +24654,13 @@ public final class ApiModels {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyResponse_descriptor;
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyResponse_fieldAccessorTable
+      return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyResponse.Builder.class);
     }
@@ -29218,21 +25068,21 @@ public final class ApiModels {
       return builder;
     }
     /**
-     * Protobuf type {@code AdvanceGenerateDataKeyResponse}
+     * Protobuf type {@code api.AdvanceGenerateDataKeyResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AdvanceGenerateDataKeyResponse)
+        // @@protoc_insertion_point(builder_implements:api.AdvanceGenerateDataKeyResponse)
         com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyResponse_fieldAccessorTable
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyResponse.class, com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyResponse.Builder.class);
       }
@@ -29275,7 +25125,7 @@ public final class ApiModels {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_AdvanceGenerateDataKeyResponse_descriptor;
+        return com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.internal_static_api_AdvanceGenerateDataKeyResponse_descriptor;
       }
 
       @java.lang.Override
@@ -29822,10 +25672,10 @@ public final class ApiModels {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AdvanceGenerateDataKeyResponse)
+      // @@protoc_insertion_point(builder_scope:api.AdvanceGenerateDataKeyResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:AdvanceGenerateDataKeyResponse)
+    // @@protoc_insertion_point(class_scope:api.AdvanceGenerateDataKeyResponse)
     private static final com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels.AdvanceGenerateDataKeyResponse();
@@ -29863,160 +25713,130 @@ public final class ApiModels {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_KmsEncryptRequest_descriptor;
+    internal_static_api_EncryptRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_KmsEncryptRequest_fieldAccessorTable;
+      internal_static_api_EncryptRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_KmsEncryptResponse_descriptor;
+    internal_static_api_EncryptResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_KmsEncryptResponse_fieldAccessorTable;
+      internal_static_api_EncryptResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EncryptRequest_descriptor;
+    internal_static_api_DecryptRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EncryptRequest_fieldAccessorTable;
+      internal_static_api_DecryptRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EncryptResponse_descriptor;
+    internal_static_api_DecryptResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EncryptResponse_fieldAccessorTable;
+      internal_static_api_DecryptResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_KmsDecryptRequest_descriptor;
+    internal_static_api_SignRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_KmsDecryptRequest_fieldAccessorTable;
+      internal_static_api_SignRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_KmsDecryptResponse_descriptor;
+    internal_static_api_SignResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_KmsDecryptResponse_fieldAccessorTable;
+      internal_static_api_SignResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DecryptRequest_descriptor;
+    internal_static_api_VerifyRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DecryptRequest_fieldAccessorTable;
+      internal_static_api_VerifyRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DecryptResponse_descriptor;
+    internal_static_api_VerifyResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DecryptResponse_fieldAccessorTable;
+      internal_static_api_VerifyResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SignRequest_descriptor;
+    internal_static_api_HmacRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SignRequest_fieldAccessorTable;
+      internal_static_api_HmacRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SignResponse_descriptor;
+    internal_static_api_HmacResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SignResponse_fieldAccessorTable;
+      internal_static_api_HmacResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_VerifyRequest_descriptor;
+    internal_static_api_GenerateRandomRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_VerifyRequest_fieldAccessorTable;
+      internal_static_api_GenerateRandomRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_VerifyResponse_descriptor;
+    internal_static_api_GenerateRandomResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_VerifyResponse_fieldAccessorTable;
+      internal_static_api_GenerateRandomResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_HmacRequest_descriptor;
+    internal_static_api_GenerateDataKeyRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_HmacRequest_fieldAccessorTable;
+      internal_static_api_GenerateDataKeyRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_HmacResponse_descriptor;
+    internal_static_api_GenerateDataKeyResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_HmacResponse_fieldAccessorTable;
+      internal_static_api_GenerateDataKeyResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GenerateRandomRequest_descriptor;
+    internal_static_api_GetPublicKeyRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GenerateRandomRequest_fieldAccessorTable;
+      internal_static_api_GetPublicKeyRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GenerateRandomResponse_descriptor;
+    internal_static_api_GetPublicKeyResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GenerateRandomResponse_fieldAccessorTable;
+      internal_static_api_GetPublicKeyResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_HashRequest_descriptor;
+    internal_static_api_Error_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_HashRequest_fieldAccessorTable;
+      internal_static_api_Error_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_HashResponse_descriptor;
+    internal_static_api_GetSecretValueRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_HashResponse_fieldAccessorTable;
+      internal_static_api_GetSecretValueRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GenerateDataKeyRequest_descriptor;
+    internal_static_api_GetSecretValueResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GenerateDataKeyRequest_fieldAccessorTable;
+      internal_static_api_GetSecretValueResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GenerateDataKeyResponse_descriptor;
+    internal_static_api_AdvanceEncryptRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GenerateDataKeyResponse_fieldAccessorTable;
+      internal_static_api_AdvanceEncryptRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetPublicKeyRequest_descriptor;
+    internal_static_api_AdvanceEncryptResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetPublicKeyRequest_fieldAccessorTable;
+      internal_static_api_AdvanceEncryptResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetPublicKeyResponse_descriptor;
+    internal_static_api_AdvanceDecryptRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetPublicKeyResponse_fieldAccessorTable;
+      internal_static_api_AdvanceDecryptRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Error_descriptor;
+    internal_static_api_AdvanceDecryptResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Error_fieldAccessorTable;
+      internal_static_api_AdvanceDecryptResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetSecretValueRequest_descriptor;
+    internal_static_api_AdvanceGenerateDataKeyRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetSecretValueRequest_fieldAccessorTable;
+      internal_static_api_AdvanceGenerateDataKeyRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetSecretValueResponse_descriptor;
+    internal_static_api_AdvanceGenerateDataKeyResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetSecretValueResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AdvanceEncryptRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AdvanceEncryptRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AdvanceEncryptResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AdvanceEncryptResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AdvanceDecryptRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AdvanceDecryptRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AdvanceDecryptResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AdvanceDecryptResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AdvanceGenerateDataKeyRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AdvanceGenerateDataKeyRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AdvanceGenerateDataKeyResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AdvanceGenerateDataKeyResponse_fieldAccessorTable;
+      internal_static_api_AdvanceGenerateDataKeyResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -30026,278 +25846,233 @@ public final class ApiModels {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tapi.proto\"B\n\021KmsEncryptRequest\022\r\n\005KeyI" +
-      "d\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\013\n\003Aad\030\003 \001(\014\"" +
-      "N\n\022KmsEncryptResponse\022\r\n\005KeyId\030\001 \001(\t\022\026\n\016" +
-      "CiphertextBlob\030\002 \001(\014\022\021\n\tRequestId\030\003 \001(\t\"" +
-      "s\n\016EncryptRequest\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlai" +
-      "ntext\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\t\022\013\n\003Aad\030\004 " +
-      "\001(\014\022\n\n\002Iv\030\005 \001(\014\022\023\n\013PaddingMode\030\006 \001(\t\"\177\n\017" +
-      "EncryptResponse\022\r\n\005KeyId\030\001 \001(\t\022\026\n\016Cipher" +
-      "textBlob\030\002 \001(\014\022\n\n\002Iv\030\003 \001(\014\022\021\n\tRequestId\030" +
-      "\004 \001(\t\022\021\n\tAlgorithm\030\005 \001(\t\022\023\n\013PaddingMode\030" +
-      "\006 \001(\t\"8\n\021KmsDecryptRequest\022\026\n\016Ciphertext" +
-      "Blob\030\001 \001(\014\022\013\n\003Aad\030\002 \001(\014\"I\n\022KmsDecryptRes" +
-      "ponse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022" +
-      "\021\n\tRequestId\030\003 \001(\t\"x\n\016DecryptRequest\022\026\n\016" +
-      "CiphertextBlob\030\001 \001(\014\022\r\n\005KeyId\030\002 \001(\t\022\021\n\tA" +
-      "lgorithm\030\003 \001(\t\022\013\n\003Aad\030\004 \001(\014\022\n\n\002Iv\030\005 \001(\014\022" +
-      "\023\n\013PaddingMode\030\006 \001(\t\"n\n\017DecryptResponse\022" +
-      "\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\021\n\tReq" +
-      "uestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 \001(\t\022\023\n\013Paddi" +
-      "ngMode\030\005 \001(\t\"e\n\013SignRequest\022\r\n\005KeyId\030\001 \001" +
-      "(\t\022\016\n\006Digest\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\t\022\017\n" +
-      "\007Message\030\004 \001(\014\022\023\n\013MessageType\030\005 \001(\t\"k\n\014S" +
-      "ignResponse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tSignature\030" +
-      "\002 \001(\014\022\021\n\tRequestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 " +
-      "\001(\t\022\023\n\013MessageType\030\005 \001(\t\"z\n\rVerifyReques" +
-      "t\022\r\n\005KeyId\030\001 \001(\t\022\016\n\006Digest\030\002 \001(\014\022\021\n\tSign" +
-      "ature\030\003 \001(\014\022\021\n\tAlgorithm\030\004 \001(\t\022\017\n\007Messag" +
-      "e\030\005 \001(\014\022\023\n\013MessageType\030\006 \001(\t\"i\n\016VerifyRe" +
-      "sponse\022\r\n\005KeyId\030\001 \001(\t\022\r\n\005Value\030\002 \001(\010\022\021\n\t" +
-      "RequestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 \001(\t\022\023\n\013Me" +
-      "ssageType\030\005 \001(\t\"-\n\013HmacRequest\022\r\n\005KeyId\030" +
-      "\001 \001(\t\022\017\n\007Message\030\002 \001(\014\"C\n\014HmacResponse\022\r" +
-      "\n\005KeyId\030\001 \001(\t\022\021\n\tSignature\030\002 \001(\014\022\021\n\tRequ" +
-      "estId\030\003 \001(\t\"\'\n\025GenerateRandomRequest\022\016\n\006" +
-      "Length\030\001 \001(\005\";\n\026GenerateRandomResponse\022\016" +
-      "\n\006Random\030\001 \001(\014\022\021\n\tRequestId\030\002 \001(\t\"1\n\013Has" +
-      "hRequest\022\017\n\007Message\030\001 \001(\014\022\021\n\tAlgorithm\030\002" +
-      " \001(\t\"1\n\014HashResponse\022\016\n\006Digest\030\001 \001(\014\022\021\n\t" +
-      "RequestId\030\003 \001(\t\"^\n\026GenerateDataKeyReques" +
-      "t\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tAlgorithm\030\002 \001(\t\022\025\n\rN" +
-      "umberOfBytes\030\003 \001(\005\022\013\n\003Aad\030\004 \001(\014\"\205\001\n\027Gene" +
-      "rateDataKeyResponse\022\r\n\005KeyId\030\001 \001(\t\022\n\n\002Iv" +
-      "\030\002 \001(\014\022\021\n\tPlaintext\030\003 \001(\014\022\026\n\016CiphertextB" +
-      "lob\030\004 \001(\014\022\021\n\tRequestId\030\005 \001(\t\022\021\n\tAlgorith" +
-      "m\030\006 \001(\t\"$\n\023GetPublicKeyRequest\022\r\n\005KeyId\030" +
-      "\001 \001(\t\"K\n\024GetPublicKeyResponse\022\r\n\005KeyId\030\001" +
-      " \001(\t\022\021\n\tPublicKey\030\002 \001(\t\022\021\n\tRequestId\030\003 \001" +
-      "(\t\"W\n\005Error\022\022\n\nStatusCode\030\001 \001(\005\022\021\n\tError" +
-      "Code\030\002 \001(\t\022\024\n\014ErrorMessage\030\003 \001(\t\022\021\n\tRequ" +
-      "estId\030\004 \001(\t\"q\n\025GetSecretValueRequest\022\022\n\n" +
-      "SecretName\030\001 \001(\t\022\024\n\014VersionStage\030\002 \001(\t\022\021" +
-      "\n\tVersionId\030\003 \001(\t\022\033\n\023FetchExtendedConfig" +
-      "\030\004 \001(\010\"\276\002\n\026GetSecretValueResponse\022\022\n\nSec" +
-      "retName\030\001 \001(\t\022\022\n\nSecretType\030\002 \001(\t\022\022\n\nSec" +
-      "retData\030\003 \001(\t\022\026\n\016SecretDataType\030\004 \001(\t\022\025\n" +
-      "\rVersionStages\030\005 \003(\t\022\021\n\tVersionId\030\006 \001(\t\022" +
-      "\022\n\nCreateTime\030\007 \001(\t\022\021\n\tRequestId\030\010 \001(\t\022\030" +
-      "\n\020LastRotationDate\030\t \001(\t\022\030\n\020NextRotation" +
-      "Date\030\n \001(\t\022\026\n\016ExtendedConfig\030\013 \001(\t\022\031\n\021Au" +
-      "tomaticRotation\030\014 \001(\t\022\030\n\020RotationInterva" +
-      "l\030\r \001(\t\"z\n\025AdvanceEncryptRequest\022\r\n\005KeyI" +
-      "d\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\021\n\tAlgorithm\030" +
-      "\003 \001(\t\022\013\n\003Aad\030\004 \001(\014\022\n\n\002Iv\030\005 \001(\014\022\023\n\013Paddin" +
-      "gMode\030\006 \001(\t\"\234\001\n\026AdvanceEncryptResponse\022\r" +
-      "\n\005KeyId\030\001 \001(\t\022\026\n\016CiphertextBlob\030\002 \001(\014\022\n\n" +
-      "\002Iv\030\003 \001(\014\022\021\n\tRequestId\030\004 \001(\t\022\021\n\tAlgorith" +
-      "m\030\005 \001(\t\022\023\n\013PaddingMode\030\006 \001(\t\022\024\n\014KeyVersi" +
-      "onId\030\007 \001(\t\"\177\n\025AdvanceDecryptRequest\022\026\n\016C" +
-      "iphertextBlob\030\001 \001(\014\022\r\n\005KeyId\030\002 \001(\t\022\021\n\tAl" +
-      "gorithm\030\003 \001(\t\022\013\n\003Aad\030\004 \001(\014\022\n\n\002Iv\030\005 \001(\014\022\023" +
-      "\n\013PaddingMode\030\006 \001(\t\"\213\001\n\026AdvanceDecryptRe" +
-      "sponse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014" +
+      "\n\tapi.proto\022\003api\"s\n\016EncryptRequest\022\r\n\005Ke" +
+      "yId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\021\n\tAlgorith" +
+      "m\030\003 \001(\t\022\013\n\003Aad\030\004 \001(\014\022\n\n\002Iv\030\005 \001(\014\022\023\n\013Padd" +
+      "ingMode\030\006 \001(\t\"\177\n\017EncryptResponse\022\r\n\005KeyI" +
+      "d\030\001 \001(\t\022\026\n\016CiphertextBlob\030\002 \001(\014\022\n\n\002Iv\030\003 " +
+      "\001(\014\022\021\n\tRequestId\030\004 \001(\t\022\021\n\tAlgorithm\030\005 \001(" +
+      "\t\022\023\n\013PaddingMode\030\006 \001(\t\"x\n\016DecryptRequest" +
+      "\022\026\n\016CiphertextBlob\030\001 \001(\014\022\r\n\005KeyId\030\002 \001(\t\022" +
+      "\021\n\tAlgorithm\030\003 \001(\t\022\013\n\003Aad\030\004 \001(\014\022\n\n\002Iv\030\005 " +
+      "\001(\014\022\023\n\013PaddingMode\030\006 \001(\t\"n\n\017DecryptRespo" +
+      "nse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\021\n" +
+      "\tRequestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 \001(\t\022\023\n\013P" +
+      "addingMode\030\005 \001(\t\"e\n\013SignRequest\022\r\n\005KeyId" +
+      "\030\001 \001(\t\022\016\n\006Digest\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(" +
+      "\t\022\017\n\007Message\030\004 \001(\014\022\023\n\013MessageType\030\005 \001(\t\"" +
+      "k\n\014SignResponse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tSignat" +
+      "ure\030\002 \001(\014\022\021\n\tRequestId\030\003 \001(\t\022\021\n\tAlgorith" +
+      "m\030\004 \001(\t\022\023\n\013MessageType\030\005 \001(\t\"z\n\rVerifyRe" +
+      "quest\022\r\n\005KeyId\030\001 \001(\t\022\016\n\006Digest\030\002 \001(\014\022\021\n\t" +
+      "Signature\030\003 \001(\014\022\021\n\tAlgorithm\030\004 \001(\t\022\017\n\007Me" +
+      "ssage\030\005 \001(\014\022\023\n\013MessageType\030\006 \001(\t\"i\n\016Veri" +
+      "fyResponse\022\r\n\005KeyId\030\001 \001(\t\022\r\n\005Value\030\002 \001(\010" +
       "\022\021\n\tRequestId\030\003 \001(\t\022\021\n\tAlgorithm\030\004 \001(\t\022\023" +
-      "\n\013PaddingMode\030\005 \001(\t\022\024\n\014KeyVersionId\030\006 \001(" +
-      "\t\"R\n\035AdvanceGenerateDataKeyRequest\022\r\n\005Ke" +
-      "yId\030\001 \001(\t\022\025\n\rNumberOfBytes\030\002 \001(\005\022\013\n\003Aad\030" +
-      "\003 \001(\014\"\242\001\n\036AdvanceGenerateDataKeyResponse" +
-      "\022\r\n\005KeyId\030\001 \001(\t\022\n\n\002Iv\030\002 \001(\014\022\021\n\tPlaintext" +
-      "\030\003 \001(\014\022\026\n\016CiphertextBlob\030\004 \001(\014\022\021\n\tReques" +
-      "tId\030\005 \001(\t\022\021\n\tAlgorithm\030\006 \001(\t\022\024\n\014KeyVersi" +
-      "onId\030\007 \001(\tB6\n)com.aliyun.dkms.gcs.openap" +
-      "i.util.protobufB\tApiModelsb\006proto3"
+      "\n\013MessageType\030\005 \001(\t\"-\n\013HmacRequest\022\r\n\005Ke" +
+      "yId\030\001 \001(\t\022\017\n\007Message\030\002 \001(\014\"C\n\014HmacRespon" +
+      "se\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tSignature\030\002 \001(\014\022\021\n\t" +
+      "RequestId\030\003 \001(\t\"\'\n\025GenerateRandomRequest" +
+      "\022\016\n\006Length\030\001 \001(\005\";\n\026GenerateRandomRespon" +
+      "se\022\016\n\006Random\030\001 \001(\014\022\021\n\tRequestId\030\002 \001(\t\"^\n" +
+      "\026GenerateDataKeyRequest\022\r\n\005KeyId\030\001 \001(\t\022\021" +
+      "\n\tAlgorithm\030\002 \001(\t\022\025\n\rNumberOfBytes\030\003 \001(\005" +
+      "\022\013\n\003Aad\030\004 \001(\014\"\205\001\n\027GenerateDataKeyRespons" +
+      "e\022\r\n\005KeyId\030\001 \001(\t\022\n\n\002Iv\030\002 \001(\014\022\021\n\tPlaintex" +
+      "t\030\003 \001(\014\022\026\n\016CiphertextBlob\030\004 \001(\014\022\021\n\tReque" +
+      "stId\030\005 \001(\t\022\021\n\tAlgorithm\030\006 \001(\t\"$\n\023GetPubl" +
+      "icKeyRequest\022\r\n\005KeyId\030\001 \001(\t\"K\n\024GetPublic" +
+      "KeyResponse\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPublicKey\030" +
+      "\002 \001(\t\022\021\n\tRequestId\030\003 \001(\t\"W\n\005Error\022\022\n\nSta" +
+      "tusCode\030\001 \001(\005\022\021\n\tErrorCode\030\002 \001(\t\022\024\n\014Erro" +
+      "rMessage\030\003 \001(\t\022\021\n\tRequestId\030\004 \001(\t\"q\n\025Get" +
+      "SecretValueRequest\022\022\n\nSecretName\030\001 \001(\t\022\024" +
+      "\n\014VersionStage\030\002 \001(\t\022\021\n\tVersionId\030\003 \001(\t\022" +
+      "\033\n\023FetchExtendedConfig\030\004 \001(\010\"\276\002\n\026GetSecr" +
+      "etValueResponse\022\022\n\nSecretName\030\001 \001(\t\022\022\n\nS" +
+      "ecretType\030\002 \001(\t\022\022\n\nSecretData\030\003 \001(\t\022\026\n\016S" +
+      "ecretDataType\030\004 \001(\t\022\025\n\rVersionStages\030\005 \003" +
+      "(\t\022\021\n\tVersionId\030\006 \001(\t\022\022\n\nCreateTime\030\007 \001(" +
+      "\t\022\021\n\tRequestId\030\010 \001(\t\022\030\n\020LastRotationDate" +
+      "\030\t \001(\t\022\030\n\020NextRotationDate\030\n \001(\t\022\026\n\016Exte" +
+      "ndedConfig\030\013 \001(\t\022\031\n\021AutomaticRotation\030\014 " +
+      "\001(\t\022\030\n\020RotationInterval\030\r \001(\t\"z\n\025Advance" +
+      "EncryptRequest\022\r\n\005KeyId\030\001 \001(\t\022\021\n\tPlainte" +
+      "xt\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\t\022\013\n\003Aad\030\004 \001(\014" +
+      "\022\n\n\002Iv\030\005 \001(\014\022\023\n\013PaddingMode\030\006 \001(\t\"\234\001\n\026Ad" +
+      "vanceEncryptResponse\022\r\n\005KeyId\030\001 \001(\t\022\026\n\016C" +
+      "iphertextBlob\030\002 \001(\014\022\n\n\002Iv\030\003 \001(\014\022\021\n\tReque" +
+      "stId\030\004 \001(\t\022\021\n\tAlgorithm\030\005 \001(\t\022\023\n\013Padding" +
+      "Mode\030\006 \001(\t\022\024\n\014KeyVersionId\030\007 \001(\t\"\177\n\025Adva" +
+      "nceDecryptRequest\022\026\n\016CiphertextBlob\030\001 \001(" +
+      "\014\022\r\n\005KeyId\030\002 \001(\t\022\021\n\tAlgorithm\030\003 \001(\t\022\013\n\003A" +
+      "ad\030\004 \001(\014\022\n\n\002Iv\030\005 \001(\014\022\023\n\013PaddingMode\030\006 \001(" +
+      "\t\"\213\001\n\026AdvanceDecryptResponse\022\r\n\005KeyId\030\001 " +
+      "\001(\t\022\021\n\tPlaintext\030\002 \001(\014\022\021\n\tRequestId\030\003 \001(" +
+      "\t\022\021\n\tAlgorithm\030\004 \001(\t\022\023\n\013PaddingMode\030\005 \001(" +
+      "\t\022\024\n\014KeyVersionId\030\006 \001(\t\"R\n\035AdvanceGenera" +
+      "teDataKeyRequest\022\r\n\005KeyId\030\001 \001(\t\022\025\n\rNumbe" +
+      "rOfBytes\030\002 \001(\005\022\013\n\003Aad\030\003 \001(\014\"\242\001\n\036AdvanceG" +
+      "enerateDataKeyResponse\022\r\n\005KeyId\030\001 \001(\t\022\n\n" +
+      "\002Iv\030\002 \001(\014\022\021\n\tPlaintext\030\003 \001(\014\022\026\n\016Cipherte" +
+      "xtBlob\030\004 \001(\014\022\021\n\tRequestId\030\005 \001(\t\022\021\n\tAlgor" +
+      "ithm\030\006 \001(\t\022\024\n\014KeyVersionId\030\007 \001(\tBF\n)com." +
+      "aliyun.dkms.gcs.openapi.util.protobufB\tA" +
+      "piModelsZ\016./protobuf/apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_KmsEncryptRequest_descriptor =
+    internal_static_api_EncryptRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_KmsEncryptRequest_fieldAccessorTable = new
+    internal_static_api_EncryptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_KmsEncryptRequest_descriptor,
-        new java.lang.String[] { "KeyId", "Plaintext", "Aad", });
-    internal_static_KmsEncryptResponse_descriptor =
+        internal_static_api_EncryptRequest_descriptor,
+        new java.lang.String[] { "KeyId", "Plaintext", "Algorithm", "Aad", "Iv", "PaddingMode", });
+    internal_static_api_EncryptResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_KmsEncryptResponse_fieldAccessorTable = new
+    internal_static_api_EncryptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_KmsEncryptResponse_descriptor,
-        new java.lang.String[] { "KeyId", "CiphertextBlob", "RequestId", });
-    internal_static_EncryptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_EncryptRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EncryptRequest_descriptor,
-        new java.lang.String[] { "KeyId", "Plaintext", "Algorithm", "Aad", "Iv", "PaddingMode", });
-    internal_static_EncryptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_EncryptResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EncryptResponse_descriptor,
+        internal_static_api_EncryptResponse_descriptor,
         new java.lang.String[] { "KeyId", "CiphertextBlob", "Iv", "RequestId", "Algorithm", "PaddingMode", });
-    internal_static_KmsDecryptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_KmsDecryptRequest_fieldAccessorTable = new
+    internal_static_api_DecryptRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_api_DecryptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_KmsDecryptRequest_descriptor,
-        new java.lang.String[] { "CiphertextBlob", "Aad", });
-    internal_static_KmsDecryptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_KmsDecryptResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_KmsDecryptResponse_descriptor,
-        new java.lang.String[] { "KeyId", "Plaintext", "RequestId", });
-    internal_static_DecryptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_DecryptRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DecryptRequest_descriptor,
+        internal_static_api_DecryptRequest_descriptor,
         new java.lang.String[] { "CiphertextBlob", "KeyId", "Algorithm", "Aad", "Iv", "PaddingMode", });
-    internal_static_DecryptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_DecryptResponse_fieldAccessorTable = new
+    internal_static_api_DecryptResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_api_DecryptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DecryptResponse_descriptor,
+        internal_static_api_DecryptResponse_descriptor,
         new java.lang.String[] { "KeyId", "Plaintext", "RequestId", "Algorithm", "PaddingMode", });
-    internal_static_SignRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_SignRequest_fieldAccessorTable = new
+    internal_static_api_SignRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_api_SignRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SignRequest_descriptor,
+        internal_static_api_SignRequest_descriptor,
         new java.lang.String[] { "KeyId", "Digest", "Algorithm", "Message", "MessageType", });
-    internal_static_SignResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_SignResponse_fieldAccessorTable = new
+    internal_static_api_SignResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_api_SignResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SignResponse_descriptor,
+        internal_static_api_SignResponse_descriptor,
         new java.lang.String[] { "KeyId", "Signature", "RequestId", "Algorithm", "MessageType", });
-    internal_static_VerifyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_VerifyRequest_fieldAccessorTable = new
+    internal_static_api_VerifyRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_api_VerifyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_VerifyRequest_descriptor,
+        internal_static_api_VerifyRequest_descriptor,
         new java.lang.String[] { "KeyId", "Digest", "Signature", "Algorithm", "Message", "MessageType", });
-    internal_static_VerifyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_VerifyResponse_fieldAccessorTable = new
+    internal_static_api_VerifyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_api_VerifyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_VerifyResponse_descriptor,
+        internal_static_api_VerifyResponse_descriptor,
         new java.lang.String[] { "KeyId", "Value", "RequestId", "Algorithm", "MessageType", });
-    internal_static_HmacRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_HmacRequest_fieldAccessorTable = new
+    internal_static_api_HmacRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_api_HmacRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_HmacRequest_descriptor,
+        internal_static_api_HmacRequest_descriptor,
         new java.lang.String[] { "KeyId", "Message", });
-    internal_static_HmacResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_HmacResponse_fieldAccessorTable = new
+    internal_static_api_HmacResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_api_HmacResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_HmacResponse_descriptor,
+        internal_static_api_HmacResponse_descriptor,
         new java.lang.String[] { "KeyId", "Signature", "RequestId", });
-    internal_static_GenerateRandomRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_GenerateRandomRequest_fieldAccessorTable = new
+    internal_static_api_GenerateRandomRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_api_GenerateRandomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GenerateRandomRequest_descriptor,
+        internal_static_api_GenerateRandomRequest_descriptor,
         new java.lang.String[] { "Length", });
-    internal_static_GenerateRandomResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
-    internal_static_GenerateRandomResponse_fieldAccessorTable = new
+    internal_static_api_GenerateRandomResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_api_GenerateRandomResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GenerateRandomResponse_descriptor,
+        internal_static_api_GenerateRandomResponse_descriptor,
         new java.lang.String[] { "Random", "RequestId", });
-    internal_static_HashRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_HashRequest_fieldAccessorTable = new
+    internal_static_api_GenerateDataKeyRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_api_GenerateDataKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_HashRequest_descriptor,
-        new java.lang.String[] { "Message", "Algorithm", });
-    internal_static_HashResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
-    internal_static_HashResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_HashResponse_descriptor,
-        new java.lang.String[] { "Digest", "RequestId", });
-    internal_static_GenerateDataKeyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
-    internal_static_GenerateDataKeyRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GenerateDataKeyRequest_descriptor,
+        internal_static_api_GenerateDataKeyRequest_descriptor,
         new java.lang.String[] { "KeyId", "Algorithm", "NumberOfBytes", "Aad", });
-    internal_static_GenerateDataKeyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
-    internal_static_GenerateDataKeyResponse_fieldAccessorTable = new
+    internal_static_api_GenerateDataKeyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_api_GenerateDataKeyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GenerateDataKeyResponse_descriptor,
+        internal_static_api_GenerateDataKeyResponse_descriptor,
         new java.lang.String[] { "KeyId", "Iv", "Plaintext", "CiphertextBlob", "RequestId", "Algorithm", });
-    internal_static_GetPublicKeyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
-    internal_static_GetPublicKeyRequest_fieldAccessorTable = new
+    internal_static_api_GetPublicKeyRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_api_GetPublicKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetPublicKeyRequest_descriptor,
+        internal_static_api_GetPublicKeyRequest_descriptor,
         new java.lang.String[] { "KeyId", });
-    internal_static_GetPublicKeyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(21);
-    internal_static_GetPublicKeyResponse_fieldAccessorTable = new
+    internal_static_api_GetPublicKeyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_api_GetPublicKeyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetPublicKeyResponse_descriptor,
+        internal_static_api_GetPublicKeyResponse_descriptor,
         new java.lang.String[] { "KeyId", "PublicKey", "RequestId", });
-    internal_static_Error_descriptor =
-      getDescriptor().getMessageTypes().get(22);
-    internal_static_Error_fieldAccessorTable = new
+    internal_static_api_Error_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_api_Error_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Error_descriptor,
+        internal_static_api_Error_descriptor,
         new java.lang.String[] { "StatusCode", "ErrorCode", "ErrorMessage", "RequestId", });
-    internal_static_GetSecretValueRequest_descriptor =
-      getDescriptor().getMessageTypes().get(23);
-    internal_static_GetSecretValueRequest_fieldAccessorTable = new
+    internal_static_api_GetSecretValueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_api_GetSecretValueRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetSecretValueRequest_descriptor,
+        internal_static_api_GetSecretValueRequest_descriptor,
         new java.lang.String[] { "SecretName", "VersionStage", "VersionId", "FetchExtendedConfig", });
-    internal_static_GetSecretValueResponse_descriptor =
-      getDescriptor().getMessageTypes().get(24);
-    internal_static_GetSecretValueResponse_fieldAccessorTable = new
+    internal_static_api_GetSecretValueResponse_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_api_GetSecretValueResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetSecretValueResponse_descriptor,
+        internal_static_api_GetSecretValueResponse_descriptor,
         new java.lang.String[] { "SecretName", "SecretType", "SecretData", "SecretDataType", "VersionStages", "VersionId", "CreateTime", "RequestId", "LastRotationDate", "NextRotationDate", "ExtendedConfig", "AutomaticRotation", "RotationInterval", });
-    internal_static_AdvanceEncryptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(25);
-    internal_static_AdvanceEncryptRequest_fieldAccessorTable = new
+    internal_static_api_AdvanceEncryptRequest_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_api_AdvanceEncryptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AdvanceEncryptRequest_descriptor,
+        internal_static_api_AdvanceEncryptRequest_descriptor,
         new java.lang.String[] { "KeyId", "Plaintext", "Algorithm", "Aad", "Iv", "PaddingMode", });
-    internal_static_AdvanceEncryptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(26);
-    internal_static_AdvanceEncryptResponse_fieldAccessorTable = new
+    internal_static_api_AdvanceEncryptResponse_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_api_AdvanceEncryptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AdvanceEncryptResponse_descriptor,
+        internal_static_api_AdvanceEncryptResponse_descriptor,
         new java.lang.String[] { "KeyId", "CiphertextBlob", "Iv", "RequestId", "Algorithm", "PaddingMode", "KeyVersionId", });
-    internal_static_AdvanceDecryptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(27);
-    internal_static_AdvanceDecryptRequest_fieldAccessorTable = new
+    internal_static_api_AdvanceDecryptRequest_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_api_AdvanceDecryptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AdvanceDecryptRequest_descriptor,
+        internal_static_api_AdvanceDecryptRequest_descriptor,
         new java.lang.String[] { "CiphertextBlob", "KeyId", "Algorithm", "Aad", "Iv", "PaddingMode", });
-    internal_static_AdvanceDecryptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(28);
-    internal_static_AdvanceDecryptResponse_fieldAccessorTable = new
+    internal_static_api_AdvanceDecryptResponse_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_api_AdvanceDecryptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AdvanceDecryptResponse_descriptor,
+        internal_static_api_AdvanceDecryptResponse_descriptor,
         new java.lang.String[] { "KeyId", "Plaintext", "RequestId", "Algorithm", "PaddingMode", "KeyVersionId", });
-    internal_static_AdvanceGenerateDataKeyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(29);
-    internal_static_AdvanceGenerateDataKeyRequest_fieldAccessorTable = new
+    internal_static_api_AdvanceGenerateDataKeyRequest_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_api_AdvanceGenerateDataKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AdvanceGenerateDataKeyRequest_descriptor,
+        internal_static_api_AdvanceGenerateDataKeyRequest_descriptor,
         new java.lang.String[] { "KeyId", "NumberOfBytes", "Aad", });
-    internal_static_AdvanceGenerateDataKeyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(30);
-    internal_static_AdvanceGenerateDataKeyResponse_fieldAccessorTable = new
+    internal_static_api_AdvanceGenerateDataKeyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_api_AdvanceGenerateDataKeyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AdvanceGenerateDataKeyResponse_descriptor,
+        internal_static_api_AdvanceGenerateDataKeyResponse_descriptor,
         new java.lang.String[] { "KeyId", "Iv", "Plaintext", "CiphertextBlob", "RequestId", "Algorithm", "KeyVersionId", });
   }
 

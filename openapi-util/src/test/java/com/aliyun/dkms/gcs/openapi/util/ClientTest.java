@@ -7,27 +7,10 @@ import com.google.protobuf.ByteString;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ClientTest {
 
-    @org.junit.jupiter.api.Test
-    void getHost() throws Exception {
-        String host = Client.getHost("", "");
-
-        assertEquals("kms-instance.cn-hangzhou.aliyuncs.com", host);
-
-        String regionId = "regionId";
-        host = Client.getHost(regionId, "");
-
-        assertEquals("kms-instance.regionId.aliyuncs.com", host);
-
-        String endpoint = "endpoint";
-        host = Client.getHost(regionId, endpoint);
-
-        assertEquals("endpoint", host);
-    }
 
     @org.junit.jupiter.api.Test
     void getErrMessage() throws Exception {
@@ -46,37 +29,6 @@ class ClientTest {
         assertEquals(requestId, resp.get("RequestId"));
     }
 
-    @org.junit.jupiter.api.Test
-    void getStringToSign() throws Exception {
-        String expect = "POST\n9F86D081884C7D659A2FEAA0C55AD015A3BF4F1B2B0B822CD15D6C15B0F00A08\napplication/x-protobuf\nTue, 06 Jul 2021 11:25:31 GMT\nx-kms-accesskeyid:access-key-id\nx-kms-apiname:Decrypt\nx-kms-apiversion:0.1.0\nx-kms-signaturemethod:RSA_PKCS1_SHA_256\n/";
-        TeaRequest request = new TeaRequest();
-        request.protocol = "https";
-        request.method = "POST";
-        request.pathname = "/";
-        request.headers.put("accept", "application/x-protobuf");
-        request.headers.put("host", "host");
-        request.headers.put("date", "Tue, 06 Jul 2021 11:25:31 GMT");
-        request.headers.put("user-agent", "user-agent");
-        request.headers.put("x-kms-apiversion", "0.1.0");
-        request.headers.put("x-kms-apiname", "Decrypt");
-        request.headers.put("x-kms-signaturemethod", "RSA_PKCS1_SHA_256");
-        request.headers.put("x-kms-accesskeyid", "access-key-id");
-        request.headers.put("content-type", "application/x-protobuf");
-        request.headers.put("content-length", "4");
-        request.headers.put("content-sha256", "9F86D081884C7D659A2FEAA0C55AD015A3BF4F1B2B0B822CD15D6C15B0F00A08");
-        String strToSign = Client.getStringToSign(request);
-
-        assertEquals(expect, strToSign);
-    }
-
-    @org.junit.jupiter.api.Test
-    void getContentSHA256() throws Exception {
-        String content = "test";
-        String expect = "9F86D081884C7D659A2FEAA0C55AD015A3BF4F1B2B0B822CD15D6C15B0F00A08";
-        String sha256 = Client.getContentSHA256(content.getBytes(StandardCharsets.UTF_8));
-
-        assertEquals(expect, sha256);
-    }
 
     @org.junit.jupiter.api.Test
     void getSerializedEncryptRequest() throws Exception {
@@ -168,35 +120,6 @@ class ClientTest {
     }
 
     @org.junit.jupiter.api.Test
-    void getSerializedHmacRequest() throws Exception {
-        Map<String, Object> reqBody = new HashMap<>();
-        reqBody.put("KeyId", "KeyId");
-        reqBody.put("Message", "Message".getBytes(StandardCharsets.UTF_8));
-        byte[] reqBodyBytes = Client.getSerializedHmacRequest(reqBody);
-        ApiModels.HmacRequest request = ApiModels.HmacRequest.parseFrom(reqBodyBytes);
-
-        assertEquals("KeyId", request.getKeyId());
-        assertEquals("Message", new String(request.getMessage().toByteArray()));
-    }
-
-    @org.junit.jupiter.api.Test
-    void parseHmacResponse() throws Exception {
-        String keyId = "KeyId";
-        byte[] signature = "Signature".getBytes(StandardCharsets.UTF_8);
-        String requestId = "RequestId";
-
-        ApiModels.HmacResponse.Builder builder = ApiModels.HmacResponse.newBuilder();
-        builder.setKeyId(keyId);
-        builder.setSignature(ByteString.copyFrom(signature));
-        builder.setRequestId(requestId);
-        Map<String, Object> response = Client.parseHmacResponse(builder.build().toByteArray());
-
-        assertEquals(keyId, response.get("KeyId"));
-        assertEquals(new String(signature), new String((byte[]) response.get("Signature")));
-        assertEquals(requestId, response.get("RequestId"));
-    }
-
-    @org.junit.jupiter.api.Test
     void getSerializedSignRequest() throws Exception {
         Map<String, Object> reqBody = new HashMap<>();
         reqBody.put("KeyId", "KeyId");
@@ -273,32 +196,6 @@ class ClientTest {
         assertEquals(requestId, response.get("RequestId"));
         assertEquals(algorithm, response.get("Algorithm"));
         assertEquals(messageType, response.get("MessageType"));
-    }
-
-    @org.junit.jupiter.api.Test
-    void getSerializedHashRequest() throws Exception {
-        Map<String, Object> reqBody = new HashMap<>();
-        reqBody.put("Algorithm", "Algorithm");
-        reqBody.put("Message", "Message".getBytes(StandardCharsets.UTF_8));
-        byte[] reqBodyBytes = Client.getSerializedHashRequest(reqBody);
-        ApiModels.HashRequest request = ApiModels.HashRequest.parseFrom(reqBodyBytes);
-
-        assertEquals("Algorithm", request.getAlgorithm());
-        assertEquals("Message", new String(request.getMessage().toByteArray()));
-    }
-
-    @org.junit.jupiter.api.Test
-    void parseHashResponse() throws Exception {
-        byte[] digest = "Digest".getBytes(StandardCharsets.UTF_8);
-        String requestId = "RequestId";
-
-        ApiModels.HashResponse.Builder builder = ApiModels.HashResponse.newBuilder();
-        builder.setDigest(ByteString.copyFrom(digest));
-        builder.setRequestId(requestId);
-        Map<String, Object> response = Client.parseHashResponse(builder.build().toByteArray());
-
-        assertEquals(new String(digest), new String((byte[]) response.get("Digest")));
-        assertEquals(requestId, response.get("RequestId"));
     }
 
     @org.junit.jupiter.api.Test

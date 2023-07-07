@@ -3,45 +3,90 @@ package com.aliyun.dkms.gcs.sdk.models;
 
 import com.aliyun.tea.*;
 
-public class GetSecretValueResponse extends DKMSResponse {
+public class GetSecretValueResponse extends TeaModel {
+    /**
+     * <p>凭据名称</p>
+     */
     @NameInMap("SecretName")
     public String secretName;
 
+    /**
+     * <p>凭据类型</p>
+     */
     @NameInMap("SecretType")
     public String secretType;
 
+    /**
+     * <p>凭据值</p>
+     */
     @NameInMap("SecretData")
     public String secretData;
 
+    /**
+     * <p>凭据值类型</p>
+     */
     @NameInMap("SecretDataType")
     public String secretDataType;
 
+    /**
+     * <p>凭据版本的状态标记</p>
+     */
     @NameInMap("VersionStages")
     public java.util.List<String> versionStages;
 
+    /**
+     * <p>凭据版本的标识符</p>
+     */
     @NameInMap("VersionId")
     public String versionId;
 
+    /**
+     * <p>创建凭据的时间</p>
+     */
     @NameInMap("CreateTime")
     public String createTime;
 
+    /**
+     * <p>请求ID</p>
+     */
     @NameInMap("RequestId")
     public String requestId;
 
+    /**
+     * <p>最近一次轮转的时间</p>
+     */
     @NameInMap("LastRotationDate")
     public String lastRotationDate;
 
+    /**
+     * <p>下一次轮转的时间</p>
+     */
     @NameInMap("NextRotationDate")
     public String nextRotationDate;
 
+    /**
+     * <p>凭据的拓展配置</p>
+     */
     @NameInMap("ExtendedConfig")
     public String extendedConfig;
 
+    /**
+     * <p>是否开启自动轮转</p>
+     */
     @NameInMap("AutomaticRotation")
     public String automaticRotation;
 
+    /**
+     * <p>凭据自动轮转的周期</p>
+     */
     @NameInMap("RotationInterval")
     public String rotationInterval;
+
+    /**
+     * <p>响应头</p>
+     */
+    @NameInMap("responseHeaders")
+    public java.util.Map<String, String> responseHeaders;
 
     public static GetSecretValueResponse build(java.util.Map<String, ?> map) throws Exception {
         GetSecretValueResponse self = new GetSecretValueResponse();
@@ -150,6 +195,14 @@ public class GetSecretValueResponse extends DKMSResponse {
     }
     public String getRotationInterval() {
         return this.rotationInterval;
+    }
+
+    public GetSecretValueResponse setResponseHeaders(java.util.Map<String, String> responseHeaders) {
+        this.responseHeaders = responseHeaders;
+        return this;
+    }
+    public java.util.Map<String, String> getResponseHeaders() {
+        return this.responseHeaders;
     }
 
 }

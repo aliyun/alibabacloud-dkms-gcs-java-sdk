@@ -4,23 +4,41 @@ package com.aliyun.dkms.gcs.openapi.credential.models;
 import com.aliyun.tea.*;
 
 public class Config extends TeaModel {
-    @NameInMap("type")
+    /**
+     * <p>访问凭证类型</p>
+     */
+    @NameInMap("Type")
     @Validation(required = true)
     public String type;
 
-    @NameInMap("accessKeyId")
+    /**
+     * <p>访问凭证ID</p>
+     */
+    @NameInMap("Type")
     public String accessKeyId;
 
-    @NameInMap("privateKey")
+    /**
+     * <p>pkcs1 或 pkcs8 PEM 格式私钥</p>
+     */
+    @NameInMap("Type")
     public String privateKey;
 
-    @NameInMap("clientKeyFile")
+    /**
+     * <p>ClientKey文件路径</p>
+     */
+    @NameInMap("Type")
     public String clientKeyFile;
 
-    @NameInMap("clientKeyContent")
+    /**
+     * <p>ClientKey文件内容</p>
+     */
+    @NameInMap("Type")
     public String clientKeyContent;
 
-    @NameInMap("password")
+    /**
+     * <p>ClientKey密码</p>
+     */
+    @NameInMap("Type")
     public String password;
 
     public static Config build(java.util.Map<String, ?> map) throws Exception {

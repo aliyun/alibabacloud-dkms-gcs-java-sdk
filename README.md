@@ -21,7 +21,7 @@ The recommended way to use the AlibabaCloud DKMS SDK for Java in your project is
 <dependency>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
 </dependency>
 ```
 
