@@ -2,18 +2,8 @@ syntax = "proto3";
 
 option java_package = "com.aliyun.dkms.gcs.openapi.util.protobuf";
 option java_outer_classname = "ApiModels";
-
-message KmsEncryptRequest {
-     string KeyId = 1;
-     bytes Plaintext = 2;
-     bytes Aad = 3;
-}
-
-message KmsEncryptResponse {
-     string KeyId = 1;
-     bytes CiphertextBlob = 2;
-     string RequestId = 3;
-}
+package api;
+option go_package = "./protobuf/api";
 
 message EncryptRequest {
      string KeyId = 1;
@@ -31,17 +21,6 @@ message EncryptResponse {
      string RequestId = 4;
      string Algorithm = 5;
      string PaddingMode = 6;
-}
-
-message KmsDecryptRequest {
-     bytes CiphertextBlob = 1;
-     bytes Aad = 2;
-}
-
-message KmsDecryptResponse {
-     string KeyId = 1;
-     bytes Plaintext = 2;
-     string RequestId = 3;
 }
 
 message DecryptRequest {
@@ -112,16 +91,6 @@ message GenerateRandomRequest {
 message GenerateRandomResponse {
      bytes Random = 1;
      string RequestId = 2;
-}
-
-message HashRequest {
-      bytes Message = 1;
-   string Algorithm = 2;
-}
-
-message HashResponse {
-     bytes  Digest = 1;
-     string RequestId = 3;
 }
 
 message GenerateDataKeyRequest {

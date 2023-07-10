@@ -5,12 +5,12 @@
     <parent>
         <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
         <groupId>com.aliyun</groupId>
-        <version>0.3.0</version>
+        <version>0.4.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>alibabacloud-dkms-gcs-sdk-samples</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
     <name>Dedicated Key Management Service Java SDK Samples</name>
     <description>Dedicated Key Management Service SDK for Java
 

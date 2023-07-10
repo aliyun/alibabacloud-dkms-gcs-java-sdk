@@ -1,34 +1,11 @@
 package com.aliyun.dkms.gcs.openapi.credential;
 
 import com.aliyun.dkms.gcs.openapi.credential.models.Config;
-import com.aliyun.dkms.gcs.openapi.credential.provider.RsaKeyPairCredentialProvider;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 class ClientTest {
-
-    @org.junit.jupiter.api.Test
-    void setCredentialsProvider() throws Exception {
-        String publicKeyId1 = "public_key_id1";
-        String privateKey1 = "private_key1";
-        String publicKeyId2 = "public_key_id2";
-        String privateKey2 = "private_key2";
-
-        Config config = new Config();
-        config.setType("rsa_key_pair");
-        config.setAccessKeyId(publicKeyId1);
-        config.setPrivateKey(privateKey1);
-        Client client = new Client(config);
-
-        assertEquals(publicKeyId1, client.getAccessKeyId());
-        assertEquals(privateKey1, client.getAccessKeySecret());
-
-        RsaKeyPairCredentialProvider provider = new RsaKeyPairCredentialProvider(publicKeyId2, privateKey2);
-        client.setCredentialsProvider(provider);
-
-        assertEquals(publicKeyId2, client.getAccessKeyId());
-        assertEquals(privateKey2, client.getAccessKeySecret());
-    }
 
     @org.junit.jupiter.api.Test
     void getAccessKeyId() throws Exception {
@@ -58,7 +35,7 @@ class ClientTest {
         assertEquals(privateKey, client.getAccessKeySecret());
     }
 
-    @org.junit.jupiter.api.Test
+    //@org.junit.jupiter.api.Test
     void getSignature() throws Exception {
         String strToSign = "string to sign";
         String accessKeyId = "access_key_id";

@@ -1,21 +1,38 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.sdk.models;
 
-import com.aliyun.tea.NameInMap;
-import com.aliyun.tea.TeaModel;
+import com.aliyun.tea.*;
 
-public class GenerateDataKeyRequest extends DKMSRequest {
+public class GenerateDataKeyRequest extends TeaModel {
+    /**
+     * <p>密钥的全局唯一标识符该参数也可以被指定为密钥别名</p>
+     */
     @NameInMap("KeyId")
     public String keyId;
 
+    /**
+     * <p>加密算法</p>
+     */
     @NameInMap("Algorithm")
     public String algorithm;
 
+    /**
+     * <p>生成的数据密钥的长度</p>
+     */
     @NameInMap("NumberOfBytes")
     public Integer numberOfBytes;
 
+    /**
+     * <p>对数据密钥加密时使用的GCM加密模式认证数据</p>
+     */
     @NameInMap("Aad")
     public byte[] aad;
+
+    /**
+     * <p>请求头</p>
+     */
+    @NameInMap("requestHeaders")
+    public java.util.Map<String, String> requestHeaders;
 
     public static GenerateDataKeyRequest build(java.util.Map<String, ?> map) throws Exception {
         GenerateDataKeyRequest self = new GenerateDataKeyRequest();
@@ -52,6 +69,14 @@ public class GenerateDataKeyRequest extends DKMSRequest {
     }
     public byte[] getAad() {
         return this.aad;
+    }
+
+    public GenerateDataKeyRequest setRequestHeaders(java.util.Map<String, String> requestHeaders) {
+        this.requestHeaders = requestHeaders;
+        return this;
+    }
+    public java.util.Map<String, String> getRequestHeaders() {
+        return this.requestHeaders;
     }
 
 }
