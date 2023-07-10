@@ -4,6 +4,8 @@ English | [简体中文](README-CN.md)
 
 ## AlibabaCloud DKMS-GCS SDK for Java
 
+[![GitHub version](https://badge.fury.io/gh/aliyun%2Falibabacloud-dkms-gcs-java-sdk.svg)](https://badge.fury.io/gh/aliyun%2Falibabacloud-dkms-gcs-java-sdk)
+
 - [Overview](https://www.alibabacloud.com/help/key-management-service/latest/dedicated-kms-overview)
 - [Quick Start](https://www.alibabacloud.com/help/key-management-service/latest/manage-dedicated-kms-instances)
 - [Sample Code](/example)

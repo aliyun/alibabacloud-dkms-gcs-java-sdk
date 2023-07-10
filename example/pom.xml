@@ -17,25 +17,6 @@
 
         http://www.aliyun.com
     </description>
-    <url>http://www.aliyun.com</url>
-    <licenses>
-        <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <id>aliyunproducts</id>
-            <name>Aliyun SDK</name>
-            <email>aliyunsdk@aliyun.com</email>
-        </developer>
-    </developers>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
 
     <dependencies>
         <dependency>
