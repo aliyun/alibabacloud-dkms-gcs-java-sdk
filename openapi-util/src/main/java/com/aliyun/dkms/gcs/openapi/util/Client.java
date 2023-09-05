@@ -1,7 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.openapi.util;
+
 import com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels;
 import com.google.protobuf.ByteString;
+
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.net.URL;
@@ -10,7 +12,6 @@ import java.util.*;
 import java.io.*;
 
 import com.aliyun.tea.*;
-import com.aliyun.dkms.gcs.openapi.util.models.*;
 
 public class Client {
 
@@ -28,30 +29,12 @@ public class Client {
     }
 
     public static String getPrivatePemFromPk12(byte[] privateKeyData, String password) throws Exception {
-                KeyStore keyStore = KeyStore.getInstance("PKCS12");
+        KeyStore keyStore = KeyStore.getInstance("PKCS12");
         keyStore.load(new ByteArrayInputStream(privateKeyData), password.toCharArray());
         Enumeration<String> e = keyStore.aliases();
         String alias = e.nextElement();
         PrivateKey privateKey = (PrivateKey) keyStore.getKey(alias, password.toCharArray());
         return Base64.getEncoder().encodeToString(privateKey.getEncoded());
-    }
-
-    public static String getCanonicalizedHeaders(java.util.Map<String, String> headers) throws Exception {
-        if (com.aliyun.teautil.Common.isUnset(headers)) {
-            return null;
-        }
-
-        String prefix = "x-kms-";
-        java.util.List<String> keys = com.aliyun.darabonba.map.Client.keySet(headers);
-        java.util.List<String> sortedKeys = com.aliyun.darabonba.array.Client.ascSort(keys);
-        String canonicalizedHeaders = "";
-        for (String key : sortedKeys) {
-            if (com.aliyun.darabonbastring.Client.hasPrefix(key, prefix)) {
-                canonicalizedHeaders = "" + canonicalizedHeaders + "" + key + ":" + com.aliyun.darabonbastring.Client.trim(headers.get(key)) + "\n";
-            }
-
-        }
-        return canonicalizedHeaders;
     }
 
     public static String getStringToSign(String method, String pathname, java.util.Map<String, String> headers, java.util.Map<String, String> query) throws Exception {
@@ -74,6 +57,24 @@ public class Client {
         String canonicalizedHeaders = Client.getCanonicalizedHeaders(headers);
         String canonicalizedResource = Client.getCanonicalizedResource(pathname, query);
         return "" + header + "" + canonicalizedHeaders + "" + canonicalizedResource + "";
+    }
+
+    public static String getCanonicalizedHeaders(java.util.Map<String, String> headers) throws Exception {
+        if (com.aliyun.teautil.Common.isUnset(headers)) {
+            return null;
+        }
+
+        String prefix = "x-kms-";
+        java.util.List<String> keys = com.aliyun.darabonba.map.Client.keySet(headers);
+        java.util.List<String> sortedKeys = com.aliyun.darabonba.array.Client.ascSort(keys);
+        String canonicalizedHeaders = "";
+        for (String key : sortedKeys) {
+            if (com.aliyun.darabonbastring.Client.hasPrefix(key, prefix)) {
+                canonicalizedHeaders = "" + canonicalizedHeaders + "" + key + ":" + com.aliyun.darabonbastring.Client.trim(headers.get(key)) + "\n";
+            }
+
+        }
+        return canonicalizedHeaders;
     }
 
     public static String getCanonicalizedResource(String pathname, java.util.Map<String, String> query) throws Exception {
@@ -105,8 +106,23 @@ public class Client {
         return com.aliyun.teautil.Common.toString(reqBody);
     }
 
+    public static String getCaCertFromFile(String reqBody) throws Exception {
+        String caCerts = com.aliyun.teautil.Common.readAsString(com.aliyun.darabonba.stream.Client.readFromFilePath(reqBody));
+        Integer length = com.aliyun.darabonba.array.Client.size(com.aliyun.darabonbastring.Client.split(caCerts, "", null));
+        Long endIndex = com.aliyun.darabonbanumber.Client.itol(com.aliyun.darabonbastring.Client.index(caCerts, "-----END CERTIFICATE-----"));
+        Long suffixLength = com.aliyun.darabonbanumber.Client.itol(25);
+        Integer subCaStart = com.aliyun.darabonbanumber.Client.ltoi(com.aliyun.darabonbanumber.Client.add(endIndex, suffixLength));
+        String rootCa = com.aliyun.darabonbastring.Client.subString(caCerts, 0, subCaStart);
+        String subCa = com.aliyun.darabonbastring.Client.subString(caCerts, subCaStart, length);
+        if (com.aliyun.teautil.Common.empty(com.aliyun.darabonbastring.Client.trim(subCa))) {
+            return rootCa;
+        }
+
+        return subCa;
+    }
+
     public static String readFileContent(String filePath) throws Exception {
-    File file = getFileByPath(filePath);
+        File file = getFileByPath(filePath);
         if (file == null || !file.exists()) {
             try (InputStream in = Client.class.getClassLoader().getResourceAsStream(filePath);
             ) {
@@ -122,13 +138,13 @@ public class Client {
             }
         }
     }
-	
+
     public static File getFileByPath(String filePath) {
         File file = new File(filePath);
         if (!file.exists()) {
             URL resource = Client.class.getClassLoader().getResource("");
             String path = "";
-            if(resource != null){
+            if (resource != null) {
                 path = resource.getPath();
             }
             if (!(file = new File(path + filePath)).exists()) {
@@ -140,39 +156,17 @@ public class Client {
         }
         return file;
     }
-	
+
     private static String readContent(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
         StringBuffer content = new StringBuffer();
-        byte[] input=new byte[inputStream.available()];
-        while ((inputStream.read(input)) !=-1) {
+        byte[] input = new byte[inputStream.available()];
+        while ((inputStream.read(input)) != -1) {
             content.append(new String(input, 0, input.length));
         }
         return content.toString();
-    }
-
-    public static String getCaCertFromFile(String reqBody) throws Exception {
-        String caCerts = Client.readFileContent(reqBody);
-        if (com.aliyun.teautil.Common.isUnset(caCerts)) {
-            throw new TeaException(TeaConverter.buildMap(
-                new TeaPair("name", "ParameterMissing"),
-                new TeaPair("message", "'CA' can not be unset")
-            ));
-        }
-
-        Integer length = com.aliyun.darabonbanumber.Client.parseInt(Client.getContentLength(com.aliyun.darabonbastring.Client.toBytes(caCerts, "UTF-8")));
-        Long endIndex = com.aliyun.darabonbanumber.Client.itol(com.aliyun.darabonbastring.Client.index(caCerts, "-----END CERTIFICATE-----"));
-        Long suffixLength = com.aliyun.darabonbanumber.Client.itol(25);
-        Integer subCaStart = com.aliyun.darabonbanumber.Client.ltoi(com.aliyun.darabonbanumber.Client.add(endIndex, suffixLength));
-        String rootCa = com.aliyun.darabonbastring.Client.subString(caCerts, 0, subCaStart);
-        String subCa = com.aliyun.darabonbastring.Client.subString(caCerts, subCaStart, length);
-        if (com.aliyun.teautil.Common.empty(com.aliyun.darabonbastring.Client.trim(subCa))) {
-            return rootCa;
-        }
-
-        return subCa;
     }
 
     public static Boolean defaultBoolean(Boolean bool1, Boolean bool2) throws Exception {
@@ -184,33 +178,15 @@ public class Client {
 
     }
 
-    public static byte[] getSerializedEncryptRequest(java.util.Map<String, Object> reqBody) throws Exception {
-        ApiModels.EncryptRequest.Builder builder = ApiModels.EncryptRequest.newBuilder();
-        Object keyId = reqBody.get("KeyId");
-        if (keyId != null) {
-            builder.setKeyId((String) keyId);
+    public static Boolean isRetryErr(Exception err) throws Exception {
+        if (err instanceof TeaException) {
+            String code = ((TeaException) err).getCode();
+            String message = ((TeaException) err).getMessage();
+            if ("Rejected.Throttling".equals(code) || message.contains("The Param Content-SHA256 is invalid.")) {
+                return true;
+            }
         }
-        Object plaintext = reqBody.get("Plaintext");
-        if (plaintext != null) {
-            builder.setPlaintext(ByteString.copyFrom((byte[]) plaintext));
-        }
-        Object algorithm = reqBody.get("Algorithm");
-        if (algorithm != null) {
-            builder.setAlgorithm((String) algorithm);
-        }
-        Object aad = reqBody.get("Aad");
-        if (aad != null) {
-            builder.setAad(ByteString.copyFrom((byte[]) aad));
-        }
-        Object iv = reqBody.get("Iv");
-        if (iv != null) {
-            builder.setIv(ByteString.copyFrom((byte[]) iv));
-        }
-        Object paddingMode = reqBody.get("PaddingMode");
-        if (paddingMode != null) {
-            builder.setPaddingMode((String) paddingMode);
-        }
-        return builder.build().toByteArray();
+        return false;
     }
 
     public static java.util.Map<String, Object> parseEncryptResponse(byte[] resBody) throws Exception {
@@ -338,6 +314,23 @@ public class Client {
         result.put("RequestId", response.getRequestId());
         result.put("Algorithm", response.getAlgorithm());
         result.put("MessageType", response.getMessageType());
+        return result;
+    }
+
+    public static byte[] getSerializedGenerateRandomRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.GenerateRandomRequest.Builder builder = ApiModels.GenerateRandomRequest.newBuilder();
+        Object length = reqBody.get("Length");
+        if (length != null) {
+            builder.setLength((Integer) length);
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static java.util.Map<String, Object> parseGenerateRandomResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.GenerateRandomResponse response = ApiModels.GenerateRandomResponse.parseFrom(resBody);
+        result.put("Random", response.getRandom().toByteArray());
+        result.put("RequestId", response.getRequestId());
         return result;
     }
 
@@ -545,20 +538,32 @@ public class Client {
         return result;
     }
 
-    public static byte[] getSerializedGenerateRandomRequest(java.util.Map<String, Object> reqBody) throws Exception {
-        ApiModels.GenerateRandomRequest.Builder builder = ApiModels.GenerateRandomRequest.newBuilder();
-        Object length = reqBody.get("Length");
-        if (length != null) {
-            builder.setLength((Integer) length);
+    public static byte[] getSerializedEncryptRequest(java.util.Map<String, Object> reqBody) throws Exception {
+        ApiModels.EncryptRequest.Builder builder = ApiModels.EncryptRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object plaintext = reqBody.get("Plaintext");
+        if (plaintext != null) {
+            builder.setPlaintext(ByteString.copyFrom((byte[]) plaintext));
+        }
+        Object algorithm = reqBody.get("Algorithm");
+        if (algorithm != null) {
+            builder.setAlgorithm((String) algorithm);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        Object iv = reqBody.get("Iv");
+        if (iv != null) {
+            builder.setIv(ByteString.copyFrom((byte[]) iv));
+        }
+        Object paddingMode = reqBody.get("PaddingMode");
+        if (paddingMode != null) {
+            builder.setPaddingMode((String) paddingMode);
         }
         return builder.build().toByteArray();
-    }
-
-    public static java.util.Map<String, Object> parseGenerateRandomResponse(byte[] resBody) throws Exception {
-        Map<String, Object> result = new HashMap<>();
-        ApiModels.GenerateRandomResponse response = ApiModels.GenerateRandomResponse.parseFrom(resBody);
-        result.put("Random", response.getRandom().toByteArray());
-        result.put("RequestId", response.getRequestId());
-        return result;
     }
 }
