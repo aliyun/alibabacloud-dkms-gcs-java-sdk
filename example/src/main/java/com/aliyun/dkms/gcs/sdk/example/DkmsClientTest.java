@@ -88,39 +88,39 @@ class DkmsClientTest {
             e.printStackTrace();
         }
     }
-
-    private static void hmac() {
-        String hmacKeyId = "CmkId";
-        String message = "message";
-
-        HmacRequest hmacRequest = new HmacRequest();
-        hmacRequest.setKeyId(hmacKeyId);
-        hmacRequest.setMessage(message.getBytes(StandardCharsets.UTF_8));
-        try {
-            // 如需忽略服务端证书，可使用此处注释代码方式调用
-            //RuntimeOptions runtimeOptions = new RuntimeOptions();
-            //runtimeOptions.setIgnoreSSL(true);
-            //HmacResponse hmacResponse = client.hmacWithOptions(hmacRequest, runtimeOptions);
-            HmacResponse hmacResponse = client.hmac(hmacRequest);
-            byte[] signature = hmacResponse.getSignature();
-            System.out.println("================hmac================");
-            System.out.printf("KeyId: %s%n", hmacResponse.getKeyId());
-            System.out.printf("Signature: %s%n", Arrays.toString(signature));
-            System.out.printf("RequestId: %s%n", hmacResponse.getRequestId());
-            System.out.println("================hmac================");
-        } catch (Exception e) {
-            if (e instanceof TeaException) {
-                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
-                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
-                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
-                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
-                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
-            } else {
-                System.out.printf("hmac errMsg: %s%n", e.getMessage());
-            }
-            e.printStackTrace();
-        }
-    }
+//
+//    private static void hmac() {
+//        String hmacKeyId = "CmkId";
+//        String message = "message";
+//
+//        HmacRequest hmacRequest = new HmacRequest();
+//        hmacRequest.setKeyId(hmacKeyId);
+//        hmacRequest.setMessage(message.getBytes(StandardCharsets.UTF_8));
+//        try {
+//            // 如需忽略服务端证书，可使用此处注释代码方式调用
+//            //RuntimeOptions runtimeOptions = new RuntimeOptions();
+//            //runtimeOptions.setIgnoreSSL(true);
+//            //HmacResponse hmacResponse = client.hmacWithOptions(hmacRequest, runtimeOptions);
+//            HmacResponse hmacResponse = client.hmac(hmacRequest);
+//            byte[] signature = hmacResponse.getSignature();
+//            System.out.println("================hmac================");
+//            System.out.printf("KeyId: %s%n", hmacResponse.getKeyId());
+//            System.out.printf("Signature: %s%n", Arrays.toString(signature));
+//            System.out.printf("RequestId: %s%n", hmacResponse.getRequestId());
+//            System.out.println("================hmac================");
+//        } catch (Exception e) {
+//            if (e instanceof TeaException) {
+//                System.out.printf("Code: %s%n", ((TeaException) e).getCode());
+//                System.out.printf("Message: %s%n", ((TeaException) e).getMessage());
+//                System.out.printf("HttpCode: %s%n", ((TeaException) e).getData().get("httpCode"));
+//                System.out.printf("HostId: %s%n", ((TeaException) e).getData().get("hostId"));
+//                System.out.printf("RequestId: %s%n", ((TeaException) e).getData().get("requestId"));
+//            } else {
+//                System.out.printf("hmac errMsg: %s%n", e.getMessage());
+//            }
+//            e.printStackTrace();
+//        }
+//    }
 
     private static void sign() {
         String signKeyId = "CmkId";
@@ -310,8 +310,8 @@ class DkmsClientTest {
             encrypt();
             //解密测试
             decrypt();
-            //Hmac测试
-            hmac();
+//            //Hmac测试
+//            hmac();
             //签名测试
             sign();
             //验签测试

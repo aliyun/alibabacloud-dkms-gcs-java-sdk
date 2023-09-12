@@ -163,6 +163,7 @@ public class Config extends TeaModel {
         this.endpoint = endpoint;
         return this;
     }
+
     public String getEndpoint() {
         return this.endpoint;
     }
@@ -171,6 +172,7 @@ public class Config extends TeaModel {
         this.protocol = protocol;
         return this;
     }
+
     public String getProtocol() {
         return this.protocol;
     }
@@ -179,6 +181,7 @@ public class Config extends TeaModel {
         this.regionId = regionId;
         return this;
     }
+
     public String getRegionId() {
         return this.regionId;
     }
@@ -187,6 +190,7 @@ public class Config extends TeaModel {
         this.readTimeout = readTimeout;
         return this;
     }
+
     public Number getReadTimeout() {
         return this.readTimeout;
     }
@@ -195,6 +199,7 @@ public class Config extends TeaModel {
         this.connectTimeout = connectTimeout;
         return this;
     }
+
     public Number getConnectTimeout() {
         return this.connectTimeout;
     }
@@ -203,6 +208,7 @@ public class Config extends TeaModel {
         this.httpProxy = httpProxy;
         return this;
     }
+
     public String getHttpProxy() {
         return this.httpProxy;
     }
@@ -211,6 +217,7 @@ public class Config extends TeaModel {
         this.httpsProxy = httpsProxy;
         return this;
     }
+
     public String getHttpsProxy() {
         return this.httpsProxy;
     }
@@ -219,6 +226,7 @@ public class Config extends TeaModel {
         this.noProxy = noProxy;
         return this;
     }
+
     public String getNoProxy() {
         return this.noProxy;
     }
@@ -227,6 +235,7 @@ public class Config extends TeaModel {
         this.maxIdleConns = maxIdleConns;
         return this;
     }
+
     public Number getMaxIdleConns() {
         return this.maxIdleConns;
     }
@@ -235,6 +244,7 @@ public class Config extends TeaModel {
         this.socks5Proxy = socks5Proxy;
         return this;
     }
+
     public String getSocks5Proxy() {
         return this.socks5Proxy;
     }
@@ -243,6 +253,7 @@ public class Config extends TeaModel {
         this.socks5NetWork = socks5NetWork;
         return this;
     }
+
     public String getSocks5NetWork() {
         return this.socks5NetWork;
     }
@@ -251,6 +262,7 @@ public class Config extends TeaModel {
         this.type = type;
         return this;
     }
+
     public String getType() {
         return this.type;
     }
@@ -259,6 +271,7 @@ public class Config extends TeaModel {
         this.userAgent = userAgent;
         return this;
     }
+
     public String getUserAgent() {
         return this.userAgent;
     }
@@ -267,6 +280,7 @@ public class Config extends TeaModel {
         this.credential = credential;
         return this;
     }
+
     public com.aliyun.dkms.gcs.openapi.credential.Client getCredential() {
         return this.credential;
     }
@@ -275,6 +289,7 @@ public class Config extends TeaModel {
         this.clientKeyFile = clientKeyFile;
         return this;
     }
+
     public String getClientKeyFile() {
         return this.clientKeyFile;
     }
@@ -283,6 +298,7 @@ public class Config extends TeaModel {
         this.clientKeyContent = clientKeyContent;
         return this;
     }
+
     public String getClientKeyContent() {
         return this.clientKeyContent;
     }
@@ -291,6 +307,7 @@ public class Config extends TeaModel {
         this.password = password;
         return this;
     }
+
     public String getPassword() {
         return this.password;
     }
@@ -299,6 +316,7 @@ public class Config extends TeaModel {
         this.ca = ca;
         return this;
     }
+
     public String getCa() {
         return this.ca;
     }
@@ -307,6 +325,7 @@ public class Config extends TeaModel {
         this.caFilePath = caFilePath;
         return this;
     }
+
     public String getCaFilePath() {
         return this.caFilePath;
     }
@@ -315,6 +334,7 @@ public class Config extends TeaModel {
         this.ignoreSSL = ignoreSSL;
         return this;
     }
+
     public Boolean getIgnoreSSL() {
         return this.ignoreSSL;
     }

@@ -6,7 +6,19 @@
 
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk-example</artifactId>
-    <version>0.4.1</version>
+    <version>0.5.0</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <name>Dedicated Key Management Service Java SDK Example</name>
     <description>Dedicated Key Management Service SDK for Java
 
