@@ -4,10 +4,10 @@
   <parent>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
-    <version>0.4.1</version>
+    <version>0.5.0</version>
   </parent>
   <artifactId>alibabacloud-dkms-gcs-openapi-util</artifactId>
-  <version>0.4.1</version>
+  <version>0.5.0</version>
   <packaging>jar</packaging>
   <name>alibabacloud-dkms-gcs-openapi-util</name>
   <description>Dedicated Key Management Service Open API Util</description>
