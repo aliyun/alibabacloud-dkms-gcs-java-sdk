@@ -1,9 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.openapi.util;
-
 import com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels;
 import com.google.protobuf.ByteString;
-
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.net.URL;
@@ -107,8 +105,15 @@ public class Client {
     }
 
     public static String getCaCertFromFile(String reqBody) throws Exception {
-        String caCerts = com.aliyun.teautil.Common.readAsString(com.aliyun.darabonba.stream.Client.readFromFilePath(reqBody));
-        Integer length = com.aliyun.darabonba.array.Client.size(com.aliyun.darabonbastring.Client.split(caCerts, "", null));
+        String caCerts = Client.readFileContent(reqBody);
+        if (com.aliyun.teautil.Common.isUnset(caCerts)) {
+            throw new TeaException(TeaConverter.buildMap(
+                new TeaPair("code", "ParameterMissing"),
+                new TeaPair("message", "'CA' can not be empty")
+            ));
+        }
+
+        Integer length = com.aliyun.darabonbanumber.Client.parseInt(Client.getContentLength(com.aliyun.darabonbastring.Client.toBytes(caCerts, "UTF-8")));
         Long endIndex = com.aliyun.darabonbanumber.Client.itol(com.aliyun.darabonbastring.Client.index(caCerts, "-----END CERTIFICATE-----"));
         Long suffixLength = com.aliyun.darabonbanumber.Client.itol(25);
         Integer subCaStart = com.aliyun.darabonbanumber.Client.ltoi(com.aliyun.darabonbanumber.Client.add(endIndex, suffixLength));
@@ -406,7 +411,7 @@ public class Client {
         return builder.build().toByteArray();
     }
 
-    public static java.util.Map<String, Object> parseGetSecretValueResponse(byte[] resBody) throws Exception {
+    public static Map<String, Object> parseGetSecretValueResponse(byte[] resBody) throws Exception {
         Map<String, Object> result = new HashMap<>();
         ApiModels.GetSecretValueResponse response = ApiModels.GetSecretValueResponse.parseFrom(resBody);
         result.put("SecretName", response.getSecretName());
@@ -565,5 +570,153 @@ public class Client {
             builder.setPaddingMode((String) paddingMode);
         }
         return builder.build().toByteArray();
+    }
+
+    public static byte[] getSerializedGenerateDataKeyPairRequest(Map<String, Object> reqBody) throws Exception {
+        ApiModels.GenerateDataKeyPairRequest.Builder builder = ApiModels.GenerateDataKeyPairRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object algorithm = reqBody.get("Algorithm");
+        if (algorithm != null) {
+            builder.setAlgorithm((String) algorithm);
+        }
+        Object keyPairSpec = reqBody.get("KeyPairSpec");
+        if (keyPairSpec != null) {
+            builder.setKeyPairSpec((String) keyPairSpec);
+        }
+        Object keyFormat = reqBody.get("KeyFormat");
+        if (keyFormat != null) {
+            builder.setKeyFormat((String) keyFormat);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static Map<String, Object> parseGenerateDataKeyPairResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.GenerateDataKeyPairResponse response = ApiModels.GenerateDataKeyPairResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("Iv", response.getIv().toByteArray());
+        result.put("KeyPairSpec", response.getKeyPairSpec());
+        result.put("PrivateKeyPlaintext", response.getPrivateKeyPlaintext().toByteArray());
+        result.put("PrivateKeyCiphertextBlob", response.getPrivateKeyCiphertextBlob().toByteArray());
+        result.put("PublicKey", response.getPublicKey().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        result.put("Algorithm", response.getAlgorithm());
+        return result;
+    }
+
+    public static byte[] getSerializedGenerateDataKeyPairWithoutPlaintextRequest(Map<String, Object> reqBody) throws Exception {
+        ApiModels.GenerateDataKeyPairWithoutPlaintextRequest.Builder builder = ApiModels.GenerateDataKeyPairWithoutPlaintextRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object algorithm = reqBody.get("Algorithm");
+        if (algorithm != null) {
+            builder.setAlgorithm((String) algorithm);
+        }
+        Object keyPairSpec = reqBody.get("KeyPairSpec");
+        if (keyPairSpec != null) {
+            builder.setKeyPairSpec((String) keyPairSpec);
+        }
+        Object keyFormat = reqBody.get("KeyFormat");
+        if (keyFormat != null) {
+            builder.setKeyFormat((String) keyFormat);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static Map<String, Object> parseGenerateDataKeyPairWithoutPlaintextResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.GenerateDataKeyPairWithoutPlaintextResponse response = ApiModels.GenerateDataKeyPairWithoutPlaintextResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("Iv", response.getIv().toByteArray());
+        result.put("KeyPairSpec", response.getKeyPairSpec());
+        result.put("PrivateKeyCiphertextBlob", response.getPrivateKeyCiphertextBlob().toByteArray());
+        result.put("PublicKey", response.getPublicKey().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        result.put("Algorithm", response.getAlgorithm());
+        return result;
+    }
+
+    public static byte[] getSerializedAdvanceGenerateDataKeyPairRequest(Map<String, Object> reqBody) throws Exception {
+        ApiModels.AdvanceGenerateDataKeyPairRequest.Builder builder = ApiModels.AdvanceGenerateDataKeyPairRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object keyPairSpec = reqBody.get("KeyPairSpec");
+        if (keyPairSpec != null) {
+            builder.setKeyPairSpec((String) keyPairSpec);
+        }
+        Object keyFormat = reqBody.get("KeyFormat");
+        if (keyFormat != null) {
+            builder.setKeyFormat((String) keyFormat);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static Map<String, Object> parseAdvanceGenerateDataKeyPairResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.AdvanceGenerateDataKeyPairResponse response = ApiModels.AdvanceGenerateDataKeyPairResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("Iv", response.getIv().toByteArray());
+        result.put("KeyPairSpec", response.getKeyPairSpec());
+        result.put("PrivateKeyPlaintext", response.getPrivateKeyPlaintext().toByteArray());
+        result.put("PrivateKeyCiphertextBlob", response.getPrivateKeyCiphertextBlob().toByteArray());
+        result.put("PublicKey", response.getPublicKey().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("KeyVersionId", response.getKeyVersionId());
+        return result;
+    }
+
+    public static byte[] getSerializedAdvanceGenerateDataKeyPairWithoutPlaintextRequest(Map<String, Object> reqBody) throws Exception {
+        ApiModels.AdvanceGenerateDataKeyPairWithoutPlaintextRequest.Builder builder = ApiModels.AdvanceGenerateDataKeyPairWithoutPlaintextRequest.newBuilder();
+        Object keyId = reqBody.get("KeyId");
+        if (keyId != null) {
+            builder.setKeyId((String) keyId);
+        }
+        Object keyPairSpec = reqBody.get("KeyPairSpec");
+        if (keyPairSpec != null) {
+            builder.setKeyPairSpec((String) keyPairSpec);
+        }
+        Object keyFormat = reqBody.get("KeyFormat");
+        if (keyFormat != null) {
+            builder.setKeyFormat((String) keyFormat);
+        }
+        Object aad = reqBody.get("Aad");
+        if (aad != null) {
+            builder.setAad(ByteString.copyFrom((byte[]) aad));
+        }
+        return builder.build().toByteArray();
+    }
+
+    public static Map<String, Object> parseAdvanceGenerateDataKeyPairWithoutPlaintextResponse(byte[] resBody) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+        ApiModels.AdvanceGenerateDataKeyPairWithoutPlaintextResponse response = ApiModels.AdvanceGenerateDataKeyPairWithoutPlaintextResponse.parseFrom(resBody);
+        result.put("KeyId", response.getKeyId());
+        result.put("Iv", response.getIv().toByteArray());
+        result.put("KeyPairSpec", response.getKeyPairSpec());
+        result.put("PrivateKeyCiphertextBlob", response.getPrivateKeyCiphertextBlob().toByteArray());
+        result.put("PublicKey", response.getPublicKey().toByteArray());
+        result.put("RequestId", response.getRequestId());
+        result.put("Algorithm", response.getAlgorithm());
+        result.put("KeyVersionId", response.getKeyVersionId());
+        return result;
     }
 }
