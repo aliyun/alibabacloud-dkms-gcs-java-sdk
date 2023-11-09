@@ -11,7 +11,7 @@ import com.aliyun.tea.interceptor.ResponseInterceptor;
 public class Client {
 
     private final static InterceptorChain interceptorChain = InterceptorChain.create();
-
+    private final static String USER_AGENT = "kms-gcs-java-sdk-version/" + "0.5.1";
     public String _endpoint;
     public String _regionId;
     public String _protocol;
@@ -83,7 +83,7 @@ public class Client {
         this._endpoint = config.endpoint;
         this._protocol = config.protocol;
         this._regionId = config.regionId;
-        this._userAgent = config.userAgent;
+        this._userAgent = config.userAgent == null ? USER_AGENT : config.userAgent;
         this._readTimeout = config.readTimeout;
         this._connectTimeout = config.connectTimeout;
         this._httpProxy = config.httpProxy;
