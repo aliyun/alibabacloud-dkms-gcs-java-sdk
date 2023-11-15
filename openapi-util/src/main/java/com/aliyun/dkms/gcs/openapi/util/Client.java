@@ -1,7 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.openapi.util;
+
 import com.aliyun.dkms.gcs.openapi.util.protobuf.ApiModels;
 import com.google.protobuf.ByteString;
+
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.net.URL;
@@ -12,6 +14,9 @@ import java.io.*;
 import com.aliyun.tea.*;
 
 public class Client {
+
+    public final static String PROJECT_NAME = "kms-gcs-java-sdk-version";
+    public final static String PROJECT_VERSKION = "0.5.1";
 
     public static java.util.Map<String, Object> getErrMessage(byte[] msg) throws Exception {
         Map<String, Object> result = new HashMap<>();
@@ -101,15 +106,19 @@ public class Client {
     }
 
     public static String getCaCertFromContent(byte[] reqBody) throws Exception {
-        return com.aliyun.teautil.Common.toString(reqBody);
+        return resolveSubCa(com.aliyun.teautil.Common.toString(reqBody));
     }
 
     public static String getCaCertFromFile(String reqBody) throws Exception {
         String caCerts = Client.readFileContent(reqBody);
+        return resolveSubCa(caCerts);
+    }
+
+    public static String resolveSubCa(String caCerts) throws Exception {
         if (com.aliyun.teautil.Common.isUnset(caCerts)) {
             throw new TeaException(TeaConverter.buildMap(
-                new TeaPair("code", "ParameterMissing"),
-                new TeaPair("message", "'CA' can not be empty")
+                    new TeaPair("code", "ParameterMissing"),
+                    new TeaPair("message", "'CA' can not be empty")
             ));
         }
 
@@ -192,6 +201,16 @@ public class Client {
             }
         }
         return false;
+    }
+
+    public static String getUserAgent(String userAgent) {
+        Properties sysProps = System.getProperties();
+        String projectUserAgent = "";
+        if (userAgent != null) {
+            projectUserAgent = userAgent;
+        }
+        return String.format("AlibabaCloud (%s; %s) Java/%s %s %s/%s", sysProps.getProperty("os.name"), sysProps
+                .getProperty("os.arch"), sysProps.getProperty("java.runtime.version"), projectUserAgent, PROJECT_NAME, PROJECT_VERSKION);
     }
 
     public static java.util.Map<String, Object> parseEncryptResponse(byte[] resBody) throws Exception {
