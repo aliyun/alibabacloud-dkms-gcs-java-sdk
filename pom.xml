@@ -5,7 +5,7 @@
 
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
-    <version>0.5.0</version>
+    <version>0.5.1</version>
     <packaging>pom</packaging>
     <name>Dedicated Key Management Service</name>
     <description>Dedicated Key Management Service SDK for Java
@@ -41,10 +41,11 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
     <scm>
-        <connection/>
-        <developerConnection/>
-        <url/>
+        <connection>scm:git:git://github.com/aliyun/alibabacloud-dkms-gcs-java-sdk.git</connection>
+        <developerConnection>scm:git:git@github.com:aliyun/alibabacloud-dkms-gcs-java-sdk.git</developerConnection>
+        <url>https://github.com/aliyun/alibabacloud-dkms-gcs-java-sdk</url>
     </scm>
 
     <properties>
@@ -78,6 +79,11 @@
             <dependency>
                 <groupId>com.aliyun</groupId>
                 <artifactId>alibabacloud-dkms-gcs-openapi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>alibabacloud-dkms-gcs-sdk</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
