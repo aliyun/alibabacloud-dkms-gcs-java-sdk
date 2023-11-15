@@ -8,10 +8,10 @@ import com.aliyun.tea.interceptor.RequestInterceptor;
 import com.aliyun.tea.interceptor.ResponseInterceptor;
 
 
+
 public class Client {
 
     private final static InterceptorChain interceptorChain = InterceptorChain.create();
-
     public String _endpoint;
     public String _regionId;
     public String _protocol;
@@ -83,7 +83,7 @@ public class Client {
         this._endpoint = config.endpoint;
         this._protocol = config.protocol;
         this._regionId = config.regionId;
-        this._userAgent = config.userAgent;
+        this._userAgent = com.aliyun.dkms.gcs.openapi.util.Client.getUserAgent(config.userAgent);
         this._readTimeout = config.readTimeout;
         this._connectTimeout = config.connectTimeout;
         this._httpProxy = config.httpProxy;
@@ -141,7 +141,7 @@ public class Client {
                 request_.headers.put("accept", "application/x-protobuf");
                 request_.headers.put("host", _endpoint);
                 request_.headers.put("date", com.aliyun.teautil.Common.getDateUTCString());
-                request_.headers.put("user-agent", com.aliyun.teautil.Common.getUserAgent(_userAgent));
+                request_.headers.put("user-agent", _userAgent);
                 request_.headers.put("x-kms-apiversion", apiVersion);
                 request_.headers.put("x-kms-apiname", apiName);
                 request_.headers.put("x-kms-signaturemethod", signatureMethod);
