@@ -7,11 +7,13 @@ import com.aliyun.tea.interceptor.RuntimeOptionsInterceptor;
 import com.aliyun.tea.interceptor.RequestInterceptor;
 import com.aliyun.tea.interceptor.ResponseInterceptor;
 
+import java.util.Properties;
+
 
 public class Client {
 
     private final static InterceptorChain interceptorChain = InterceptorChain.create();
-
+    private static String defaultUserAgent;
     public String _endpoint;
     public String _regionId;
     public String _protocol;
@@ -27,6 +29,12 @@ public class Client {
     public com.aliyun.dkms.gcs.openapi.credential.Client _credential;
     public String _ca;
     public Boolean _ignoreSSL;
+
+    static {
+        Properties sysProps = System.getProperties();
+        defaultUserAgent = String.format("AlibabaCloud (%s; %s) Java/%s %s/%s", sysProps.getProperty("os.name"), sysProps
+                .getProperty("os.arch"), sysProps.getProperty("java.runtime.version"), com.aliyun.dkms.gcs.openapi.util.Client.PROJECT_NAME, com.aliyun.dkms.gcs.openapi.util.Client.PROJECT_VERSKION);
+    }
 
     public Client(com.aliyun.dkms.gcs.openapi.models.Config config) throws Exception {
         if (com.aliyun.teautil.Common.isUnset(config)) {
@@ -83,7 +91,7 @@ public class Client {
         this._endpoint = config.endpoint;
         this._protocol = config.protocol;
         this._regionId = config.regionId;
-        this._userAgent = config.userAgent;
+        this._userAgent = config.userAgent == null ? defaultUserAgent : config.userAgent;
         this._readTimeout = config.readTimeout;
         this._connectTimeout = config.connectTimeout;
         this._httpProxy = config.httpProxy;
@@ -141,7 +149,7 @@ public class Client {
                 request_.headers.put("accept", "application/x-protobuf");
                 request_.headers.put("host", _endpoint);
                 request_.headers.put("date", com.aliyun.teautil.Common.getDateUTCString());
-                request_.headers.put("user-agent", com.aliyun.teautil.Common.getUserAgent(_userAgent));
+                request_.headers.put("user-agent", _userAgent);
                 request_.headers.put("x-kms-apiversion", apiVersion);
                 request_.headers.put("x-kms-apiname", apiName);
                 request_.headers.put("x-kms-signaturemethod", signatureMethod);
