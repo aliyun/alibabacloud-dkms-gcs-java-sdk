@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.2</version>
   </parent>
   <artifactId>alibabacloud-dkms-gcs-openapi</artifactId>
   <packaging>jar</packaging>
@@ -34,11 +34,23 @@
       <groupId>com.aliyun</groupId>
       <artifactId>darabonba-map</artifactId>
       <version>0.0.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.aliyun</groupId>
+          <artifactId>tea</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.aliyun</groupId>
       <artifactId>darabonba-array</artifactId>
       <version>0.1.0</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.aliyun</groupId>
+          <artifactId>tea</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.aliyun</groupId>
@@ -48,7 +60,10 @@
     <dependency>
       <groupId>com.aliyun</groupId>
       <artifactId>tea</artifactId>
-      <version>1.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
     </dependency>
   </dependencies>
 </project>
