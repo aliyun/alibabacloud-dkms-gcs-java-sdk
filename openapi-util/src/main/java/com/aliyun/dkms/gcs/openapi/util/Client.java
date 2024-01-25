@@ -16,7 +16,7 @@ import com.aliyun.tea.*;
 public class Client {
 
     public final static String SDK_NAME = "kms-gcs-java-sdk-version";
-    public final static String SDK_VERSKION = "0.5.1";
+    public final static String SDK_VERSKION = "0.5.2";
 
     public static java.util.Map<String, Object> getErrMessage(byte[] msg) throws Exception {
         Map<String, Object> result = new HashMap<>();

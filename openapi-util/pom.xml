@@ -4,13 +4,13 @@
   <parent>
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-parent</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.2</version>
   </parent>
   <artifactId>alibabacloud-dkms-gcs-openapi-util</artifactId>
   <packaging>jar</packaging>
   <name>alibabacloud-dkms-gcs-openapi-util</name>
   <description>Dedicated Key Management Service Open API Util</description>
-  
+
   <dependencies>
     <dependency>
       <groupId>com.aliyun</groupId>
@@ -21,31 +21,56 @@
       <groupId>com.aliyun</groupId>
       <artifactId>darabonba-array</artifactId>
       <version>0.1.0</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.aliyun</groupId>
+          <artifactId>tea</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.aliyun</groupId>
       <artifactId>darabonba-stream</artifactId>
       <version>0.0.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.aliyun</groupId>
+          <artifactId>tea</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.aliyun</groupId>
       <artifactId>darabonba-string</artifactId>
       <version>0.0.5</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.aliyun</groupId>
+          <artifactId>tea</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.aliyun</groupId>
       <artifactId>darabonba-number</artifactId>
       <version>0.0.3</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.aliyun</groupId>
+          <artifactId>tea</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.aliyun</groupId>
       <artifactId>darabonba-map</artifactId>
       <version>0.0.1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.aliyun</groupId>
-      <artifactId>tea</artifactId>
-      <version>1.2.3</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.aliyun</groupId>
+          <artifactId>tea</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.google.protobuf</groupId>
@@ -56,6 +81,14 @@
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java-util</artifactId>
       <version>3.19.6</version>
+    </dependency>
+     <dependency>
+         <groupId>com.aliyun</groupId>
+         <artifactId>tea</artifactId>
+      </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
