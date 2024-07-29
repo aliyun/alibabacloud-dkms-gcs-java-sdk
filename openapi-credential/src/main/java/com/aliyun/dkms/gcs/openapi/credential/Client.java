@@ -1,8 +1,10 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.openapi.credential;
 
-import com.aliyun.tea.*;
-import com.aliyun.dkms.gcs.openapi.credential.models.*;
+import com.aliyun.dkms.gcs.openapi.credential.models.Config;
+import com.aliyun.tea.TeaConverter;
+import com.aliyun.tea.TeaException;
+import com.aliyun.tea.TeaPair;
 
 public class Client {
 
@@ -17,7 +19,7 @@ public class Client {
                 this._privateKeySecret = com.aliyun.dkms.gcs.openapi.util.Client.getPrivatePemFromPk12(privateKeyData, config.password);
                 this._keyId = com.aliyun.teautil.Common.assertAsString(clientKey.get("KeyId"));
             } else if (!com.aliyun.teautil.Common.empty(config.clientKeyFile)) {
-                Object jsonFromFile = com.aliyun.teautil.Common.readAsJSON(com.aliyun.darabonba.stream.Client.readFromFilePath(config.clientKeyFile));
+                Object jsonFromFile = com.aliyun.teautil.Common.parseJSON(com.aliyun.dkms.gcs.openapi.util.Client.readFileContent(config.clientKeyFile));
                 if (com.aliyun.teautil.Common.isUnset(jsonFromFile)) {
                     throw new TeaException(TeaConverter.buildMap(
                         new TeaPair("message", "read client key file failed: " + config.clientKeyFile + "")

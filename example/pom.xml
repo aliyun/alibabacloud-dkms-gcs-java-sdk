@@ -6,7 +6,7 @@
 
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-dkms-gcs-sdk-example</artifactId>
-    <version>0.5.2</version>
+    <version>0.5.3</version>
     <build>
         <plugins>
             <plugin>

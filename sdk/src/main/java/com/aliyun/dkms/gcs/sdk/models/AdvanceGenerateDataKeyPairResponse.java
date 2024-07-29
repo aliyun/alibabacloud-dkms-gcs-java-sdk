@@ -1,36 +1,67 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.sdk.models;
 
-import com.aliyun.tea.*;
+import com.aliyun.tea.NameInMap;
+import com.aliyun.tea.TeaModel;
 
 public class AdvanceGenerateDataKeyPairResponse extends TeaModel {
+    /**
+     * <p>密钥的全局唯一标识符该参数也可以被指定为密钥别名</p>
+     */
     @NameInMap("KeyId")
     public String keyId;
 
+    /**
+     * <p>加密数据时使用的初始向量</p>
+     */
     @NameInMap("Iv")
     public byte[] iv;
 
+    /**
+     * <p>指定生成的数据密钥对类型</p>
+     */
     @NameInMap("KeyPairSpec")
     public String keyPairSpec;
 
+    /**
+     * <p>私钥明文</p>
+     */
     @NameInMap("PrivateKeyPlaintext")
     public byte[] privateKeyPlaintext;
 
+    /**
+     * <p>私钥密文</p>
+     */
     @NameInMap("PrivateKeyCiphertextBlob")
     public byte[] privateKeyCiphertextBlob;
 
+    /**
+     * <p>公钥</p>
+     */
     @NameInMap("PublicKey")
     public byte[] publicKey;
 
+    /**
+     * <p>请求ID</p>
+     */
     @NameInMap("RequestId")
     public String requestId;
 
+    /**
+     * <p>加密算法</p>
+     */
     @NameInMap("Algorithm")
     public String algorithm;
 
+    /**
+     * <p>密钥版本唯一标识符</p>
+     */
     @NameInMap("KeyVersionId")
     public String keyVersionId;
 
+    /**
+     * <p>响应头</p>
+     */
     @NameInMap("responseHeaders")
     public java.util.Map<String, String> responseHeaders;
 
