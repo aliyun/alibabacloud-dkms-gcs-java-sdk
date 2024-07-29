@@ -1,21 +1,37 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.dkms.gcs.sdk.models;
 
-import com.aliyun.tea.*;
+import com.aliyun.tea.NameInMap;
+import com.aliyun.tea.TeaModel;
 
 public class AdvanceGenerateDataKeyPairRequest extends TeaModel {
+    /**
+     * <p>密钥的全局唯一标识符该参数也可以被指定为密钥别名</p>
+     */
     @NameInMap("KeyId")
     public String keyId;
 
+    /**
+     * <p>指定生成的数据密钥对类型</p>
+     */
     @NameInMap("KeyPairSpec")
     public String keyPairSpec;
 
+    /**
+     * <p>生成数据密钥对格式，取值:PEM,DER</p>
+     */
     @NameInMap("KeyFormat")
     public String keyFormat;
 
+    /**
+     * <p>对数据密钥加密时使用的GCM加密模式认证数据</p>
+     */
     @NameInMap("Aad")
     public byte[] aad;
 
+    /**
+     * <p>请求头</p>
+     */
     @NameInMap("requestHeaders")
     public java.util.Map<String, String> requestHeaders;
 
